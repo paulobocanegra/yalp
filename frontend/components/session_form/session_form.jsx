@@ -24,40 +24,39 @@ class SessionForm extends React.Component {
     }
 
     
-
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>
-    //                     {error}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="sign-in-container">
+                <form className="session-form" onSubmit={this.handleSubmit}>
                     Welcome to Yalp!
-                    <p>Please {this.props.formType} or {this.props.navLink}</p>
                     {/* {this.renderErrors()} */}
                     <div>
-                        <label>Username:
+                        <label className="session-input-label">Username:
                         <input type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
                             />
                         </label>
-                        <label>Password:
+                        <label className="session-input-label">Password:
                         <input type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             />
+                            <p className="session-input-register">New to yalp? {this.props.navLink}</p>
                         </label>
-                        <input type="submit" value={this.props.formType} />
+                        <button className={"button"}>{this.props.formType}</button>
                     </div>
                 </form>
             </div>
