@@ -1,13 +1,16 @@
-import { RECEIVE_USER, REMOVE_USER } from '../actions/session_action'
+import { RECEIVE_USER, REMOVE_USER } from '../actions/session_actions'
 
+const _nullUser = Object.freeze({
+    id: null
+});
 
-const sessionReducer = (state = {}, action) => {
+const sessionReducer = (state = _nullUser, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_USER:
             return { id: action.user.id };
         case REMOVE_USER:
-            return state;
+            return _nullUser;
         default:
             return state;
     }
