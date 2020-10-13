@@ -8,13 +8,14 @@ class SessionsController < ApplicationController
             login(@user)
             render :json
         else
-            render json: ["Invalid Credentials"], status: 404
+            render json: ["Invalid username or password"], status: 404
         end
     end
 
     def destroy
-        if current_user
-            logout(current_user)
+        @user = current_user
+        if @user
+            logout
             render json:{}
         else
             render json: ["Not Logged In"], status:404
