@@ -3,7 +3,7 @@ class User < ApplicationRecord
     validates :username, :email, presence:true
     validates :username, :session_token, :email, uniqueness:true
     validates :password_digest, :session_token, presence:true
-    validates :password, lenght: {minimum: 6, allow_nil:true}
+    validates :password, length: {minimum: 6, allow_nil:true}
     before_validation :ensure_session_token
     #SPIRE
     def self.find_by_credentials(username, password)
