@@ -4,7 +4,7 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            email: '',
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,9 +40,9 @@ class SessionForm extends React.Component {
         return (
             <div className="sign-in-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
-                    <h3 class="top-message">Log in to Yalp</h3>
+                    <h3 className="top-message">Log in to Yalp</h3>
                     <h4 className="top-session-input-register">New to Yalp? {this.props.navLink}</h4>
-                    {/* {this.renderErrors()} */}
+                    {this.renderErrors()}
                     <div>
                         <input className="input-field" type="text"
                             value={this.state.email}

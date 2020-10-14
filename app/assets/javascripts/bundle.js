@@ -131,7 +131,7 @@ var signUp = function signUp(user) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signUp"](user).then(function (result) {
       return dispatch(receiveUser(result));
     }, function (error) {
-      return dispatch(receiveErrors(error.responseJSON));
+      return dispatch(receiveSessionErrors(error.responseJSON));
     });
   };
 };
@@ -147,7 +147,7 @@ var signIn = function signIn(user) {
 var signOut = function signOut() {
   return function (dispatch) {
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signOut"]().then(function (user) {
-      return dispatch(removeUser());
+      return dispatch(logoutUser());
     });
   };
 };
@@ -266,7 +266,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      username: '',
+      email: '',
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -310,10 +310,10 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         className: "session-form",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        "class": "top-message"
+        className: "top-message"
       }, "Log in to Yalp"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "top-session-input-register"
-      }, "New to Yalp? ", this.props.navLink), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "New to Yalp? ", this.props.navLink), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "input-field",
         type: "text",
         value: this.state.email,
@@ -584,7 +584,7 @@ var sessionReducer = function sessionReducer() {
         id: action.user.id
       };
 
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_USER"]:
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]:
       return _nullUser;
 
     default:
