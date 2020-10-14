@@ -1,4 +1,56 @@
-.button {
-    background-color: red;
+.sign-in-button {
+    background-color: hsl(0, 63%, 49%);
     color: whitesmoke;
+    width: 200px;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.sign-in-button:hover {
+    background-color: hsl(0, 63%, 61%);
+    color: whitesmoke;
+    cursor: pointer;
+    
+}
+
+.session-form {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    font-family: sans-serif;
+}
+
+.sign-in-button:active{
+    background-color: hsl(0, 63%, 41%);
+}
+
+.input-field{
+    width: 195px;
+    height: 27px;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid gray;
+}
+
+.top-message{
+    color: hsl(0, 53%, 49%);
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.top-session-input-register{
+    color: hsl(0, 4%, 18%);
+    font-size: 13px;
+    font-weight: 570;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.session-input-register{
+    color: hsl(0, 10%, 40%);
+    font-size: 12px;
+    text-align: right;
 }

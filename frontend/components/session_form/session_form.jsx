@@ -40,23 +40,24 @@ class SessionForm extends React.Component {
         return (
             <div className="sign-in-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
-                    Welcome to Yalp!
+                    <h3 class="top-message">Log in to Yalp</h3>
+                    <h4 className="top-session-input-register">New to Yalp? {this.props.navLink}</h4>
                     {/* {this.renderErrors()} */}
                     <div>
-                        <label className="session-input-label">Username:
-                        <input type="text"
-                            value={this.state.username}
-                            onChange={this.update('username')}
-                            />
-                        </label>
-                        <label className="session-input-label">Password:
+                        <input className="input-field" type="text"
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            placeholder="Email"/>
+                        <br/>
                         <input type="password"
+                            className="input-field"
                             value={this.state.password}
                             onChange={this.update('password')}
+                            placeholder="Password"
                             />
-                            <p className="session-input-register">New to yalp? {this.props.navLink}</p>
-                        </label>
-                        <button className={"button"}>{this.props.formType}</button>
+                        <br/>
+                        <button className="sign-in-button">{this.props.formType}</button>
+                        <p className="session-input-register">New to Yalp? {this.props.navLink}</p>
                     </div>
                 </form>
             </div>
