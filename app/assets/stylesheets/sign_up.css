@@ -54,3 +54,11 @@
     font-size: 12px;
     text-align: right;
 }
+
+.input-field-name{
+    width: 90px;
+    height: 27px;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid gray;
+}

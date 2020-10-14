@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link } from 'react-router-dom'
 
-class SessionForm extends React.Component {
+class SignInForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,11 +38,12 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        console.log("this is sign in form")
         return (
             <div className="sign-in-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <h3 className="top-message">Log in to Yalp</h3>
-                    <h4 className="top-session-input-register">New to Yalp? {this.props.navLink}</h4>
+                    <h4 className="top-session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></h4>
                     {this.renderErrors()}
                     <div>
                         <input className="input-field" type="text"
@@ -57,7 +59,7 @@ class SessionForm extends React.Component {
                             />
                         <br/>
                         <button className="sign-in-button">{this.props.formType}</button>
-                        <p className="session-input-register">New to Yalp? {this.props.navLink}</p>
+                        <p className="session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></p>
                     </div>
                 </form>
             </div>
@@ -65,4 +67,4 @@ class SessionForm extends React.Component {
     }
 }
 
-export default SessionForm;
+export default SignInForm;

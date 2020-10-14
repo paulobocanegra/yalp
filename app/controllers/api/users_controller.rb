@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
             login(user)
             render :show
         else
-            render json:@users.errors.full_messages, status: 404
+            render json: @users.errors.full_messages, status: 404
         end
     end
 
