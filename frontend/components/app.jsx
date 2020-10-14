@@ -9,7 +9,7 @@ import HomeComponent from './home'
 const App = () => (
     <div>
         <Switch>
-            <Route exact path="/login" component={SignInFormContainer} />
+            <Route exact path="/signin" component={SignInFormContainer} />
             <Route exact path="/signup" component={SignUpFormContainer} />
             <Route exact path="/" component={HomeComponent} />
             <Redirect to="/" />

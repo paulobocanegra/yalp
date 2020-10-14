@@ -43,7 +43,7 @@ class SignUpForm extends React.Component {
             <div className="sign-in-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <h3 className="top-message">Sign Up for Yalp</h3>
-                    <h4 className="top-session-input-register">Already on Yalp? <Link to={this.props.navLink}>Sign In</Link></h4>
+                    <h4 className="top-session-input-register">Already on Yalp? <Link to="/signin">Sign In</Link></h4>
                     {this.renderErrors()}
                     <div>
                         <input className="input-field-name" type="text"
@@ -74,7 +74,7 @@ class SignUpForm extends React.Component {
                             placeholder="Zip Code" />
                         <br />
                         <button className="sign-in-button">{this.props.formType}</button>
-                        <p className="session-input-register">Already on Yalp? <Link to={this.props.navLink}>Sign In</Link></p>
+                        <p className="session-input-register">Already on Yalp? <Link to="/signin">Sign In</Link></p>
                     </div>
                 </form>
             </div>

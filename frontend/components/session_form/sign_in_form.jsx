@@ -43,7 +43,7 @@ class SignInForm extends React.Component {
             <div className="sign-in-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <h3 className="top-message">Log in to Yalp</h3>
-                    <h4 className="top-session-input-register">New to Yalp? <Link to={this.props.navLink}>Sign Up</Link></h4>
+                    <h4 className="top-session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></h4>
                     {this.renderErrors()}
                     <div>
                         <input className="input-field" type="text"
@@ -59,7 +59,7 @@ class SignInForm extends React.Component {
                             />
                         <br/>
                         <button className="sign-in-button">{this.props.formType}</button>
-                        <p className="session-input-register">New to Yalp? <Link to={this.props.navLink}>Sign Up</Link></p>
+                        <p className="session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></p>
                     </div>
                 </form>
             </div>
