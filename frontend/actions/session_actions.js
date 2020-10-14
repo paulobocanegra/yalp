@@ -26,18 +26,19 @@ export const receiveSessionErrors = (errors) => {
 
 export const signUp = (user) => (dispatch) => {
     return SessionApiUtil.signUp(user)
-        .then((result) => dispatch(receiveUser(result)),
-            error => (dispatch(receiveSessionErrors(error.responseJSON))
-            ))
+        .then(
+            result => dispatch(receiveUser(result)),
+            error => dispatch(receiveSessionErrors(error.responseJSON))
+            )
 }
 
 export const signIn = (user) => (dispatch) => {
     return SessionApiUtil.signIn(user)
         .then(
-            user => dispatch(receiveUser(user)),
+            result => dispatch(receiveUser(result)),
             errors => dispatch(receiveSessionErrors(errors.responseJSON))
             )
-};
+}
 
 export const signOut = () => (dispatch) => {
     return SessionApiUtil.signOut()

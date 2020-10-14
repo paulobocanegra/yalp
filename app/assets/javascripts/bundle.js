@@ -137,8 +137,8 @@ var signUp = function signUp(user) {
 };
 var signIn = function signIn(user) {
   return function (dispatch) {
-    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signIn"](user).then(function (user) {
-      return dispatch(receiveUser(user));
+    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signIn"](user).then(function (result) {
+      return dispatch(receiveUser(result));
     }, function (errors) {
       return dispatch(receiveSessionErrors(errors.responseJSON));
     });
@@ -388,7 +388,7 @@ var SignInForm = /*#__PURE__*/function (_React$Component) {
       }, "Log in to Yalp"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "top-session-input-register"
       }, "New to Yalp? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/signup"
+        to: this.props.navLink
       }, "Sign Up")), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "input-field",
         type: "text",
@@ -406,7 +406,7 @@ var SignInForm = /*#__PURE__*/function (_React$Component) {
       }, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "session-input-register"
       }, "New to Yalp? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/signup"
+        to: this.props.navLink
       }, "Sign Up")))));
     }
   }]);
