@@ -1,14 +1,15 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
     def create
+        debugger
         @user = User.find_by_credentials(
             params[:user][:email],
             params[:user][:password]
         )
         if @user
             login(@user)
-            render :json
+            render "api/users/show.json.jbuilder"
         else
-            render json: ["Invalid username or password"], status: 404
+            render json: ["Invalid email or password"], status: 404
         end
     end
 

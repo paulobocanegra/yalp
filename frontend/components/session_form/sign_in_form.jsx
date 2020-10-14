@@ -38,7 +38,6 @@ class SignInForm extends React.Component {
     }
 
     render() {
-        console.log("this is sign in form")
         return (
             <div className="sign-in-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>
