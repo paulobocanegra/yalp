@@ -3,8 +3,8 @@ import {Link} from "react-router-dom"
 
 const HomeComponent = ({currentUser, signOut}) => {
     const display = currentUser ? (
-            <div>
-                <p>hello {currentUser.first_name}</p> 
+        <div className="session_buttons">
+                <p>{currentUser.first_name}</p> 
                 <button onClick={signOut}>Log out</button>
             </div>
     ) : (
@@ -17,7 +17,7 @@ const HomeComponent = ({currentUser, signOut}) => {
         )
     
     return (
-        <div>
+        <div className="landing-main">
             <h1>Yalp</h1>
             {display}
         </div>
