@@ -40,31 +40,38 @@ class SignInForm extends React.Component {
 
     render() {
         return (
-            <div className="sign-in-container">
+            <div>
                 <div>
                     <SessionHeader />
                 </div>
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <h3 className="top-message">Log in to Yalp</h3>
-                    <h4 className="top-session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></h4>
-                    {this.renderErrors()}
-                    <div>
-                        <input className="input-field" type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"/>
-                        <br/>
-                        <input type="password"
-                            className="input-field"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                            />
-                        <br/>
-                        <button className="sign-in-button">{this.props.formType}</button>
-                        <p className="session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></p>
+                <div className="session-container">
+                    <div className="session-container-child">
+                        <form className="session-form" onSubmit={this.handleSubmit}>
+                            <h3 className="top-message">Log in to Yalp</h3>
+                            <h4 className="top-session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></h4>
+                            {this.renderErrors()}
+                            <div className="form-div"> 
+                                <input className="input-field" type="text"
+                                    value={this.state.email}
+                                    onChange={this.update('email')}
+                                    placeholder="Email"/>
+                                <br/>
+                                <input type="password"
+                                    className="input-field"
+                                    value={this.state.password}
+                                    onChange={this.update('password')}
+                                    placeholder="Password"
+                                    />
+                                <br/>
+                                <button className="sign-in-button">{this.props.formType}</button>
+                                <p className="session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></p>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                    <div className="session-container-child" id="session-picture">
+                        <img src={window.brentURL} />
+                    </div>
+                </div>
             </div>
         );
     }

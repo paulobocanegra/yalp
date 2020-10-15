@@ -19,8 +19,10 @@
 .session-form {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     font-family: sans-serif;
+    margin-left: 25%;
+    margin-top: 8%;
 }
 
 .sign-in-button:active{
@@ -64,5 +66,36 @@
 }
 
 .session-header{
-    background-color: deepskyblue;
+    background-color: #F5BFB8;
+    align-items: center;
+}
+
+.logo{
+    margin-left: 45%;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    height: 60px;
+}
+
+.session-container{
+    display: flex;
+    position: relative;
+}
+
+.session-container-child{
+    flex: 50%;
+    padding: 10px;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+#session-picture{
+    margin-top: 10%;
+}
+
+.full-name{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -19px;
 }

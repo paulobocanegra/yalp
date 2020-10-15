@@ -3,7 +3,7 @@ class SessionHeader extends React.Component{
     render(){
     return(
         <div className="session-header">
-            <img src={window.logoURL}/>
+            <img className="logo" src={window.logoURL}/>
         </div>
     )
     }
