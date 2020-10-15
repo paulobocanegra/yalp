@@ -20,13 +20,13 @@ class SignUpForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
+        const user = Object.assign({}, this.state);4
         this.props.processForm(user);
     }
 
 
     renderErrors() {
-        
+
         return (
             <ul>
                 {this.props.errors.map((error, i) => (

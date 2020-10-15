@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link } from 'react-router-dom'
+import SessionHeader from './header_bar'
 
 class SignInForm extends React.Component {
     constructor(props) {
@@ -40,6 +41,9 @@ class SignInForm extends React.Component {
     render() {
         return (
             <div className="sign-in-container">
+                <div>
+                    <SessionHeader />
+                </div>
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <h3 className="top-message">Log in to Yalp</h3>
                     <h4 className="top-session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></h4>
