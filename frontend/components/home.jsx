@@ -14,7 +14,7 @@ const HomeComponent = ({currentUser, signOut}) => {
                 <button className="header-button">Sign Up</button>
             </Link>
             <Link to="/signin">
-                <button className="header-button">Sign Ip</button>
+                <button className="header-button">Sign In</button>
             </Link>
         </>
         )

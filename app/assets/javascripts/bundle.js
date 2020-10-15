@@ -228,7 +228,7 @@ var HomeComponent = function HomeComponent(_ref) {
     to: "/signin"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "header-button"
-  }, "Sign Ip")));
+  }, "Sign In")));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Yalp"), display);
 };
 
