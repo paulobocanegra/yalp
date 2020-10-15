@@ -25,6 +25,11 @@ class SignInForm extends React.Component {
         })
     }
 
+    demoLogin(e){
+        e.preventDefault();
+        // this.props.clearErrors()
+    }
+
     
     renderErrors() {
         return (

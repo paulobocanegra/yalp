@@ -8,12 +8,12 @@ const HomeComponent = ({currentUser, signOut}) => {
                 <button onClick={signOut}>Log out</button>
             </div>
     ) : (
-        <>
+            <div className="session_buttons">
             <Link to="/signin" className="header-button">Sign In</Link>
             <Link to="/signup">
                 <button className="header-button">Sign Up</button>
             </Link>
-        </>
+        </div>
         )
     
     return (
