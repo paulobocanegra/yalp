@@ -38,7 +38,6 @@ class SignUpForm extends React.Component {
     }
 
     render() {
-        console.log("Is this Working?")
         return (
             <div className="sign-in-container">
                 <form className="session-form" onSubmit={this.handleSubmit}>

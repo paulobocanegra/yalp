@@ -1,17 +1,17 @@
 import React from "react";
 import { Route, Switch, Link} from 'react-router-dom';
 import {Redirect} from 'react-router-dom'
-
+import {AuthRoute} from '../util/route_util'
 import SignUpFormContainer from './session_form/sign_up_form_container';
 import SignInFormContainer from './session_form/sign_in_form_container';
-import HomeComponent from './home'
+import HomeComponentContainer from './home_container'
 
 const App = () => (
     <div>
         <Switch>
-            <Route exact path="/signin" component={SignInFormContainer} />
-            <Route exact path="/signup" component={SignUpFormContainer} />
-            <Route exact path="/" component={HomeComponent} />
+            <AuthRoute exact path="/signin" component={SignInFormContainer} />
+            <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+            <Route exact path="/" component={HomeComponentContainer} />
             <Redirect to="/" />
         </Switch>
     </div>
