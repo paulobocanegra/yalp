@@ -4,7 +4,6 @@ import {Link} from "react-router-dom"
 const HomeComponent = ({currentUser, signOut}) => {
     const display = currentUser ? (
         <div className="session_buttons">
-                <p className="temp-hello-user">Hi {currentUser.first_name}!</p> 
             <button className="header-button" onClick={signOut}>Log out</button>
             </div>
     ) : (
