@@ -80,12 +80,14 @@ class SignInForm extends React.Component {
                 <div>
                     <SessionHeader />
                 </div>
+                    <div className="errors-message">
+                        {this.renderErrors()}
+                    </div>    
                 <div className="session-container">
                     <div className="session-container-child">
                         <form className="session-form" onSubmit={this.handleSubmit}>
                             <h3 className="top-message">Log in to Yalp</h3>
                             <h4 className="top-session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></h4>
-                            {this.renderErrors()}
                             <div className="form-div"> 
                                 <input className="input-field" type="text"
                                     value={this.state.email}

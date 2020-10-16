@@ -46,41 +46,43 @@ class SignUpForm extends React.Component {
                 <div>
                     <SessionHeader />
                 </div>
+                    <div className="errors-message">
+                        {this.renderErrors()}
+                    </div> 
                 <div className="session-container">
                     <div className="session-container-child">
                         <form className="session-form" onSubmit={this.handleSubmit}>
                             <h3 className="top-message">Sign Up for Yalp</h3>
                             <h4 className="top-session-input-register">Already on Yalp? <Link to="/signin">Sign In</Link></h4>
-                            {this.renderErrors()}
                             <div className="form-div">
                                 <div className="full-name">
                                     <input className="input-field-name" type="text"
                                         value={this.state.first_name}
                                         onChange={this.update('first_name')}
-                                        placeholder="First Name" />
+                                        placeholder="First Name" required/>
                                     <br />
                                     <input className="input-field-name" type="text"
                                         value={this.state.last_name}
                                         onChange={this.update('last_name')}
-                                        placeholder="Last Name" />
+                                        placeholder="Last Name" required/>
                                 </div>
                                 <br />
                                 <input className="input-field" type="text"
                                     value={this.state.email}
                                     onChange={this.update('email')}
-                                    placeholder="Email" />
+                                    placeholder="Email" required/>
                                 <br />
                                 <input type="password"
                                     className="input-field"
                                     value={this.state.password}
                                     onChange={this.update('password')}
                                     placeholder="Password"
-                                />
+                                    required/>
                                 <br />
                                 <input className="input-field" type="text"
                                     value={this.state.zip_code}
                                     onChange={this.update('zip_code')}
-                                    placeholder="Zip Code" />
+                                    placeholder="Zip Code" required/>
                                 <br />
                                 <button className="sign-in-button">{this.props.formType}</button>
                                 <p className="session-input-register">Already on Yalp? <Link to="/signin">Sign In</Link></p>
