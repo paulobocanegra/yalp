@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(email:"omar@yalp.com", first_name:"Omar", last_name:"Fernandez", zip_code:"94510")
-User.create(email:"diego@yalp.com", first_name:"Diego", last_name:"Perez", zip_code:"94510")
-User.create(email:"karen@yalp.com", first_name:"Karen", last_name:"Smith", zip_code:"94523")
-User.create(email:"nancy@yalp.com", first_name:"Nancy", last_name:"Morrow", zip_code:"94523")
-User.create(email:"testuser@yalp.com", first_name:"testUser", last_name:"LastName", zip_code:"94523")
+User.create(email:"omar@yalp.com", password: "password", first_name:"Omar", last_name:"Fernandez", zip_code:"94510")
+User.create(email:"diego@yalp.com", password: "password", first_name:"Diego", last_name:"Perez", zip_code:"94510")
+User.create(email:"karen@yalp.com", password: "password", first_name:"Karen", last_name:"Smith", zip_code:"94523")
+User.create(email:"nancy@yalp.com", password: "password", first_name:"Nancy", last_name:"Morrow", zip_code:"94523")
+User.create(email:"testuser@yalp.com", password: "password", first_name:"testUser", last_name:"LastName", zip_code:"94523")
