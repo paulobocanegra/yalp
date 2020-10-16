@@ -10,6 +10,15 @@ class SignInForm extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
+    }
+
+    componentDidMount(){
+        this.props.clearErrors();
+    }
+
+    componentWillUnmount(){
+        this.props.clearErrors();
     }
 
     update(field) {
@@ -17,6 +26,7 @@ class SignInForm extends React.Component {
     }
 
     handleSubmit(e) {
+        this.props.clearErrors();
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
@@ -25,15 +35,36 @@ class SignInForm extends React.Component {
         })
     }
 
-    demoLogin(e){
+    demoLogin(e) {
         e.preventDefault();
-        // this.props.clearErrors()
+        // this.props.clearErrors();
+        let login = this.props.login ? this.props.login : this.props.processForm;
+        let that = this;
+        let count = 0;
+        let demo = 'testuser@yalp.compassword';
+        if (this.demo) return;
+        this.setState({
+            email: '',
+            password: ''
+        });
+        this.demo = setInterval(() => {
+            let type = count < 17 ?'email' : 'password';
+            that.setState({ [type]: that.state[type] + demo[count] });
+            count++;
+            if (count === 25) {
+                clearInterval(this.demo)
+                login({
+                    email: 'testuser@yalp.com',
+                    password: 'password'
+                })
+            }
+        }, 50)
     }
 
     
     renderErrors() {
         return (
-            <ul>
+            <ul className="errors-message">
                 {this.props.errors.map((error, i) => (
                     <li key={`error-${i}`}>
                         {error}
@@ -69,6 +100,8 @@ class SignInForm extends React.Component {
                                     />
                                 <br/>
                                 <button className="sign-in-button">{this.props.formType}</button>
+                                <br/>
+                                <button onClick={this.demoLogin} className="sign-in-button">Sign In as Demo User</button>
                                 <p className="session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></p>
                             </div>
                         </form>

@@ -1,8 +1,55 @@
+// REMOVE TEMP WHEN PROFILE PIC IS READY
+
+.temp-hello-user{
+    color: white;
+}
+
 .session_buttons{
     position: fixed;
-    left: 100%;
+    left: 65%; 
+    top: 5%;
 }
 
 .landing-main{
-    background-color: #DB564D;
+    background-color: white;
+    height: 400px;
+}
+
+.main-top{
+    background-image: image-url('restaurant2.jpg');
+    display: flex;
+    height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    opacity:  0.9;
+}
+
+.header-link{
+    color: white;
+    font-weight: 600;
+}
+
+
+.header-button{
+    height: 30px;
+    width: 100px;
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 14px;
+    font-weight: 600;
+    position: flex;
+    // align-items: center;
+    margin: 15px 15px 16px 25px;
+    padding-bottom: 15px;
+    border-color: white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.main-logo{
+    position: absolute;
+    height: 110px;
+    margin-top: 10%;
 }

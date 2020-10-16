@@ -4,12 +4,12 @@ import {Link} from "react-router-dom"
 const HomeComponent = ({currentUser, signOut}) => {
     const display = currentUser ? (
         <div className="session_buttons">
-                <p>{currentUser.first_name}</p> 
-                <button onClick={signOut}>Log out</button>
+                <p className="temp-hello-user">Hi {currentUser.first_name}!</p> 
+            <button className="header-button" onClick={signOut}>Log out</button>
             </div>
     ) : (
-            <div className="session_buttons">
-            <Link to="/signin" className="header-button">Sign In</Link>
+        <div className="session_buttons">
+            <Link to="/signin" className="header-link">Sign In</Link>
             <Link to="/signup">
                 <button className="header-button">Sign Up</button>
             </Link>
@@ -18,9 +18,13 @@ const HomeComponent = ({currentUser, signOut}) => {
     
     return (
         <div className="landing-main">
-            <h1>Yalp</h1>
-            {display}
+            <div className="main-top">
+                <img src={window.logoURL} className="main-logo"/>
+                {display}
+            </div>
         </div>
+        
+        
     )
         
 }
