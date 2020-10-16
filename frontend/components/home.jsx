@@ -18,7 +18,9 @@ const HomeComponent = ({currentUser, signOut}) => {
     return (
         <div className="landing-main">
             <div className="main-top">
-                <img src={window.logoURL} className="main-logo"/>
+                <Link to="/" className="main-logo">
+                    <img src={window.logoURL} />
+                </Link>
                 {display}
             </div>
         </div>
