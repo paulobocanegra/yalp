@@ -79,10 +79,10 @@ class SignInForm extends React.Component {
             <div>
                 <div>
                     <SessionHeader />
-                </div>
                     <div className="errors-message">
                         {this.renderErrors()}
                     </div>    
+                </div>
                 <div className="session-container">
                     <div className="session-container-child">
                         <form className="session-form" onSubmit={this.handleSubmit}>

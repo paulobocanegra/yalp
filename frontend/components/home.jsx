@@ -21,8 +21,8 @@ const HomeComponent = ({currentUser, signOut}) => {
                 <Link to="/" className="main-logo">
                     <img src={window.logoURL} />
                 </Link>
-                {display}
             </div>
+                {display}
         </div>
         
         
