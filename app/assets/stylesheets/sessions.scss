@@ -20,20 +20,12 @@
     
 }
 
-.session-form {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    font-family: sans-serif;
-    margin-left: 27%;
-    margin-top: 11%;
-}
-
 .sign-in-button:active{
     background-color: rgb(218, 86, 86);
 }
 
 .input-field{
+    display: inline-block;
     width: 293px;
     height: 27px;
     border-radius: 4px;
@@ -56,18 +48,26 @@
     margin-bottom: 10px;
 }
 
-.session-input-register{
+.session-input-register-bottom{
     color: hsl(0, 10%, 40%);
     font-size: 12px;
-    text-align: right;
+    text-align: center;
     margin-top: 12px;
 }
 
-.input-field-name{
-    width: 135px;
+.input-field-fname{
+    width: 139px;
     height: 27px;
     border-radius: 4px;
     margin-top: 10px;
+    border: 1px solid gray;
+}
+.input-field-lname{    
+    width: 139px;
+    height: 27px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-left: 10px;
     border: 1px solid gray;
 }
 
@@ -85,25 +85,35 @@
 
 .session-container{
     display: flex;
-    position: relative;
+    margin: 10% 15% 10% 5%;
 }
 
-.session-container-child{
-    flex: 50%;
-    padding: 10px;
+.session-form {
+    display: block;
+    position: relative;
+    font-family: sans-serif;
+    margin-left: 50%;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.session-container-left{
+    flex: 0 0 60%;
     align-items: center;
-    position: relative;
-    flex-shrink: 0;
+    vertical-align: baseline;
 }
 
-#session-picture{
-    margin-top: 10%;
+
+.session-container-right{
+    flex: 1;
 }
 
 .full-name{
     display: flex;
-    justify-content: space-between;
-    margin-bottom: -19px;
+    // margin-bottom: 5px;
 }
 
 .errors-message{

@@ -84,7 +84,7 @@ class SignInForm extends React.Component {
                     </div>    
                 </div>
                 <div className="session-container">
-                    <div className="session-container-child">
+                    <div className="session-container-left">
                         <form className="session-form" onSubmit={this.handleSubmit}>
                             <h3 className="top-message">Log in to Yalp</h3>
                             <h4 className="top-session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></h4>
@@ -104,11 +104,11 @@ class SignInForm extends React.Component {
                                 <button className="sign-in-button">{this.props.formType}</button>
                                 <br/>
                                 <button onClick={this.demoLogin} className="sign-in-button">Sign In as Demo User</button>
-                                <p className="session-input-register">New to Yalp? <Link to="/signup">Sign Up</Link></p>
+                                <p className="session-input-register-bottom">New to Yalp? <Link to="/signup">Sign Up</Link></p>
                             </div>
                         </form>
                     </div>
-                    <div className="session-container-child" id="session-picture">
+                    <div className="session-container-right" id="session-picture">
                         <img src={window.brentURL} />
                     </div>
                 </div>
