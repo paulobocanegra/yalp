@@ -93,16 +93,13 @@ class SignInForm extends React.Component {
                                     value={this.state.email}
                                     onChange={this.update('email')}
                                     placeholder="Email"/>
-                                <br/>
                                 <input type="password"
                                     className="input-field"
                                     value={this.state.password}
                                     onChange={this.update('password')}
                                     placeholder="Password"
                                     />
-                                <br/>
                                 <button className="sign-in-button">{this.props.formType}</button>
-                                <br/>
                                 <button onClick={this.demoLogin} className="sign-in-button">Sign In as Demo User</button>
                                 <p className="session-input-register-bottom">New to Yalp? <Link to="/signup">Sign Up</Link></p>
                             </div>
