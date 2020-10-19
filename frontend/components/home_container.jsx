@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import HomeComponent from './home';
+import Home from './home';
 import { signOut } from '../actions/session_actions';
 
 const mSTP = (state) => {
     return {
-        currentUser: state.session.currentUser,
+        currentUserId: state.entities.users[state.session.currentUserId],
         businesses: state.entities.businesses
     };
 };
@@ -15,4 +15,4 @@ const mDTP = dispatch => {
     };
 };
 
-export default connect(mSTP, mDTP)(HomeComponent);
+export default connect(mSTP, mDTP)(Home);

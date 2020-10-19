@@ -6,16 +6,16 @@ import SignUpFormContainer from './session_form/sign_up_form_container';
 import SignInFormContainer from './session_form/sign_in_form_container';
 import HomeComponentContainer from './home_container';
 import FooterComponent from './footer';
-import BusinessShowContainer from "./business_show_container";
-import BusinessIndexContainer from "./business_index_container"
+import BusinessShowContainer from "./businesses/business_show_container";
+import BusinessIndexContainer from "./businesses/business_index_container"
 
 const App = () => (
     <div>
         <Switch>
             <AuthRoute exact path="/signin" component={SignInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-            {/* <Route exact path="/businesses/" component={BusinessIndexContainer} /> */}
-            <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
+            {/* <AuthRoute exact path="/" component={BusinessIndexContainer} /> */}
+            {/* <Route exact path="/businesses/:id" component={BusinessShowContainer} /> */}
             <Route exact path="/" component={HomeComponentContainer} />
             <Redirect to="/" />
         </Switch>

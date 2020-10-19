@@ -1,9 +1,10 @@
 import React from "react"
 import {Link} from "react-router-dom"
-import BusinessIndex from './business_index'
+import BusinessIndexContainer from '../components/businesses/business_index_container'
 
-const HomeComponent = ({currentUser, signOut}) => {
-    const display = currentUser ? (
+
+const Home = ({currentUserId, signOut}) => {
+    const display = currentUserId ? (
         <div className="session_buttons">
             <button className="header-button" onClick={signOut}>Log out</button>
             </div>
@@ -24,8 +25,8 @@ const HomeComponent = ({currentUser, signOut}) => {
                 </Link>
             </div>
                 {display}
-            <div>
-                <BusinessIndex/>
+            <div className="business-index-container">
+                <BusinessIndexContainer />
             </div>
         </div>
         
@@ -34,4 +35,4 @@ const HomeComponent = ({currentUser, signOut}) => {
         
 }
 
-export default HomeComponent;
+export default Home;

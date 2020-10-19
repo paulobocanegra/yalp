@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BusinessShowComponent from './business_show';
-import { fetchBusiness} from '../actions/business_actions'
+import { fetchBusiness} from '../../actions/business_actions'
 
 const mSTP = (state, ownProps) => {
     return {

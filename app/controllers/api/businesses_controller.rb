@@ -1,11 +1,11 @@
 class Api::BusinessesController < ApplicationController
     def index
-        @businesses = Businesses.all
+        @businesses = Business.all
         render :index
     end
 
     def show
-        @business = Businesses.find(params[:id])
+        @business = Business.find(params[:id])
         render :show
     end
 

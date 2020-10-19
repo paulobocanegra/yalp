@@ -1,1 +1,0 @@
-json.extract! user, :id, :name, :bio, :rating, :phone_number, :location, :hours

@@ -16,8 +16,8 @@ class FooterComponent extends React.Component {
                         <div className="footer-ul">
                             <h3 className="footer-title">Contact</h3>
                             <ul className="contact-text">
-                                <li className="footer-li">Phone: (925) 395 7377</li>
                                 <li className="footer-li">Email: paulobocanegra@gmail.com</li>
+                                <li className="footer-li">Phone: (925) 395 7377</li>
                             </ul>
                         </div>
                     </div>
