@@ -4,7 +4,8 @@ import { signOut } from '../actions/session_actions';
 
 const mSTP = (state) => {
     return {
-        currentUser: state.session.currentUser
+        currentUser: state.session.currentUser,
+        businesses: state.entities.businesses
     };
 };
 

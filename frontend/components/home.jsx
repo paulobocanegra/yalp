@@ -1,5 +1,6 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import BusinessIndex from './business_index'
 
 const HomeComponent = ({currentUser, signOut}) => {
     const display = currentUser ? (
@@ -23,6 +24,9 @@ const HomeComponent = ({currentUser, signOut}) => {
                 </Link>
             </div>
                 {display}
+            <div>
+                <BusinessIndex/>
+            </div>
         </div>
         
         
