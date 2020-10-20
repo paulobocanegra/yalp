@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
-import Home from './home';
 import { signOut } from '../actions/session_actions';
+import Header from './header';
 
 const mSTP = (state) => {
     return {
         currentUser: state.entities.users[state.session.currentUserId],
-        businesses: state.entities.businesses
     };
 };
 
@@ -15,4 +14,4 @@ const mDTP = dispatch => {
     };
 };
 
-export default connect(mSTP, mDTP)(Home);
+export default connect(mSTP, mDTP)(Header);

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom"
+import SearchBar from '../search_bar'
+import HeaderContainer from '../header_container'
 
 class BusinessShowComponent extends React.Component{
     componentDidMount() {
@@ -12,11 +14,17 @@ class BusinessShowComponent extends React.Component{
         }
         return(
             <div >
+                <div  className="show-header">
+                    <HeaderContainer businessId={this.props.businessId}/>
+                    {/* <SearchBar /> */}
+                </div>
                 <div className="pictures-array">
-
+                    <p>Photos Array</p>
                 </div>
                 <div className="main-show">
-
+                    <div className="show-title">
+                        
+                    </div>
                 </div>
 
 
@@ -24,7 +32,7 @@ class BusinessShowComponent extends React.Component{
                 <p>{this.props.currentBusiness.rating}</p>
                 <p>{this.props.currentBusiness.bio}</p>
                 <p>rating: {this.props.currentBusiness.rating}</p>
-                <Link to="/businesses">home</Link>
+                <Link to="/">home</Link>
             </div>
         )
     }

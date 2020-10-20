@@ -12,11 +12,11 @@ import BusinessIndexContainer from "./businesses/business_index_container"
 const App = () => (
     <div>
         <Switch>
+            <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
             <AuthRoute exact path="/signin" component={SignInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-            <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
             <Route exact path="/" component={HomeComponentContainer} />
-            <AuthRoute exact path="/" component={BusinessIndexContainer} />
+            <Route exact path="/" component={BusinessIndexContainer} />
             <Redirect to="/" />
         </Switch>
         <FooterComponent />

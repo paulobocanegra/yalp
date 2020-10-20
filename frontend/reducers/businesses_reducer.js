@@ -8,7 +8,7 @@ const businessesReducer = (state = {}, action) => {
             newState = action.businesses;
             return newState;
         case RECEIVE_BUSINESS:
-            newState[action.businessId] = action.business
+            newState[action.payload.business.id] = action.payload.business
             return newState;
         default:
             return state;

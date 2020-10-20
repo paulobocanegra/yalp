@@ -4,17 +4,16 @@ export const RECEIVE_ALL_BUSINESSES = "RECEIVE_BUSINESSES";
 export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
 
 export const receiveAllBusinesses = (businesses) => {
-    // debugger
     return {
         type: RECEIVE_ALL_BUSINESSES,
         businesses
     }
 }
 
-export const receiveBusiness = (businessId) => {
+export const receiveBusiness = (payload) => {
     return {
         type: RECEIVE_BUSINESS,
-        businessId
+        payload
     }
 }
 
