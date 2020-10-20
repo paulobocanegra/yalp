@@ -23,6 +23,18 @@ const Home = ({currentUserId, signOut}) => {
                 <Link to="/" className="main-logo">
                     <img src={window.logoURL} />
                 </Link>
+                <div className="search-bar">
+                    <div className="seach-bar-left">
+                        <label> Find
+                            <input type="text" placeholder="delivery, takeout..."/>
+                        </label>
+                    </div>
+                    <div className="seach-bar-right">
+                        <label> Near
+                            <input type="text" placeholder="San Francisco"/>
+                        </label>
+                    </div>
+                </div>
             </div>
                 {display}
             <div className="business-index-container">

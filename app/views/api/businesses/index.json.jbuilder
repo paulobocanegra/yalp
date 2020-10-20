@@ -1,5 +1,5 @@
 @businesses.each do |business|
     json.set! business.id do
-        json.extract! business, :id, :name, :bio, :rating   
+        json.extract! business, :id, :name, :bio, :rating, :location
     end
 end
