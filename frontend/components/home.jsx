@@ -24,15 +24,15 @@ const Home = ({currentUserId, signOut}) => {
                     <img src={window.logoURL} />
                 </Link>
                 <div className="search-bar">
-                    <div className="seach-bar-left">
-                        <label> Find
-                            <input type="text" placeholder="delivery, takeout..."/>
+                    <div className="search-bar-left">
+                        <label className="search-bar-label" id="find">Find
                         </label>
+                            <input className="search-left-input" type="text" placeholder="delivery, takeout..."/>
                     </div>
-                    <div className="seach-bar-right">
-                        <label> Near
-                            <input type="text" placeholder="San Francisco"/>
+                    <div className="search-bar-right">
+                        <label className="search-bar-label" id="near"> Near
                         </label>
+                            <input className="search-right-input" type="text" placeholder="San Francisco"/>
                     </div>
                 </div>
             </div>

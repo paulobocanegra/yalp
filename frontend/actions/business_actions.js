@@ -11,10 +11,10 @@ export const receiveAllBusinesses = (businesses) => {
     }
 }
 
-export const receiveBusiness = (business) => {
+export const receiveBusiness = (businessId) => {
     return {
         type: RECEIVE_BUSINESS,
-        business
+        businessId
     }
 }
 
@@ -23,7 +23,7 @@ export const fetchBusinesses = () => (dispatch) => {
         .then(result => dispatch(receiveAllBusinesses(result)))
 }
 
-export const fetchBusiness = (business) => (dispatch) => {
-    return BusinessApiUtil.fetchBusiness(business)
+export const fetchBusiness = (businessId) => (dispatch) => {
+    return BusinessApiUtil.fetchBusiness(businessId)
         .then(result => dispatch(receiveBusiness(result)))
 }

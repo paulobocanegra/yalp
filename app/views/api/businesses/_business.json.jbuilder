@@ -1,0 +1,1 @@
+json.extract! business, :bio, :rating, :phone_number, :location, :hours

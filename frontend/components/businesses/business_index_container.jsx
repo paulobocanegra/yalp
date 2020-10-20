@@ -12,6 +12,6 @@ const mDTP = (dispatch) => {
     return {
         fetchBusinesses: () => dispatch(fetchBusinesses())
     }
-}
+};
 
 export default connect(mSTP, mDTP)(BusinessIndex)

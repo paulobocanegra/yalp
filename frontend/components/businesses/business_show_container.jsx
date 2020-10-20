@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
-import BusinessShowComponent from './business_show';
+import BusinessShow from './business_show';
 import { fetchBusiness} from '../../actions/business_actions'
 
 const mSTP = (state, ownProps) => {
     return {
-        currentBusiness: state.businesses[ownProps.match.params.businessId]
+        currentBusiness: state.entities.businesses[ownProps.match.params.businessId],
+        businessId: ownProps.match.params.id
     }
 };
 
 const mDTP = (dispatch) => {
     return {
-        fetchBusiness: (business) => dispatch(fetchBusiness(business))
+        fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId))
     }
-}
+};
 
-export default connect(mSTP, mDTP)(BusinessShowComponent)
+export default connect(mSTP, mDTP)(BusinessShow);
