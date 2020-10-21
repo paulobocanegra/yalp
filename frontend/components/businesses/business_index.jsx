@@ -14,7 +14,7 @@ class BusinessIndex extends React.Component {
     render() {
         if (!this.props.fetchBusinesses){
             return null;
-        }
+        } else {
         return (
             <div className="business-box">
                 <div className="business-index">
@@ -23,13 +23,13 @@ class BusinessIndex extends React.Component {
                 <div>
                     <ul className="business-ul">
                         {
-                            this.props.businesses.map((business) => <BusinessIndexItem business={business}
-                                                                                        key={business.id}/>)
+                            this.props.businesses.map((business) => (<BusinessIndexItem business={business}
+                                                                                        key={business.id}/>))
                         }
                     </ul>
                 </div>
             </div>
-        )
+        )}
     }
 }
 

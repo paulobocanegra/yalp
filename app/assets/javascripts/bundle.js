@@ -329,22 +329,22 @@ var BusinessIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (!this.props.fetchBusinesses) {
         return null;
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "business-box"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "business-index"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+          className: "business-ul-title"
+        }, "Find the Best Businesses in Town")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "business-ul"
+        }, this.props.businesses.map(function (business) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            business: business,
+            key: business.id
+          });
+        }))));
       }
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "business-box"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "business-index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "business-ul-title"
-      }, "Find the Best Businesses in Town")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "business-ul"
-      }, this.props.businesses.map(function (business) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          business: business,
-          key: business.id
-        });
-      }))));
     }
   }]);
 
@@ -406,11 +406,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var BusinessIndexItem = function BusinessIndexItem(_ref) {
   var business = _ref.business;
+  debugger;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-li"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "picture")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: business.main_photoUrl
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-bottom"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "business-li-content"
@@ -476,16 +479,17 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(BusinessShowComponent);
 
-  function BusinessShowComponent() {
+  function BusinessShowComponent(props) {
     _classCallCheck(this, BusinessShowComponent);
 
-    return _super.apply(this, arguments);
+    return _super.call(this, props);
   }
 
   _createClass(BusinessShowComponent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchBusiness(this.props.businessId);
+      // this.props.fetchBusiness(this.props.businessId)
+      this.props.fetchBusiness(this.props.match.params.businessId);
     }
   }, {
     key: "render",
@@ -494,13 +498,22 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        businessId: this.props.businessId
+        businessId: this.props.currentBusiness.id
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pictures-array"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Photos Array")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.currentBusiness.photoUrls.map(function (p, i) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "picture-holder",
+          key: i
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "show-picture",
+          src: p
+        }));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-show"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "show-info"
@@ -539,8 +552,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    currentBusiness: state.entities.businesses[ownProps.match.params.businessId],
-    businessId: ownProps.match.params.businessId
+    currentBusiness: state.entities.businesses[ownProps.match.params.businessId] // businessId: ownProps.match.params.businessId
+
   };
 };
 
@@ -1526,7 +1539,8 @@ var businessesReducer = function businessesReducer() {
       return newState;
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESS"]:
-      newState[action.payload.business.id] = action.payload.business;
+      newState[action.payload.business.id] = action.payload.business; // newState[action.payload.id] = action.payload
+
       return newState;
 
     default:

@@ -5,7 +5,7 @@ import { fetchBusiness} from '../../actions/business_actions'
 const mSTP = (state, ownProps) => {
     return {
         currentBusiness: state.entities.businesses[ownProps.match.params.businessId],
-        businessId: ownProps.match.params.businessId
+        // businessId: ownProps.match.params.businessId
     }
 };
 
