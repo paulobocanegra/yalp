@@ -22,17 +22,16 @@ class BusinessShowComponent extends React.Component{
                     <p>Photos Array</p>
                 </div>
                 <div className="main-show">
-                    <div className="show-title">
-                        
-                    </div>
+                    <ul className="show-info">
+                        <li className="business-title">{this.props.currentBusiness.name}</li>
+                        <li>rating: {this.props.currentBusiness.rating}</li>
+                        <li className="business-bio">{this.props.currentBusiness.bio}</li>
+                        {/* <li>{this.props.currentBusiness.location}</li>         */}
+                        <button className="review-button-search">Write a Review</button>
+                    </ul>
                 </div>
 
 
-                <h1>{this.props.currentBusiness.name}</h1>
-                <p>{this.props.currentBusiness.rating}</p>
-                <p>{this.props.currentBusiness.bio}</p>
-                <p>rating: {this.props.currentBusiness.rating}</p>
-                <Link to="/">home</Link>
             </div>
         )
     }

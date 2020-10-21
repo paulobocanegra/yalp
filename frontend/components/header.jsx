@@ -21,15 +21,15 @@ const Header = ({ currentUser, signOut, businessId }) => {
             console.log(currentUser)
         return (
             <div className="header-container">
-                <div>
-                    <Link to="/" className="header-logo">
-                        <img src={window.logoURL} />
+                <div className="header-container-child" id="logo-id">
+                    <Link to="/" >
+                        <img className="header-logo" src={window.logoURL} />
                     </Link>
                 </div>
-                <div className="header-search-bar">
+                <div className="header-search-bar header-container-child">
                     <SearchBar />
                 </div>
-                <div className="display-div">
+                <div className="display-div header-container-child">
                     {display}
                 </div>
             </div>

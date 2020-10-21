@@ -1,8 +1,10 @@
 .header-logo{
-    position: absolute;
-    height: 110px;
-    margin-top: 10px;
-    left: 5%;
+    width: 60px;
+    padding: 0 400px 0 40px;
+}
+
+.display-div{
+    margin-left: 40px;
 }
 
 .pictures-array{
@@ -13,20 +15,27 @@
     // opacity: 0.8;
 }
 
+.show-header{
+    display: flex;
+    background-color: white;
+    max-width: 2000px;
+}
+
 .header-container{
-    height: 170px; 
+    height: 130px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .header-search-bar{
-    position: absolute;
-    top: 5%;
-    left: 30%;
-
+    background-color: white;
+    margin-right: 50px;
 }
 
-.session_buttons-search{
-    position: absolute;
-    left: 76%; 
+.header-search-bar{
+    box-shadow: 3px 3px 6px 5px rgba(204, 204, 204, 0.781);
+    border-radius: 4px;
 }
 
 .header-link-search{
@@ -38,8 +47,8 @@
     font-weight: 600;
     position: flex;
     // align-items: center;
-    margin: 10px 15px 16px 15px;
-    padding-bottom: 5px;
+    margin: 10px 5px 16px 15px;
+    padding-bottom: 4px;
     border: 1px solid #bbbac0;
     border-radius: 3px;
     text-align: center;
@@ -55,8 +64,8 @@
     font-weight: 600;
     position: flex;
     // align-items: center;
-    margin: 10px 15px 16px 15px;
-    padding-bottom: 5px;
+    margin: 10px 5px 16px 15px;
+    padding-bottom: 4px;
     border: 1px solid rgb(218, 86, 86);
     border-radius: 3px;
     text-align: center;
@@ -72,4 +81,42 @@
     padding-bottom: 8px;
     margin-right: 20px;
     text-decoration: none;
+}
+
+.main-show{
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+    margin-top: 30px;
+}
+
+.business-title{
+    font-size: 55px;
+    font-weight: 800;
+    margin-bottom: 9px;
+    color: #2b273c;
+}
+
+.show-info{
+    line-height: 30px;
+}
+
+.business-bio{
+    color: gray;
+}
+
+.review-button-search{
+    height: 40px;
+    width: 200px;
+    background-color: rgb(218, 86, 86);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    position: flex;
+    margin: 10px 15px 16px 0px;
+    // padding-bottom: 4px;
+    border: 1px solid rgb(218, 86, 86);
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
 }
