@@ -8,11 +8,20 @@
 }
 
 .pictures-array{
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     height: 400px;
     max-height: 400px;
-    background-color: #AD4B44;
+    background-color: white;
     // opacity: 0.8;
+}
+
+.picture-holder > .show-picture{
+    height: 400px;
+    width: 25vw;
+    margin: 1px;
 }
 
 .show-header{
@@ -87,7 +96,7 @@
     display: flex;
     justify-content: center;
     width: 60vw;
-    margin-top: 30px;
+    margin-top: 30px;   
 }
 
 .business-title{
@@ -120,3 +129,4 @@
     text-align: center;
     cursor: pointer;
 }
+

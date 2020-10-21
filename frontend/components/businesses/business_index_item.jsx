@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 
 
 const BusinessIndexItem = ({ business }) => {
-    debugger
     return (
         <div className="business-li">
-            <div className="business-img">
-                <img src={business.main_photoUrl} />
+            <div className="business-img-holder">
+                <img className="business-img" src={business.main_photoUrl} />
             </div>
             <div className="business-bottom">
                 <li className="business-li-content">

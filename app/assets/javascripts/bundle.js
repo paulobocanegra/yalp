@@ -406,12 +406,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var BusinessIndexItem = function BusinessIndexItem(_ref) {
   var business = _ref.business;
-  debugger;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-li"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "business-img"
+    className: "business-img-holder"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "business-img",
     src: business.main_photoUrl
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-bottom"
@@ -480,25 +480,40 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(BusinessShowComponent);
 
   function BusinessShowComponent(props) {
+    var _this;
+
     _classCallCheck(this, BusinessShowComponent);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      loading: true
+    };
+    return _this;
   }
 
   _createClass(BusinessShowComponent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       // this.props.fetchBusiness(this.props.businessId)
-      this.props.fetchBusiness(this.props.match.params.businessId);
+      this.props.fetchBusiness(this.props.match.params.businessId).then(function () {
+        _this2.setState({
+          loading: false
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
+      if (this.state.loading) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+
       if (!this.props.currentBusiness) {
         return null;
       }
 
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_container__WEBPACK_IMPORTED_MODULE_3__["default"], {

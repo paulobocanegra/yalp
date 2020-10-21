@@ -5,18 +5,26 @@ import HeaderContainer from '../header_container'
 
 class BusinessShowComponent extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
+        this.state = {loading: true}
     }
+
+    
     componentDidMount() {
         // this.props.fetchBusiness(this.props.businessId)
         this.props.fetchBusiness(this.props.match.params.businessId)
+            .then(()=> {
+                this.setState({loading: false})
+            })
     }
 
     render(){
+        if(this.state.loading){
+            return <div></div>
+        }
         if (!this.props.currentBusiness) {
             return null; 
         }
-        debugger
         return(
             <div >
                 <div  className="show-header">
