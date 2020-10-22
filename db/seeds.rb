@@ -10,7 +10,7 @@ require 'open-uri'
 
 User.destroy_all
 Business.destroy_all
-Reviews.destroy_all
+Review.destroy_all
 
 
 User.create(email:"omar@yalp.com", password: "password", first_name:"Omar", last_name:"Fernandez", zip_code:"94510")
