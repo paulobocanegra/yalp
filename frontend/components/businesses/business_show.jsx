@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-import SearchBar from '../search_bar'
 import HeaderContainer from '../header_container'
 
 class BusinessShowComponent extends React.Component{
