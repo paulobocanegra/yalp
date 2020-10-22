@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-// import ReviewShow from './review_show';
+import ReviewShow from './review_show';
 import { fetchReview } from '../../actions/review.actions'
 
 const mSTP = (state, ownProps) => {

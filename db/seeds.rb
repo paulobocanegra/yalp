@@ -43,3 +43,8 @@ bus4.photos.attach(io: File.open("/Users/paulobocanegra/Desktop/CODING/yalp_imgs
 bus4.photos.attach(io: File.open("/Users/paulobocanegra/Desktop/CODING/yalp_imgs/img14.jpg"), filename:"img14.jpg");
 bus4.photos.attach(io: File.open("/Users/paulobocanegra/Desktop/CODING/yalp_imgs/img15.jpg"), filename:"img15.jpg");
 bus4.photos.attach(io: File.open("/Users/paulobocanegra/Desktop/CODING/yalp_imgs/img16.jpg"), filename:"img16.jpg");
+
+review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
+# review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
+# review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
+# review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
