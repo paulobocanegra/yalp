@@ -13,7 +13,8 @@ class User < ApplicationRecord
     class_name: :Review
 
     has_many :businesses_reviewed,
-    through: :
+    through: :reviews,
+    source: :business
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

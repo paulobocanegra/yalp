@@ -10,5 +10,9 @@ class Business < ApplicationRecord
     primary_key: :id,
     foreign_key: :business_id,
     class_name: :Review
+
+    has_many :users_reviewed,
+    through: :reviews,
+    source: :user
 end
 
