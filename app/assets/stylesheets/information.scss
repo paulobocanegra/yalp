@@ -92,6 +92,11 @@
     text-decoration: none;
 }
 
+.main-show-container{
+    margin-left: 160px;
+    padding-top: 20px;
+}
+
 .main-show{
     display: flex;
     justify-content: center;
@@ -108,25 +113,13 @@
 
 .show-info{
     line-height: 30px;
+    width: 715px;
+    margin-bottom: 90px;
+    // border-bottom: 1px solid #bbbac0;
+
 }
 
 .business-bio{
     color: gray;
-}
-
-.review-button-search{
-    height: 40px;
-    width: 200px;
-    background-color: rgb(218, 86, 86);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    position: flex;
-    margin: 10px 15px 16px 0px;
-    // padding-bottom: 4px;
-    border: 1px solid rgb(218, 86, 86);
-    border-radius: 3px;
-    text-align: center;
-    cursor: pointer;
 }
 
