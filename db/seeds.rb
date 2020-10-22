@@ -8,6 +8,11 @@
 
 require 'open-uri'
 
+User.destroy_all
+Business.destroy_all
+Reviews.destroy_all
+
+
 User.create(email:"omar@yalp.com", password: "password", first_name:"Omar", last_name:"Fernandez", zip_code:"94510")
 User.create(email:"diego@yalp.com", password: "password", first_name:"Diego", last_name:"Perez", zip_code:"94510")
 User.create(email:"karen@yalp.com", password: "password", first_name:"Karen", last_name:"Smith", zip_code:"94523")
