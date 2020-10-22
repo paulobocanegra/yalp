@@ -12,6 +12,9 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Review
 
+    has_many :businesses_reviewed,
+    through: :
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         if user && user.is_password?(password)
