@@ -14,6 +14,9 @@ class SearchBar extends React.Component{
                         </label>
                     <input className="search-right-input" type="text" placeholder="San Francisco" />
                 </div>
+                <div>
+                    <img className="search-logo" src={window.search} />
+                </div>
             </div>
         )
     }

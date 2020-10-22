@@ -64,7 +64,7 @@ class BusinessShowComponent extends React.Component{
                             <div className="profile-picture">
                             </div>
                             <div className="review-user-detail">
-                                <h3 className="review-username">Username</h3>
+                                <h3 className="review-username">Tiny Rick</h3>
                                 <p><b>400</b> friends</p>
                                 <p>235 reviews</p>
                             </div>

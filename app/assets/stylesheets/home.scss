@@ -15,11 +15,16 @@
 
 .main-top{
     background-image: image-url('restaurant2.jpg');
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    background-size: cover;
+
     box-shadow: inset 0 0 700px black;
     display: flex;
-    height: 700px;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 600px;
     justify-content: center;
     opacity:  0.9;
 }
