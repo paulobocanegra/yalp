@@ -37,7 +37,7 @@ bus1.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/69
 bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/1u3MBbxcVJq5dibsiwAAisxd"), filename:"img17.jpg");
 bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/dKKz2QL266r6szmCnLMhWqru"), filename:"img6.jpg");
 bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/6cXLVKFoV3UwS6N5SZoTeRis"), filename:"img7.jpg");
-bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/dKKz2QL266r6szmCnLMhWqru"), filename:"img8.jpg");
+bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/xpvsWqLyripgJJvjmEqf8w8e"), filename:"img8.jpg");
 
 bus3.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/5sDbRn22jyJQhwsrhj8FzZoA"), filename:"img9.jpg");
 bus3.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/SQfKZ4PojhziKro7BzLmF1bD"), filename:"img10.jpg");

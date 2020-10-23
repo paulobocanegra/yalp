@@ -64,8 +64,46 @@ class BusinessShowComponent extends React.Component{
                             </div>
                             <div className="review-user-detail">
                                 <h3 className="review-username">Tiny Rick</h3>
+                                <p><b>1900</b> friends</p>
+                                <p>2 reviews</p>
+                            </div>
+                            <div className="review-content">
+                                <div>
+                                    <img className="rating-img" id="review-rating" src={window.rating4} />    
+                                </div>
+                                <div className="review-body">
+                                    <p >Lorem ipsum dolor sit amet, usu at dicam dolore inimicus. Ad voluptua definiebas vim, te vim omnes postulant. Oblique facilisis id qui. Eros latine pertinax no pri, his ei lorem nominati. Malis tractatos mnesarchum cum ut, at cibo sale pro. Qui ex nibh augue vituperata, ut nec fabulas evertitur vituperata. In eos natum populo malorum, equidem ancillae invenire nec ut, no his quas tation ponderum.
+                                        Est quidam mnesarchum ex, in vidit fuisset adipiscing nam. Eam illud porro principes ea. Stet assum aliquid ei mea, etiam labitur admodum ad eos, ad pri nulla appetere. Fugit dicunt omittam cum ad, usu at dolor iriure vidisse. Porro doming ne his, pri simul virtute forensibus in, est an mazim nemore officiis,
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="reviews1">
+                            <div className="profile-picture">
+                            </div>
+                            <div className="review-user-detail">
+                                <h3 className="review-username">Rick</h3>
                                 <p><b>400</b> friends</p>
-                                <p>235 reviews</p>
+                                <p>999 reviews</p>
+                            </div>
+                            <div className="review-content">
+                                <div>
+                                    <img className="rating-img" id="review-rating" src={window.rating4} />    
+                                </div>
+                                <div className="review-body">
+                                    <p >Lorem ipsum dolor sit amet, usu at dicam dolore inimicus. Ad voluptua definiebas vim, te vim omnes postulant. Oblique facilisis id qui. Eros latine pertinax no pri, his ei lorem nominati. Malis tractatos mnesarchum cum ut, at cibo sale pro. Qui ex nibh augue vituperata, ut nec fabulas evertitur vituperata. In eos natum populo malorum, equidem ancillae invenire nec ut, no his quas tation ponderum.
+                                        Est quidam mnesarchum ex, in vidit fuisset adipiscing nam. Eam illud porro principes ea. Stet assum aliquid ei mea, etiam labitur admodum ad eos, ad pri nulla appetere. Fugit dicunt omittam cum ad, usu at dolor iriure vidisse. Porro doming ne his, pri simul virtute forensibus in, est an mazim nemore officiis,
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="reviews1">
+                            <div className="profile-picture">
+                            </div>
+                            <div className="review-user-detail">
+                                <h3 className="review-username">Almighty Rick</h3>
+                                <p><b>0</b> friends</p>
+                                <p>666 reviews</p>
                             </div>
                             <div className="review-content">
                                 <div>
@@ -86,8 +124,8 @@ class BusinessShowComponent extends React.Component{
                             <li>{this.props.currentBusiness.phone_number}</li>
                             <li>Get Directions</li>
                         </ul>
-                </div> */}
-            
+                </div>
+             */}
 
 
             </div>

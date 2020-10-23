@@ -78,7 +78,7 @@
     display: flex;
     flex-direction: column;
     width: 466px;
-    height: 466px;
+    height: 366px;
     padding-left: 135px;
 }
 
@@ -94,4 +94,11 @@
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 4px;
+}
+
+.reviews1{
+    display: flex;
+    flex-direction: row;
+    padding-top: 60px;
+    border-top: 1px solid #e2e0e0;
 }
