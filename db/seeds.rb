@@ -29,6 +29,10 @@ bus2.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.co
 bus3.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/5sDbRn22jyJQhwsrhj8FzZoA"), filename:"img9.jpg");
 bus4.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/6EfJbE59kFaf1kcjqqqCcqDj"), filename:"img13.jpg");
 
+
+
+
+
 bus1.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/3L433Xd2AhXWNUEbc5PusTrm"), filename:"img1.jpg");
 bus1.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/3grJm6WDquAedbB5WvjsKnqG"), filename:"img2.jpg");
 bus1.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/dKKz2QL266r6szmCnLMhWqru"), filename:"img3.jpg");
@@ -37,12 +41,12 @@ bus1.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/69
 bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/1u3MBbxcVJq5dibsiwAAisxd"), filename:"img17.jpg");
 bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/dKKz2QL266r6szmCnLMhWqru"), filename:"img6.jpg");
 bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/6cXLVKFoV3UwS6N5SZoTeRis"), filename:"img7.jpg");
-bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/xpvsWqLyripgJJvjmEqf8w8e"), filename:"img8.jpg");
+bus2.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/hjRDFQFSojppffPPbSKqEY85"), filename:"img8.jpg");
 
 bus3.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/5sDbRn22jyJQhwsrhj8FzZoA"), filename:"img9.jpg");
 bus3.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/SQfKZ4PojhziKro7BzLmF1bD"), filename:"img10.jpg");
 bus3.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/BzZGncQcmFzVtbFgUVkFZayq"), filename:"img11.jpg");
-bus3.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/xpvsWqLyripgJJvjmEqf8w8e"), filename:"img12.jpg");
+bus3.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/dKKz2QL266r6szmCnLMhWqru"), filename:"img12.jpg");
 
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/6EfJbE59kFaf1kcjqqqCcqDj"), filename:"img13.jpg");
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/hjRDFQFSojppffPPbSKqEY85"), filename:"img14.jpg");

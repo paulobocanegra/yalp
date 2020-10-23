@@ -5,7 +5,11 @@ import { Link } from "react-router-dom"
 const Header = ({ currentUser, signOut, businessId }) => {
         const display = currentUser ? (
             <div className="session_buttons-search">
-                <button className="header-button-search" onClick={signOut}>Log out</button>
+                <div className="log-out">
+                    <button className="header-button-search" onClick={signOut}>Log out</button>
+                </div>
+                <div className="profile-picture-1">
+                </div>
             </div>
         ) : (
                 <div className="session_buttons-search">

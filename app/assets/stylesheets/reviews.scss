@@ -74,6 +74,7 @@
     background-size: contain;
 }
 
+
 .review-content{
     display: flex;
     flex-direction: column;
@@ -101,4 +102,9 @@
     flex-direction: row;
     padding-top: 60px;
     border-top: 1px solid #e2e0e0;
+}
+
+.create-review-container{
+    display: flex;
+
 }

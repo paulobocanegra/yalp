@@ -24,11 +24,40 @@
     margin: 1px;
 }
 
+.picture-holder{
+    // background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: contain;
+}
+
 .show-header{
     display: flex;
     background-color: white;
     max-width: 2000px;
 }
+
+.session_buttons-search{
+    // display: flex;
+    align-content: space-between;
+    justify-content: center;
+    // flex-direction: column;
+}
+
+.log-out{
+    float: left;
+}
+
+.profile-picture-1{
+    float: left;
+    height: 60px;
+    width: 60px;
+    background-image: image-url('rick.png');
+    background-size: contain;
+    position: absolute;
+    margin-left: 150px;
+}
+
 
 .header-container{
     height: 130px;
@@ -123,3 +152,37 @@
     color: gray;
 }
 
+
+.business-show-main-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.business-show-main-right{
+    position: absolute;
+    height: 194px;
+    width: 382px;
+    border: 1px solid rgb(214, 214, 214);
+    align-items: center;
+    left: 70vw;
+    top: 44vw;
+}
+
+.main-show-right{
+    margin-top: 50px;
+}
+
+.business-info-ul > li{
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+.business-info-ul > li:first-child{
+    padding-bottom: 30px;
+    // border-bottom: 1px solid rgb(214, 214, 214);
+}
+
+.business-show-main-left{
+    float: left;
+}
