@@ -123,15 +123,49 @@ class BusinessShowComponent extends React.Component{
                         </div>
                     </div>
                 </div>
-                {/* <div className="business-show-main-right">
-                    <div className="main-show-right">
-                        <ul className="business-info-ul">
-                            <li>{this.props.currentBusiness.phone_number}</li>
-                            <hr/>
-                            <li>Get Directions</li>
-                        </ul>
+
+                <div className="business-show-main-right-top">
+                    <div>
+                        <img className="map-img" src={window.map} />
                     </div>
-                </div> */}
+                    <div>
+                        <div className="address-ul-container">
+                            <ul className="address-ul">
+                                <li>
+                                    <p>6362 San Pablo Ave</p>
+                                </li>
+                                <li>
+                                    <p>Unit H</p>
+                                </li>
+                                <li>
+                                    <p>Oakland, CA 94608 </p>
+                                </li>
+                                <li>
+                                    <p>Corner of 66th St</p>
+                                </li>
+                                <li>
+                                    <p>North Oakland</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="business-show-main-right">
+                    <div className="main-show-right">
+                        <div className="business-info-div">
+                            <div className="info-item-1">
+                                <img className="phone-img" src={window.phone} />   
+                                <p>{this.props.currentBusiness.phone_number}</p>
+                            </div>
+                            <hr/>
+                            <div className="info-item-2">
+                                <img className="phone-img" src={window.direction} />   
+                                <p className="info-par">Get Directions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
 
 
