@@ -119,13 +119,13 @@ class BusinessShowComponent extends React.Component{
                     </ul>
                 </div>
             </div>
-                {/* <div className="main-show-right">
-                        <ul className="business-info-ul">
-                            <li>{this.props.currentBusiness.phone_number}</li>
-                            <li>Get Directions</li>
-                        </ul>
-                </div>
-             */}
+            {/* <div className="main-show-right">
+                    <ul className="business-info-ul">
+                        <li>{this.props.currentBusiness.phone_number}</li>
+                        <li>Get Directions</li>
+                    </ul>
+            </div> */}
+            
 
 
             </div>
