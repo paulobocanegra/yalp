@@ -1,6 +1,6 @@
 .header-logo{
     width: 60px;
-    padding: 0 400px 0 40px;
+    // padding: 0 30px 0 40px;
 }
 
 .display-div{
@@ -11,16 +11,15 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    height: 400px;
+    height: 300px;
     max-height: 400px;
     background-color: white;
     // opacity: 0.8;
 }
 
 .picture-holder > .show-picture{
-    height: 400px;
-    width: 25vw;
+    height: 300px;
+    width: 24.6vw;
     margin: 1px;
 }
 
@@ -38,10 +37,10 @@
 }
 
 .session_buttons-search{
-    // display: flex;
+    display: flex;
     align-content: space-between;
     justify-content: center;
-    // flex-direction: column;
+    flex-direction: row;
 }
 
 .log-out{
@@ -63,12 +62,13 @@
     height: 130px;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     align-items: center;
 }
 
 .header-search-bar{
     background-color: white;
-    margin-right: 50px;
+    // margin-right: 150px;
 }
 
 .header-search-bar{
@@ -116,7 +116,7 @@
     line-height: 1.28571em;
     font-size: 14px;
     border-bottom: 2px solid transparent;
-    padding-bottom: 8px;
+    margin-top: 8px;
     margin-right: 20px;
     text-decoration: none;
 }
