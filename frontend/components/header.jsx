@@ -7,6 +7,7 @@ const Header = ({ currentUser, signOut, businessId }) => {
         const display = currentUser ? (
             <div className="session_buttons-search">
                 <div className="log-out">
+                    <Link to="/" className="header-link-review"> Write a Review </Link>
                     <button className="header-button-search" onClick={signOut}>Log out</button>
                 </div>
                 <div className="profile-picture-1">
