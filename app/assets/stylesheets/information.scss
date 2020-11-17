@@ -1,6 +1,10 @@
 .header-logo{
     width: 60px;
-    // padding: 0 30px 0 40px;
+    padding-left: 36px;
+}
+
+#show-search-bar-component{
+    max-width: 300px;
 }
 
 .display-div{
@@ -41,6 +45,8 @@
     align-content: space-between;
     justify-content: center;
     flex-direction: row;
+    margin-left: 50px;
+    // padding-right: 16px;
 }
 
 .log-out{
@@ -54,7 +60,7 @@
     background-image: image-url('rick.png');
     background-size: contain;
     position: absolute;
-    margin-left: 150px;
+    margin-left: 200px;
 }
 
 
@@ -62,18 +68,16 @@
     height: 130px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 .header-search-bar{
     background-color: white;
-    // margin-right: 150px;
-}
-
-.header-search-bar{
+    margin: 30px;
     box-shadow: 3px 3px 6px 5px rgba(204, 204, 204, 0.781);
     border-radius: 4px;
+    margin-left: 100px;
 }
 
 .header-link-search{
@@ -116,8 +120,8 @@
     line-height: 1.28571em;
     font-size: 14px;
     border-bottom: 2px solid transparent;
-    margin-top: 8px;
-    margin-right: 20px;
+    padding-top: 8px;
+    // margin-right: 20px;
     text-decoration: none;
 }
 

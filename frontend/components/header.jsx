@@ -1,5 +1,6 @@
 import React from 'react'
-import SearchBar from './search_bar'
+// import SearchBar from './search_bar'
+import SearchBarShow from './search_bar_show'
 import { Link } from "react-router-dom"
 
 const Header = ({ currentUser, signOut, businessId }) => {
@@ -31,7 +32,7 @@ const Header = ({ currentUser, signOut, businessId }) => {
                     </Link>
                 </div>
                 <div className="header-search-bar header-container-child">
-                    <SearchBar />
+                    <SearchBarShow id="show-search-bar-component"/>
                 </div>
                 <div className="display-div header-container-child">
                     {display}

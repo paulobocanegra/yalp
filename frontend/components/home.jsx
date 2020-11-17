@@ -11,7 +11,7 @@ const Home = ({currentUser, signOut}) => {
             </div>
     ) : (
         <div className="session_buttons">
-            <Link to="/signin" className="header-link">Sign In</Link>
+            <Link to="/signin" className="header-link">Log In</Link>
             <Link to="/signup">
                 <button className="header-button">Sign Up</button>
             </Link>
