@@ -1767,12 +1767,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./businesses_reducer */ "./frontend/reducers/businesses_reducer.js");
+/* harmony import */ var _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reviews_reducer */ "./frontend/reducers/reviews_reducer.js");
+
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  businesses: _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  businesses: _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1789,12 +1792,84 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _reviews_errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reviews_errors_reducer */ "./frontend/reducers/reviews_errors_reducer.js");
+
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  reviewsErrorsReducer: _reviews_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/reviews_errors_reducer.js":
+/*!*****************************************************!*\
+  !*** ./frontend/reducers/reviews_errors_reducer.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module '../actions/reviews_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+var reviewsErrorsReducer = function reviewsErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case !(function webpackMissingModule() { var e = new Error("Cannot find module '../actions/reviews_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()):
+      return action.errors;
+
+    case !(function webpackMissingModule() { var e = new Error("Cannot find module '../actions/reviews_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()):
+      return [];
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reviewsErrorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/reviews_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/reviews_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module '../actions/reviews_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+var reviewsReducer = function reviewsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case !(function webpackMissingModule() { var e = new Error("Cannot find module '../actions/reviews_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()):
+      newState = action.reviews;
+      return newState;
+
+    case !(function webpackMissingModule() { var e = new Error("Cannot find module '../actions/reviews_actions'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()):
+      newState[action.payload.review.id] = action.payload.review;
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reviewsReducer);
 
 /***/ }),
 

@@ -3,6 +3,10 @@ import * as ReviewApiUtil from '../util/review_api_util';
 export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
+export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
+export const REMOVE_ERRORS = "REMOVE_ERRORS";
+export const RETURN_SINGLE_REVIEW = "RETURN_SINGLE_REVIEW";
+
 
 export const receiveAllReviews = (reviews) => {
     return {
@@ -18,10 +22,10 @@ export const receiveReview = (payload) => {
     }
 }
 
-export const removeReview = (payload) => {
+export const removeReview = (reviewId) => {
     return {
         type: REMOVE_REVIEW,
-        payload
+        reviewId
     }
 }
 
@@ -32,8 +36,22 @@ export const receiveErrors = errors => {
     })
 }
 
-export const fetchReviews = () => (dispatch) => {
-    return ReviewApiUtil.fetchReviews()
+export const removeErrors = () => {
+    return ({
+        type: REMOVE_ERRORS,
+    })
+}
+
+
+export const returnSingleReview = review => {
+    return ({
+        type: RETURN_SINGLE_REVIEW,
+        review
+    })
+}
+
+export const fetchReviews = (businessId) => (dispatch) => {
+    return ReviewApiUtil.fetchReviews(businessId)
         .then(
             result => dispatch(receiveAllReviews(result)),
             errors => dispatch(receiveErrors(errors.response.JSON))
@@ -48,8 +66,8 @@ export const fetchReview = (reviewId) => (dispatch) => {
             )
 }
 
-export const createReview = (review) => dispatch => {
-    return ReviewApiUtil.createReview(review)
+export const createReview = (businessId, review) => dispatch => {
+    return ReviewApiUtil.createReview(businessId, review)
     .then(
         review => (dispatch(receiveReview(review),
         errors => dispatch(receiveErrors(errors.response.JSON))
@@ -60,7 +78,7 @@ export const createReview = (review) => dispatch => {
 export const removeReview = (reviewId) => dispatch => {
     return ReviewApiUtil.removeReview(reviewId)
         .then(
-            reviewId => (dispatch(removeReview(reviewId),
+            () => (dispatch(removeReview(reviewId),
             errors => dispatch(receiveErrors(errors.response.JSON))
         )
     ))

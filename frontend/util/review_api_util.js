@@ -1,6 +1,6 @@
-export const fetchReviews = () => {
+export const fetchReviews = (businessId) => {
     return $.ajax({
-        url: `/api/reviews`,
+        url: `/api/businesses/${businessId}/reviews`,
         method: `GET`,
     })
 }
@@ -12,11 +12,14 @@ export const fetchReview = (reviewId) => {
     })
 }
 
-export const createReview = (review) => {
+export const createReview = (businessId, review) => {
     return $.ajax({
-        url: `/api/reviews/`,
+        url: `/api/businesses/${businessId}/reviews`,
         method: `POST`,
-        data: {review}
+        data: {
+            review: review,
+            businessId: businessId
+        }
     })
 }
 

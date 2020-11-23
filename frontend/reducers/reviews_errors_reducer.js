@@ -1,11 +1,10 @@
-import { RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW } from '../actions/reviews_actions'
+import { RECEIVE_REVIEW_ERRORS, REMOVE_ERRORS } from '../actions/reviews_actions'
 
-const sessionErrorsReducer = (state = [], action) => {
+const reviewsErrorsReducer = (state = [], action) => {
     Object.freeze(state);
     switch (action.type) {
-        case RECEIVE_ALL_REVIEWS:
-            return action.errors;
-        case RECEIVE_REVIEW:
+        case RECEIVE_REVIEW_ERRORS:
+            return action.errors      
         case REMOVE_ERRORS:
             return [];
         default:
@@ -13,4 +12,4 @@ const sessionErrorsReducer = (state = [], action) => {
     }
 };
 
-export default sessionErrorsReducer;
+export default reviewsErrorsReducer;
