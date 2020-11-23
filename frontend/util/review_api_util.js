@@ -9,7 +9,7 @@ export const fetchReview = (reviewId) => {
     return $.ajax({
         url: `/api/reviews/${reviewId}`,
         method: `GET`,
-    })
+    })  
 }
 
 export const createReview = (businessId, review) => {
@@ -23,7 +23,7 @@ export const createReview = (businessId, review) => {
     })
 }
 
-export const removeReview = (reviewId) => {
+export const deleteReview = (reviewId) => {
     return $.ajax({
         url: `/api/reviews/${reviewId}`,
         method: `DELETE`,

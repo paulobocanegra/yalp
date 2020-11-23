@@ -2,7 +2,7 @@ import * as ReviewApiUtil from '../util/review_api_util';
 
 export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
-export const REMOVE_REVIEW = "REMOVE_REVIEW";
+// export const REMOVE_REVIEW = "REMOVE_REVIEW";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
 export const RETURN_SINGLE_REVIEW = "RETURN_SINGLE_REVIEW";
@@ -22,12 +22,12 @@ export const receiveReview = (payload) => {
     }
 }
 
-export const removeReview = (reviewId) => {
-    return {
-        type: REMOVE_REVIEW,
-        reviewId
-    }
-}
+// export const deleteReview = (reviewId) => {
+//     return {
+//         type: REMOVE_REVIEW,
+//         reviewId
+//     }
+// }
 
 export const receiveErrors = errors => {
     return ({
@@ -75,12 +75,12 @@ export const createReview = (businessId, review) => dispatch => {
     ))
 };
 
-export const removeReview = (reviewId) => dispatch => {
-    return ReviewApiUtil.removeReview(reviewId)
-        .then(
-            () => (dispatch(removeReview(reviewId),
-            errors => dispatch(receiveErrors(errors.response.JSON))
-        )
-    ))
-};
+// export const removeReview = (reviewId) => dispatch => {
+//     return ReviewApiUtil.removeReview(reviewId)
+//         .then(
+//             () => (dispatch(removeReview(reviewId),
+//             errors => dispatch(receiveErrors(errors.response.JSON))
+//         )
+//     ))
+// };
 

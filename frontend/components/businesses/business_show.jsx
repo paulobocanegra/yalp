@@ -46,7 +46,10 @@ class BusinessShowComponent extends React.Component{
                                     <li><img className="rating-img" src={window.rating4} /> </li>
                                 <li className="business-bio">{this.props.currentBusiness.bio}</li>
                                 {/* <li>{this.props.currentBusiness.location}</li>         */}
+                                {/* <Link to="/businesses/{}" className="review-button-search">Write a Review</Link> */}
+                                <Link to={`/businesses/${this.props.currentBusiness.id}/create`}>
                                 <button className="review-button-search">Write a Review</button>
+                                </Link>
                                 <div className="reviews-container">
                                         <div>
                                             <h1 className="recommended">Recommended Reviews

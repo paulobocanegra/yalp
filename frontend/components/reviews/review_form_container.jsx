@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import { createReview, removeErrors, removeReview } from '../../actions/review_actions'
+import { fetchReview, createReview, removeErrors } from '../../actions/review_actions'
 import ReviewForm from './review_form';
-import { fetchReview } from '../../actions/review.actions'
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
     return {
         authorId: state.session.id,
-        errors: state.errors.reviewErrors,
-        businessId: ownProps.match.params.businessId
+        errors: state.errors.reviewsErrors,
+        businessId: Object.keys(state.entities.businesses)[0]
+        // businessId: ownProps.match.params.businessId
     }
 };
 

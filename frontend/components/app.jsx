@@ -8,11 +8,13 @@ import HomeComponentContainer from './home_container';
 import FooterComponent from './footer';
 import BusinessShowContainer from "./businesses/business_show_container";
 import BusinessIndexContainer from "./businesses/business_index_container"
+import ReviewFormContainer from "./reviews/review_form_container";
 
 const App = () => (
     <div>
         <Switch>
             <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
+            <Route exact path="/businesses/:businessId/create" component={ReviewFormContainer} />
             <AuthRoute exact path="/signin" component={SignInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <Route exact path="/" component={HomeComponentContainer} />

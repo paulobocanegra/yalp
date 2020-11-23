@@ -50,7 +50,7 @@ bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/hj
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/nc8Nh6phzRd62rFUhKRpTSiP"), filename:"img15.jpg");
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/2KPS99CfLjpJGxrqBZYeagq6"), filename:"img16.jpg");
 
-review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:9)
+review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:15, business_id:9)
 review2 = Review.create(body:"TEST1!", rating:4, author_id:2, business_id:2)
 # review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
 # review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)

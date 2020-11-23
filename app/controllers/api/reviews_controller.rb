@@ -1,7 +1,12 @@
 class Api::ReviewsController < ApplicationController
     def index
-        @reviews = Review.all
-        render :index
+        # @reviews = Review.all
+        # render :index
+        if params[:business_id] == "all"
+            @reviews = Review.all
+        else
+            @reviews = Review.where(business_id: params[:business_id])
+        end
     end
 
     def show
@@ -10,8 +15,8 @@ class Api::ReviewsController < ApplicationController
     end
 
     def create
+        @review = Review.create(review_params)
         @review.author_id = current_user.id
-        @review = Review.new(review_params)
         if @review.save
             render :show
         else
