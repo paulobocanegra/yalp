@@ -25,25 +25,44 @@ export const removeReview = (payload) => {
     }
 }
 
+export const receiveErrors = errors => {
+    return ({
+        type: RECEIVE_REVIEW_ERRORS,
+        errors
+    })
+}
+
 export const fetchReviews = () => (dispatch) => {
     return ReviewApiUtil.fetchReviews()
-        .then(result => dispatch(receiveAllReviews(result)))
+        .then(
+            result => dispatch(receiveAllReviews(result)),
+            errors => dispatch(receiveErrors(errors.response.JSON))
+            )
 }
 
 export const fetchReview = (reviewId) => (dispatch) => {
     return ReviewApiUtil.fetchReview(reviewId)
-        .then(result => dispatch(receiveReview(result)))
+        .then(
+            result => dispatch(receiveReview(result)),
+            errors => dispatch(receiveErrors(errors.response.JSON))
+            )
 }
 
 export const createReview = (review) => dispatch => {
     return ReviewApiUtil.createReview(review)
-    .then(review => (dispatch(receiveReview(review))
+    .then(
+        review => (dispatch(receiveReview(review),
+        errors => dispatch(receiveErrors(errors.response.JSON))
+        )
     ))
 };
 
 export const removeReview = (reviewId) => dispatch => {
     return ReviewApiUtil.removeReview(reviewId)
-        .then(review => (dispatch(removeReview(review))
+        .then(
+            reviewId => (dispatch(removeReview(reviewId),
+            errors => dispatch(receiveErrors(errors.response.JSON))
+        )
     ))
 };
 
