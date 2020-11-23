@@ -13,7 +13,7 @@ Business.destroy_all
 Review.destroy_all
 
 
-User.create(email:"omar@yalp.com", password: "password", first_name:"Omar", last_name:"Fernandez", zip_code:"94510")
+user1 = User.create(email:"omar@yalp.com", password: "password", first_name:"Omar", last_name:"Fernandez", zip_code:"94510")
 User.create(email:"diego@yalp.com", password: "password", first_name:"Diego", last_name:"Perez", zip_code:"94510")
 User.create(email:"karen@yalp.com", password: "password", first_name:"Karen", last_name:"Smith", zip_code:"94523")
 User.create(email:"nancy@yalp.com", password: "password", first_name:"Nancy", last_name:"Morrow", zip_code:"94523")
@@ -28,9 +28,6 @@ bus1.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.co
 bus2.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/1u3MBbxcVJq5dibsiwAAisxd"), filename:"img5.jpg");
 bus3.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/5sDbRn22jyJQhwsrhj8FzZoA"), filename:"img9.jpg");
 bus4.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/6EfJbE59kFaf1kcjqqqCcqDj"), filename:"img13.jpg");
-
-
-
 
 
 bus1.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/3L433Xd2AhXWNUEbc5PusTrm"), filename:"img1.jpg");
@@ -53,7 +50,7 @@ bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/hj
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/nc8Nh6phzRd62rFUhKRpTSiP"), filename:"img15.jpg");
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/2KPS99CfLjpJGxrqBZYeagq6"), filename:"img16.jpg");
 
-review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
-# review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
+review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:9)
+review2 = Review.create(body:"TEST1!", rating:4, author_id:2, business_id:2)
 # review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
 # review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
