@@ -1,4 +1,8 @@
 import React from "react";
+// import HeaderContainer from '../header_container'
+import ReviewsHeader from '../reviews/reviews_header'
+
+
 class ReviewForm extends React.Component {
     constructor(props) {
         super(props);
@@ -30,31 +34,64 @@ class ReviewForm extends React.Component {
         )
     }
 
+
+    starRating(){
+        const updateRating = (ratingValue) => {
+            this.setState({ rating: ratingValue })
+        }
+        return (
+            <div className="star-rating">
+                {[...Array(5)].map((star, i) => {
+                    const ratingValue = i + 1;
+                    return (
+                        <label key={i}>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value={ratingValue}
+                                onClick={() => updateRating(ratingValue)} />
+                            {/* <div> */}
+                            <i className="fas fa-star"
+                                id={ratingValue <= (this.state.rating) ? "checked" : "notChecked"}
+                                // CSS ID
+                                onMouseEnter={() => updateRating(ratingValue)}
+                            />
+                            {/* </div> */}
+                        </label>
+                    )
+                })}
+            </div>
+        )
+    }
+
     componentWillUnmount() {
-        this.props.clearReviewErrors();
+        this.props.removeErrors();
     }
 
     render() {
         return (
-            <div className="review-form">
-                <div className="review-errors">
-                    {this.renderErrors()}
+            <div>
+                <ReviewsHeader />
+                <div className="review-form-container">
+                    <div className="review-errors">
+                        {this.renderErrors()}
+                    </div>
+                    <form
+                        className="review-form"
+                        onSubmit={this.handleSubmit}>
+                        <div className="rating-div">
+                            <label>Rating: {this.starRating()}</label>
+                        </div>
+                        <div>
+                            <label>Body:</label>
+                            <textarea
+                                type="text"
+                                value={this.state.body}
+                                onChange={this.handleInput("body")} />
+                        </div>
+                        <button>Submit</button>
+                    </form>
                 </div>
-                <form
-                    className="review-form"
-                    onSubmit={this.handleSubmit}>
-                    <div className="rating-div">
-                        <label>Rating: 4</label>
-                    </div>
-                    <div>
-                        <label>Body:</label>
-                        <textarea
-                            type="text"
-                            value={this.state.body}
-                            onChange={this.handleInput("body")} />
-                    </div>
-                    <button>Submit</button>
-                </form>
             </div>
         )
     }
