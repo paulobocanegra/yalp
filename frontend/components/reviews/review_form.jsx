@@ -79,17 +79,22 @@ class ReviewForm extends React.Component {
                     <form
                         className="review-form"
                         onSubmit={this.handleSubmit}>
-                        <div className="rating-div">
-                            <label>Rating: {this.starRating()}</label>
+                        <div className="rating-score-holder">
+                            <div className="select-rating">
+                                {this.starRating()}
+                            </div>
+                            <div className="select-rating-title">Select your rating</div>
                         </div>
                         <div>
-                            <label>Body:</label>
+                            {/* <label>Body:</label> */}
                             <textarea
+                                className="rating-body"
                                 type="text"
                                 value={this.state.body}
+                                placeholder="This spot is serving meal kits, as well as offering delivery during COVID. I'm so happy! Of Course nothing beats the in person experience, but delivery is a great second option right now. The food was a little cold, but I understand this is a new operation for them..."
                                 onChange={this.handleInput("body")} />
                         </div>
-                        <button>Submit</button>
+                        <button className="post-review-button">Post Review</button>
                     </form>
                 </div>
             </div>

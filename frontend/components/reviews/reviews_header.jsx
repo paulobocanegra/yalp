@@ -33,7 +33,7 @@ const ReviewsHeader = ({ currentUser, signOut, businessId }) => {
             <div className="session_buttons-search">
                 <p className="header-link-write-review"> Write a Review </p>
                 <Link to={`/signin?id=${businessId}`}>
-                    <button className="header-link-search">Log In</button>
+                    <button className="header-link-review">Log In</button>
                 </Link>
                 <Link to="/signup">
                     <button className="header-button-search">Sign Up</button>
@@ -42,7 +42,7 @@ const ReviewsHeader = ({ currentUser, signOut, businessId }) => {
         );
     console.log(currentUser)
     return (
-        <div className="reviews-header">
+        <div className="create-reviews-header">
             <div className="header-container-child" id="logo-id">
                 <Link to="/" >
                     <img className="header-logo" src={window.logoURL} />

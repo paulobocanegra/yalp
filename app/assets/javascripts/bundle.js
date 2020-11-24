@@ -1227,12 +1227,20 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         className: "review-form",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "rating-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Rating: ", this.starRating())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Body:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        className: "rating-score-holder"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "select-rating"
+      }, this.starRating()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "select-rating-title"
+      }, "Select your rating")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        className: "rating-body",
         type: "text",
         value: this.state.body,
+        placeholder: "This spot is serving meal kits, as well as offering delivery during COVID. I'm so happy! Of Course nothing beats the in person experience, but delivery is a great second option right now. The food was a little cold, but I understand this is a new operation for them...",
         onChange: this.handleInput("body")
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit"))));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "post-review-button"
+      }, "Post Review"))));
     }
   }]);
 
@@ -1338,7 +1346,7 @@ var ReviewsHeader = function ReviewsHeader(_ref) {
   }, " Write a Review "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/signin?id=".concat(businessId)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "header-link-search"
+    className: "header-link-review"
   }, "Log In")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/signup"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1346,7 +1354,7 @@ var ReviewsHeader = function ReviewsHeader(_ref) {
   }, "Sign Up")));
   console.log(currentUser);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "reviews-header"
+    className: "create-reviews-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header-container-child",
     id: "logo-id"
