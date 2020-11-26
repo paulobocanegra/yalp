@@ -1146,8 +1146,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       body: "",
       rating: 0,
-      loading: true
-    };
+      loading: true // currentBus: this.state.entities.businesses[this.props.businessId]
+
+    }; // this.currentBus = this.props.currentBusiness
+
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -1233,7 +1235,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-form-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.entities.businesses[this.props.businessId])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-errors"
       }, this.renderErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "review-form",
@@ -1281,12 +1283,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mSTP = function mSTP(state) {
+var mSTP = function mSTP(state, ownProps) {
   return {
     authorId: state.session.id,
     errors: state.errors.reviewsErrors,
-    businessId: Object.keys(state.entities.businesses)[0] // businessId: ownProps.match.params.businessId   
-
+    // businessId: Object.keys(state.entities.businesses)[0],
+    // currentBusiness: state.entities.businesses[ownProps.match.params.businessId],
+    businessId: ownProps.match.params.businessId
   };
 };
 

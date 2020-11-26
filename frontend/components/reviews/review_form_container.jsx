@@ -3,12 +3,13 @@ import { fetchReview, createReview, removeErrors } from '../../actions/review_ac
 import { fetchBusiness } from '../../actions/business_actions'
 import ReviewForm from './review_form';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
     return {
         authorId: state.session.id,
         errors: state.errors.reviewsErrors,
-        businessId: Object.keys(state.entities.businesses)[0],
-        // businessId: ownProps.match.params.businessId   
+        // businessId: Object.keys(state.entities.businesses)[0],
+        // currentBusiness: state.entities.businesses[ownProps.match.params.businessId],
+        businessId: ownProps.match.params.businessId   
     }
 };
 

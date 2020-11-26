@@ -9,9 +9,10 @@ class ReviewForm extends React.Component {
         this.state = {
             body: "",
             rating: 0,
-            loading: true
+            loading: true,
+            // currentBus: this.state.entities.businesses[this.props.businessId]
         };
-        
+        // this.currentBus = this.props.currentBusiness
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -31,7 +32,6 @@ class ReviewForm extends React.Component {
 
     handleInput(field) {
         return e => this.setState({ [field]: e.target.value })
-         
     }
 
     renderErrors() {
@@ -83,9 +83,9 @@ class ReviewForm extends React.Component {
             <div>
                 <HeaderContainer />
                 <div className="review-form-container">
-                    {/* <div>
-                        {this.state.entities.businesses}
-                    </div> */}
+                    <div>
+                        <p>{this.state.entities.businesses[this.props.businessId]}</p>
+                    </div>
                     <div className="review-errors">
                         {this.renderErrors()}
                     </div>
