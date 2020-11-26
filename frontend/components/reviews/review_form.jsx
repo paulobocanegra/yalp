@@ -1,6 +1,6 @@
 import React from "react";
-// import HeaderContainer from '../header_container'
-import ReviewsHeader from '../reviews/reviews_header'
+import HeaderContainer from '../header_container'
+// import ReviewsHeader from '../reviews/reviews_header'
 
 
 class ReviewForm extends React.Component {
@@ -22,6 +22,7 @@ class ReviewForm extends React.Component {
 
     handleInput(field) {
         return e => this.setState({ [field]: e.target.value })
+         
     }
 
     renderErrors() {
@@ -71,8 +72,11 @@ class ReviewForm extends React.Component {
     render() {
         return (
             <div>
-                <ReviewsHeader />
+                <HeaderContainer />
                 <div className="review-form-container">
+                    {/* <div>
+                        {this.state.entities.businesses}
+                    </div> */}
                     <div className="review-errors">
                         {this.renderErrors()}
                     </div>

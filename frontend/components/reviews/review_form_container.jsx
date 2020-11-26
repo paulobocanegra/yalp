@@ -6,7 +6,7 @@ const mSTP = (state) => {
     return {
         authorId: state.session.id,
         errors: state.errors.reviewsErrors,
-        businessId: Object.keys(state.entities.businesses)[0]
+        businessId: Object.keys(state.entities.businesses)[0],
         // businessId: ownProps.match.params.businessId
     }
 };

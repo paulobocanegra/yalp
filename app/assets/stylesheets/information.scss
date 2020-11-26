@@ -9,6 +9,7 @@
 
 .display-div{
     margin-left: 40px;
+    // width: 90px;
 }
 
 .pictures-array{
@@ -61,6 +62,7 @@
     background-size: contain;
     position: absolute;
     margin-left: 350px;
+    border-radius: 50%;
 }
 
 
@@ -70,14 +72,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid whitesmoke;
 }
 
 .header-search-bar{
     background-color: white;
     margin: 30px;
+    margin-left: 40px;
     box-shadow: 3px 3px 6px 5px rgba(204, 204, 204, 0.781);
     border-radius: 4px;
-    margin-left: 40px;
 }
 
 .header-link-search{
@@ -88,9 +91,7 @@
     font-size: 16px;
     font-weight: 600;
     position: flex;
-    // align-items: center;
     margin: 10px 5px 16px 15px;
-    padding-bottom: 4px;
     border: 1px solid #bbbac0;
     border-radius: 3px;
     text-align: center;
