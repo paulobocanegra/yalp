@@ -8,14 +8,6 @@ const reviewsReducer = (state = {}, action) => {
             newState = action.reviews;
             return newState;
         case RECEIVE_REVIEW:
-            // newState[action.payload.review.id] = action.payload.review
-            // return newState;
-            // return Object.assign(newState, action.payload.reviewId)
-            // newState[action.payload.business.review.id] = action.payload.business.review
-
-            // newState[action.payload.review.id] = action.payload.review
-            // return newState;
-
             return Object.assign(newState, action.payload.reviews);
         case RETURN_SINGLE_REVIEW:
             return action.review

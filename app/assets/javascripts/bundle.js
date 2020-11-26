@@ -2202,12 +2202,6 @@ var reviewsReducer = function reviewsReducer() {
       return newState;
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
-      // newState[action.payload.review.id] = action.payload.review
-      // return newState;
-      // return Object.assign(newState, action.payload.reviewId)
-      // newState[action.payload.business.review.id] = action.payload.business.review
-      // newState[action.payload.review.id] = action.payload.review
-      // return newState;
       return Object.assign(newState, action.payload.reviews);
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RETURN_SINGLE_REVIEW"]:
