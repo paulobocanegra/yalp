@@ -516,12 +516,14 @@ var BusinessIndexItem = function BusinessIndexItem(_ref) {
   var business = _ref.business;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-li"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/businesses/".concat(business.id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-img-holder"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "business-img",
     src: business.main_photoUrl
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-bottom"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "business-li-content"
@@ -1270,7 +1272,7 @@ var mSTP = function mSTP(state) {
   return {
     authorId: state.session.id,
     errors: state.errors.reviewsErrors,
-    businessId: Object.keys(state.entities.businesses)[0] // businessId: ownProps.match.params.businessId
+    businessId: Object.keys(state.entities.businesses)[0] // businessId: ownProps.match.params.businessId   
 
   };
 };

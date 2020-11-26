@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 const BusinessIndexItem = ({ business }) => {
     return (
         <div className="business-li">
-            <div className="business-img-holder">
-                <img className="business-img" src={business.main_photoUrl} />
-            </div>
+            <Link to={`/businesses/${business.id}`}>
+                <div className="business-img-holder">
+                    <img className="business-img" src={business.main_photoUrl} />
+                </div>
+                </Link>
             <div className="business-bottom">
                 <li className="business-li-content">
                     <Link to={`/businesses/${business.id}`} className="business-link">{business.name}

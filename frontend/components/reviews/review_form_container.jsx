@@ -7,7 +7,7 @@ const mSTP = (state) => {
         authorId: state.session.id,
         errors: state.errors.reviewsErrors,
         businessId: Object.keys(state.entities.businesses)[0],
-        // businessId: ownProps.match.params.businessId
+        // businessId: ownProps.match.params.businessId   
     }
 };
 
