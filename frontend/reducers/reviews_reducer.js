@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW } from '../actions/review_actions'
+import { RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW, RETURN_SINGLE_REVIEW } from '../actions/review_actions'
 
 const reviewsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -11,11 +11,17 @@ const reviewsReducer = (state = {}, action) => {
             // newState[action.payload.review.id] = action.payload.review
             // return newState;
             // return Object.assign(newState, action.payload.reviewId)
-            newState[action.payload.business.review.id] = action.payload.business.review
-            return newState;
+            // newState[action.payload.business.review.id] = action.payload.business.review
+
+            // newState[action.payload.review.id] = action.payload.review
+            // return newState;
+
+            return Object.assign(newState, action.payload.reviews);
+        case RETURN_SINGLE_REVIEW:
+            return action.review
         default:
             return state;
     }
-}
+} 
 
 export default reviewsReducer;

@@ -10,7 +10,6 @@ class BusinessShowComponent extends React.Component{
 
     
     componentDidMount() {
-        // this.props.fetchBusiness(this.props.businessId)
         this.props.fetchBusiness(this.props.match.params.businessId)
             .then(()=> {
                 this.setState({loading: false})
@@ -28,9 +27,7 @@ class BusinessShowComponent extends React.Component{
             <div className="business-show-main-container">
                 <div className="business-show-main-left">
                     <div  className="show-header">
-                        {/* <HeaderContainer businessId={this.props.businessId}/> */}
                         <HeaderContainer businessId={this.props.currentBusiness.id}/>
-                        {/* <SearchBar /> */}
                     </div>
                     <div className="pictures-array">
                         {this.props.currentBusiness.photoUrls.map((p, i) => (

@@ -607,7 +607,6 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // this.props.fetchBusiness(this.props.businessId)
       this.props.fetchBusiness(this.props.match.params.businessId).then(function () {
         _this2.setState({
           loading: false
@@ -1146,13 +1145,25 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       body: "",
-      rating: 0
+      rating: 0,
+      loading: true
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ReviewForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.props.fetchBusiness(this.props.match.params.businessId).then(function () {
+        _this2.setState({
+          loading: false
+        });
+      });
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -1163,10 +1174,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleInput",
     value: function handleInput(field) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.target.value));
+        return _this3.setState(_defineProperty({}, field, e.target.value));
       };
     }
   }, {
@@ -1181,10 +1192,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "starRating",
     value: function starRating() {
-      var _this3 = this;
+      var _this4 = this;
 
       var updateRating = function updateRating(ratingValue) {
-        _this3.setState({
+        _this4.setState({
           rating: ratingValue
         });
       };
@@ -1204,7 +1215,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-star",
-          id: ratingValue <= _this3.state.rating ? "checked" : "notChecked" // CSS ID
+          id: ratingValue <= _this4.state.rating ? "checked" : "notChecked" // CSS ID
           ,
           onMouseEnter: function onMouseEnter() {
             return updateRating(ratingValue);
@@ -1263,7 +1274,9 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_form */ "./frontend/components/reviews/review_form.jsx");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_form */ "./frontend/components/reviews/review_form.jsx");
+
 
 
 
@@ -1279,6 +1292,9 @@ var mSTP = function mSTP(state) {
 
 var mDTP = function mDTP(dispatch) {
   return {
+    fetchBusiness: function fetchBusiness(businessId) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(businessId));
+    },
     fetchReview: function fetchReview(reviewId) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["fetchReview"])(reviewId));
     },
@@ -1291,7 +1307,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_review_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_review_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -2189,8 +2205,13 @@ var reviewsReducer = function reviewsReducer() {
       // newState[action.payload.review.id] = action.payload.review
       // return newState;
       // return Object.assign(newState, action.payload.reviewId)
-      newState[action.payload.business.review.id] = action.payload.business.review;
-      return newState;
+      // newState[action.payload.business.review.id] = action.payload.business.review
+      // newState[action.payload.review.id] = action.payload.review
+      // return newState;
+      return Object.assign(newState, action.payload.reviews);
+
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RETURN_SINGLE_REVIEW"]:
+      return action.review;
 
     default:
       return state;

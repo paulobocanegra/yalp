@@ -9,8 +9,17 @@ class ReviewForm extends React.Component {
         this.state = {
             body: "",
             rating: 0,
+            loading: true
         };
+        
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.fetchBusiness(this.props.match.params.businessId)
+            .then(() => {
+                this.setState({ loading: false })
+            })
     }
 
     handleSubmit(e) {
