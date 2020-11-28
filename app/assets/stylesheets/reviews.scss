@@ -74,6 +74,16 @@
     background-size: contain;
 }
 
+.business-name{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 25px 0vw 25px 15vw;
+}
+
+.business-name-link{
+    text-decoration: none;
+    color: black;
+}
 
 .review-content{
     display: flex;
@@ -121,16 +131,11 @@
 .review-form{
     height: 460px;
     width: 660px;
-}
-
-.review-form-container{
     height: 400px;
     width: 600px;
-    // background-color: blue;
     border: 1px solid gray;
     border-radius: 4px;
-    margin-left: 15vw;
-    margin-top: 5vw;
+    margin: 0 0 150px 15vw
 }
 
 .header-link-write-review{

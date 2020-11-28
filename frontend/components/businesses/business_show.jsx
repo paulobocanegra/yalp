@@ -26,7 +26,7 @@ class BusinessShowComponent extends React.Component{
         return(
             <div className="business-show-main-container">
                 <div className="business-show-main-left">
-                    <div  className="show-header">
+                    <div className="show-header">
                         <HeaderContainer businessId={this.props.currentBusiness.id}/>
                     </div>
                     <div className="pictures-array">

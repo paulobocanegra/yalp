@@ -7,14 +7,15 @@ import SignInFormContainer from './session_form/sign_in_form_container';
 import HomeComponentContainer from './home_container';
 import FooterComponent from './footer';
 import BusinessShowContainer from "./businesses/business_show_container";
-import BusinessIndexContainer from "./businesses/business_index_container"
-import ReviewFormContainer from "./reviews/review_form_container";
+import BusinessIndexContainer from "./businesses/business_index_container";
+import CreateReviewContainer from './reviews/create_reviews_container';
+// import ReviewFormContainer from "./reviews/review_form_container";
 
 const App = () => (
     <div>
         <Switch>
+            <ProtectedRoute exact path="/businesses/:businessId/create" component={CreateReviewContainer} />
             <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
-            <ProtectedRoute exact path="/businesses/:businessId/create" component={ReviewFormContainer} />
             <AuthRoute exact path="/signin" component={SignInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <Route exact path="/" component={HomeComponentContainer} />
