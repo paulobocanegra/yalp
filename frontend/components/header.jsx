@@ -19,9 +19,6 @@ const Header = ({ currentUser, signOut, businessId }) => {
                     <Link to={`/signin?id=${businessId}`}>
                         <button className="header-link-search">Log In</button> 
                     </Link>
-                    {/* <Link to={`/signin?id=${businessId}`} className="header-link-search">
-                        Log In 
-                    </Link> */}
                     <Link to="/signup">
                         <button className="header-button-search">Sign Up</button>
                     </Link>

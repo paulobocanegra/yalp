@@ -101,9 +101,9 @@ class CreateReviewComponent extends React.Component {
                     <div className="business-name">
                         <Link to={`/businesses/${this.props.businessId}`} className="business-name-link" >{this.props.currentBusiness[this.props.businessId].name}</Link>
                     </div>
-                                        <form
-                        className="review-form"
-                        onSubmit={this.handleSubmit}>
+                        <form
+                            className="review-form"
+                            onSubmit={this.handleSubmit}>
                         <div className="rating-score-holder">
                             <div className="select-rating">
                                 {this.starRating()}
