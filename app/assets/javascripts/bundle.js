@@ -607,7 +607,8 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.props.fetchBusiness(this.props.match.params.businessId).then(function () {
+      this.props.fetchBusiness(this.props.match.params.businessId);
+      this.props.fetchReviews(this.props.match.params.businessId).then(function () {
         _this2.setState({
           loading: false
         });
@@ -671,8 +672,6 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "warning-text"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Your trust is our top concern,"), " so businesses can't pay to alter or remove their reviews.")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-review-container"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviews"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-picture"
@@ -770,6 +769,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _business_show__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./business_show */ "./frontend/components/businesses/business_show.jsx");
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+
 
 
 
@@ -784,6 +785,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchBusiness: function fetchBusiness(businessId) {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(businessId));
+    },
+    fetchReviews: function fetchReviews(businessId) {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_3__["fetchReviews"])(businessId));
     }
   };
 };
@@ -1131,7 +1135,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // import { useHistory } from "react-router-dom";
+
 
 var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
   _inherits(CreateReviewComponent, _React$Component);
@@ -1172,12 +1176,10 @@ var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      // let history = useHistory();
       e.preventDefault();
       var review = this.state;
       review.business_id = this.props.businessId;
-      this.props.createReview(this.props.businessId, review); // history.push(`/businesses/${this.props.businessId}`);
-
+      this.props.createReview(this.props.businessId, review);
       this.props.history.push("/businesses/".concat(this.props.businessId));
     }
   }, {
@@ -1247,7 +1249,11 @@ var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        businessId: this.props.currentBusiness.id
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-review-holder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-name"

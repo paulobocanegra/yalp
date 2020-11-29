@@ -1,7 +1,6 @@
 import React from "react";
 import HeaderContainer from '../header_container';
 import { Link } from 'react-router-dom'
-// import { useHistory } from "react-router-dom";
 
 
 class CreateReviewComponent extends React.Component {
@@ -30,13 +29,11 @@ class CreateReviewComponent extends React.Component {
     
     //FORM FUNCTIONS
     handleSubmit(e) {
-        // let history = useHistory();
         
         e.preventDefault();
         let review = this.state
         review.business_id = this.props.businessId
         this.props.createReview(this.props.businessId, review)
-        // history.push(`/businesses/${this.props.businessId}`);
         this.props.history.push(`/businesses/${this.props.businessId}`)
     }
 
@@ -100,7 +97,9 @@ class CreateReviewComponent extends React.Component {
         }
         return (
             <div>
-                <HeaderContainer />
+                <div className="show-header">
+                    <HeaderContainer businessId={this.props.currentBusiness.id} />
+                </div>
                 <div className="create-review-holder">
                     <div className="business-name">
                         <Link to={`/businesses/${this.props.businessId}`} className="business-name-link" >{this.props.currentBusiness[this.props.businessId].name}</Link>

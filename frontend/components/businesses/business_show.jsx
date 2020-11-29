@@ -11,6 +11,7 @@ class BusinessShowComponent extends React.Component{
     
     componentDidMount() {
         this.props.fetchBusiness(this.props.match.params.businessId)
+        this.props.fetchReviews(this.props.match.params.businessId)
             .then(()=> {
                 this.setState({loading: false})
             })
@@ -59,9 +60,12 @@ class BusinessShowComponent extends React.Component{
 
                                         </div>
                                 </div>
-                                <div className="create-review-container">
+                                {/* <div className="create-review-container">
                                     
-                                </div>
+                                </div> */}
+
+
+
                                 <div className="reviews">
                                     <div className="profile-picture">
                                     </div>
@@ -81,6 +85,11 @@ class BusinessShowComponent extends React.Component{
                                         </div>
                                     </div>
                                 </div>
+
+
+
+
+                                
                                 <div className="reviews1">
                                     <div className="profile-picture">
                                     </div>
