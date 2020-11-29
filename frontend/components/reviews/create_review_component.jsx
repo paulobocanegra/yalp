@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderContainer from '../header_container';
 import { Link } from 'react-router-dom'
-
+// import { useHistory } from "react-router-dom";
 
 
 class CreateReviewComponent extends React.Component {
@@ -16,24 +16,28 @@ class CreateReviewComponent extends React.Component {
         }; 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
     componentDidMount() {
         this.props.fetchBusiness(this.props.match.params.businessId)
-            .then(() => {
-                this.props.fetchReviews(this.props.match.params.businessId)
-            })
-            .then(() => {
-                this.setState({ loading: false })
-            })
+        .then(() => {
+            this.props.fetchReviews(this.props.match.params.businessId)
+        })
+        .then(() => {
+            this.setState({ loading: false })
+        })
     }
-
-
+    
+    
     //FORM FUNCTIONS
     handleSubmit(e) {
+        // let history = useHistory();
+        
         e.preventDefault();
         let review = this.state
         review.business_id = this.props.businessId
         this.props.createReview(this.props.businessId, review)
+        // history.push(`/businesses/${this.props.businessId}`);
+        this.props.history.push(`/businesses/${this.props.businessId}`)
     }
 
     handleInput(field) {

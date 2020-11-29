@@ -1131,7 +1131,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
+ // import { useHistory } from "react-router-dom";
 
 var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
   _inherits(CreateReviewComponent, _React$Component);
@@ -1172,10 +1172,13 @@ var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      // let history = useHistory();
       e.preventDefault();
       var review = this.state;
       review.business_id = this.props.businessId;
-      this.props.createReview(this.props.businessId, review);
+      this.props.createReview(this.props.businessId, review); // history.push(`/businesses/${this.props.businessId}`);
+
+      this.props.history.push("/businesses/".concat(this.props.businessId));
     }
   }, {
     key: "handleInput",
