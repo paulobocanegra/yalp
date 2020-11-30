@@ -1,9 +1,9 @@
 import React from 'react'
 
 class ReviewItem extends React.Component{
-    // constructor(props){
-    //     super(props)
-    // }
+    constructor(props){
+        super(props)
+    }
 
     currentStars() {
         return (
@@ -36,8 +36,8 @@ class ReviewItem extends React.Component{
                     </div>
                     <div className="review-user-detail">
                         <h3 className="review-username">{this.props.review.user}</h3>
-                        <p><b>1900</b> friends</p>
-                        <p>2 reviews</p>
+                        <p><b>99</b> friends</p>
+                        <p>4 reviews</p>
                     </div>
                     <div className="review-content">
                         <div>

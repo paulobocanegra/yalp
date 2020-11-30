@@ -14,7 +14,7 @@ class ReviewIndex extends React.Component {
     // }
 
     // componentDidMount() {
-    //     this.props.fetchReviews(businessId);
+    //     this.props.fetchReviews(this.props.businessId);
     // }
 
     currentStars() {

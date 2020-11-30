@@ -1357,7 +1357,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   //     this.props.removeReview(this.props.review.id)
   // }
   // componentDidMount() {
-  //     this.props.fetchReviews(businessId);
+  //     this.props.fetchReviews(this.props.businessId);
   // }
 
 
@@ -1436,10 +1436,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    authorId: state.session.id,
+    // authorId: state.session.id,
     reviews: Object.values(state.entities.reviews) // errors: state.errors.reviewsErrors,
     // businessId: ownProps.match.params.businessId   
-    // businessId: state.entities.businesses[ownProps.match.params.businessId]
+    // businessId: state.entities.businesses[0]
 
   };
 };
@@ -1537,17 +1537,14 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(ReviewItem);
 
-  function ReviewItem() {
+  function ReviewItem(props) {
     _classCallCheck(this, ReviewItem);
 
-    return _super.apply(this, arguments);
+    return _super.call(this, props);
   }
 
   _createClass(ReviewItem, [{
     key: "currentStars",
-    // constructor(props){
-    //     super(props)
-    // }
     value: function currentStars() {
       var _this = this;
 
@@ -1583,7 +1580,7 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
         className: "review-user-detail"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "review-username"
-      }, this.props.review.user), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "1900"), " friends"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "2 reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.review.user), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "99"), " friends"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "4 reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.currentStars()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-body"

@@ -6,11 +6,11 @@ import ReviewIndex from './review_index';
 
 const mSTP = (state) => {
     return {
-        authorId: state.session.id,
-        reviews: Object.values(state.entities.reviews)
+        // authorId: state.session.id,
+        reviews: Object.values(state.entities.reviews),
         // errors: state.errors.reviewsErrors,
         // businessId: ownProps.match.params.businessId   
-        // businessId: state.entities.businesses[ownProps.match.params.businessId]
+        // businessId: state.entities.businesses[0]
     }
 };
 
