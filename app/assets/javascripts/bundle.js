@@ -138,29 +138,33 @@ var fetchBusiness = function fetchBusiness(businessId) {
 /*!********************************************!*\
   !*** ./frontend/actions/review_actions.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW, RECEIVE_REVIEW_ERRORS, REMOVE_ERRORS, RETURN_SINGLE_REVIEW, receiveAllReviews, receiveReview, receiveErrors, removeErrors, returnSingleReview, fetchReviews, fetchReview, createReview, removeReview */
+/*! exports provided: RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW, RECEIVE_USER_REVIEWS, RECEIVE_REVIEW_ERRORS, REMOVE_ERRORS, RETURN_SINGLE_REVIEW, receiveAllReviews, receiveReview, receiveUserReviews, receiveErrors, removeErrors, returnSingleReview, fetchReviews, fetchUserReviews, fetchReview, createReview, removeReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_REVIEWS", function() { return RECEIVE_ALL_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER_REVIEWS", function() { return RECEIVE_USER_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW_ERRORS", function() { return RECEIVE_REVIEW_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_ERRORS", function() { return REMOVE_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RETURN_SINGLE_REVIEW", function() { return RETURN_SINGLE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllReviews", function() { return receiveAllReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveUserReviews", function() { return receiveUserReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveErrors", function() { return receiveErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeErrors", function() { return removeErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "returnSingleReview", function() { return returnSingleReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserReviews", function() { return fetchUserReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeReview", function() { return removeReview; });
 /* harmony import */ var _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/review_api_util */ "./frontend/util/review_api_util.js");
 
 var RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
-var RECEIVE_REVIEW = "RECEIVE_REVIEW"; // export const REMOVE_REVIEW = "REMOVE_REVIEW";
+var RECEIVE_REVIEW = "RECEIVE_REVIEW";
+var RECEIVE_USER_REVIEWS = "RECEIVE_USER_REVIEWS"; // export const REMOVE_REVIEW = "REMOVE_REVIEW";
 
 var RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 var REMOVE_ERRORS = "REMOVE_ERRORS";
@@ -175,6 +179,12 @@ var receiveReview = function receiveReview(payload) {
   return {
     type: RECEIVE_REVIEW,
     payload: payload
+  };
+};
+var receiveUserReviews = function receiveUserReviews(reviews) {
+  return {
+    type: RECEIVE_USER_REVIEWS,
+    reviews: reviews
   };
 }; // export const deleteReview = (reviewId) => {
 //     return {
@@ -204,6 +214,15 @@ var fetchReviews = function fetchReviews(businessId) {
   return function (dispatch) {
     return _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReviews"](businessId).then(function (result) {
       return dispatch(receiveAllReviews(result));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.response.JSON));
+    });
+  };
+};
+var fetchUserReviews = function fetchUserReviews(userId) {
+  return function (dispatch) {
+    return _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUserReviews"](userId).then(function (result) {
+      return dispatch(receiveUserReviews(result));
     }, function (errors) {
       return dispatch(receiveErrors(errors.response.JSON));
     });
@@ -2728,18 +2747,25 @@ var fetchBusiness = function fetchBusiness(businessId) {
 /*!******************************************!*\
   !*** ./frontend/util/review_api_util.js ***!
   \******************************************/
-/*! exports provided: fetchReviews, fetchReview, createReview, deleteReview */
+/*! exports provided: fetchReviews, fetchUserReviews, fetchReview, createReview, deleteReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserReviews", function() { return fetchUserReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
 var fetchReviews = function fetchReviews(businessId) {
   return $.ajax({
     url: "/api/businesses/".concat(businessId, "/reviews"),
+    method: "GET"
+  });
+};
+var fetchUserReviews = function fetchUserReviews(userId) {
+  return $.ajax({
+    url: "/api/users/".concat(userId, "/reviews"),
     method: "GET"
   });
 };

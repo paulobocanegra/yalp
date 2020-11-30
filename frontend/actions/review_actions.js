@@ -2,6 +2,7 @@ import * as ReviewApiUtil from '../util/review_api_util';
 
 export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
+export const RECEIVE_USER_REVIEWS = "RECEIVE_USER_REVIEWS"
 // export const REMOVE_REVIEW = "REMOVE_REVIEW";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
@@ -19,6 +20,13 @@ export const receiveReview = (payload) => {
     return {
         type: RECEIVE_REVIEW,
         payload
+    }
+}
+
+export const receiveUserReviews = (reviews) => {
+    return {
+        type: RECEIVE_USER_REVIEWS,
+        reviews
     }
 }
 
@@ -57,6 +65,16 @@ export const fetchReviews = (businessId) => (dispatch) => {
             errors => dispatch(receiveErrors(errors.response.JSON))
             )
 }
+
+export const fetchUserReviews = (userId) => (dispatch) => {
+    return ReviewApiUtil.fetchUserReviews(userId)
+        .then(
+            result => dispatch(receiveUserReviews(result)),
+            errors => dispatch(receiveErrors(errors.response.JSON))
+            )
+}
+
+
 
 export const fetchReview = (reviewId) => (dispatch) => {
     return ReviewApiUtil.fetchReview(reviewId)

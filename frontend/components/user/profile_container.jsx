@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { fetchUser, updateUser } from '../../actions/user_actions';
+import { fetchReviews } from '../../actions/review_actions'
 import Profile from "./profile"
 
 const mSTP = (state) => {
@@ -9,7 +11,9 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => {
     return {
-        updateUser: () => dispatch(updateUser(userId))
+        fetchUser: (userId) => dispatch(fetchUser(userId)),
+        // fetchReviews: 
+        // updateUser: (userId, user) => dispatch(updateUser(userId, user))
         // signOut: () => dispatch(signOut()),
     };
 };
