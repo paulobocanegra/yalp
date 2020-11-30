@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 import HeaderContainer from '../header_container'
+import ReviewIndexContainer from '../reviews/review_index_container'
+// import ReviewIndex from '../reviews/review_index';
 
 class BusinessShowComponent extends React.Component{
     constructor(props){
@@ -60,13 +62,17 @@ class BusinessShowComponent extends React.Component{
 
                                         </div>
                                 </div>
+                                    <div>
+                                        <ReviewIndexContainer/>
+                                    </div>
+                                </ul>
                                 {/* <div className="create-review-container">
                                     
                                 </div> */}
+                                
 
 
-
-                                <div className="reviews">
+                                {/* <div className="reviews">
                                     <div className="profile-picture">
                                     </div>
                                     <div className="review-user-detail">
@@ -85,11 +91,7 @@ class BusinessShowComponent extends React.Component{
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-                                
+                            
                                 <div className="reviews1">
                                     <div className="profile-picture">
                                     </div>
@@ -127,8 +129,8 @@ class BusinessShowComponent extends React.Component{
                                             </p>
                                         </div>
                                     </div>
-                                </div>
-                            </ul>
+                                </div> */}
+                            {/* </ul> */}
                         </div>
                     </div>
                 </div>

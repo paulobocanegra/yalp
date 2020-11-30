@@ -98,7 +98,7 @@ class CreateReviewComponent extends React.Component {
         return (
             <div>
                 <div className="show-header">
-                    <HeaderContainer businessId={this.props.currentBusiness.id} />
+                    <HeaderContainer businessId={this.props.currentBusiness.id}/>
                 </div>
                 <div className="create-review-holder">
                     <div className="business-name">

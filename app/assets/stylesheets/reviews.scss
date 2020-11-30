@@ -64,7 +64,7 @@
     flex-direction: row;
     padding-top: 60px;
     border-top: 1px solid #e2e0e0;
-    // align-items: center;
+    margin-bottom: -20px;
 }
 
 .profile-picture{
@@ -88,8 +88,8 @@
 .review-content{
     display: flex;
     flex-direction: column;
-    width: 466px;
-    height: 366px;
+    width: 400px;
+    height: 230px;
     padding-left: 135px;
 }
 
@@ -161,7 +161,7 @@
 
 
 .select-rating{
-    width: 120px;
+    width: 220px;
     margin: 20px 0px 20px 20px;
 }
 
@@ -222,3 +222,20 @@
   /* margin-right: 10px; */
 }
 
+// .star-background{
+//     background-color: rgb(218, 86, 86);
+//     width: 20px;
+//     align-items: center;
+// }
+
+// .fa-star{
+//     background-color: rgb(218, 86, 86);
+// }
+
+.fas{
+    color: rgb(218, 86, 86);
+}
+
+.far{
+    color: blue;
+}

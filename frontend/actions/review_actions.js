@@ -75,12 +75,12 @@ export const createReview = (businessId, review) => dispatch => {
     ))
 };
 
-// export const removeReview = (reviewId) => dispatch => {
-//     return ReviewApiUtil.removeReview(reviewId)
-//         .then(
-//             () => (dispatch(removeReview(reviewId),
-//             errors => dispatch(receiveErrors(errors.response.JSON))
-//         )
-//     ))
-// };
+export const removeReview = (reviewId) => dispatch => {
+    return ReviewApiUtil.removeReview(reviewId)
+        .then(
+            () => (dispatch(removeReview(reviewId),
+            errors => dispatch(receiveErrors(errors.response.JSON))
+        )
+    ))
+};
 

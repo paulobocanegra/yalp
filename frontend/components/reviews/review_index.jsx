@@ -1,15 +1,21 @@
 import React from "react";
+import ReviewItem from "./review_item"
 // import AverageRating from "./average_rating";
+
 class ReviewIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.handleDelete = this.handleDelete.bind(this);
+        // this.handleDelete = this.handleDelete.bind(this);
     }
 
-    handleDelete(e) {
-        e.preventDefault();
-        this.props.deleteReview(this.props.review.id)
-    }
+    // handleDelete(e) {
+    //     e.preventDefault();
+    //     this.props.removeReview(this.props.review.id)
+    // }
+
+    // componentDidMount() {
+    //     this.props.fetchReviews(businessId);
+    // }
 
     currentStars() {
         return (
@@ -29,20 +35,29 @@ class ReviewIndex extends React.Component {
     }
     render() {
         return (
-            <div className="review-index-div">
-                {/* <div className="rating-avg-rev"> */}
-                {/* <div className="stars-rev">★★★★★</div> */}
-                <div className="stars-icon-div">{this.currentStars()}</div>
-                {/* <div className="stars-rev"><AverageRating/></div> */}
-                {/* </div> */}
-                <div className="user-name">
-                    <div className="reviewing-user">{this.props.review.user}</div>
-                </div>
-                <div className="body-cont">
-                    <div>{this.props.review.body}</div>
-                </div>
-                {/* {this.props.userId === this.props.review.userId ? <button className="review-button2" onClick={this.handleDelete}>Delete</button> : null} */}
+            <div className="reviews">
+                <ul>
+                    {this.props.reviews.reverse().map(review => (<ReviewItem   review={review}
+                                                                    key={review.id}/>))}
+                </ul>                                               
             </div>
+            // <div className="review-index-div">
+            //     {/* <div className="rating-avg-rev"> */}
+            //     {/* <div className="stars-rev">★★★★★</div> */}
+            //     <div className="stars-icon-div">{this.currentStars()}</div>
+            //     {/* <div className="stars-rev"><AverageRating/></div> */}
+            //     {/* </div> */}
+            //     <div className="user-name">
+            //         <div className="reviewing-user">{this.props.review.user}</div>
+            //     </div>
+            //     <div className="body-cont">
+            //         <div>{this.props.review.body}</div>
+            //     </div>
+            //     {/* {this.props.userId === this.props.review.userId ? <button className="review-button2" onClick={this.handleDelete}>Delete</button> : null} */}
+            // </div>
+
+
+
         )
     }
 }
