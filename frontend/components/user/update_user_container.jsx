@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
 import { fetchReviews } from '../../actions/review_actions'
-// import UpdateUser from "./update_user"
+import UpdateUser from "./update_user"
 
 const mSTP = (state) => {
     return {
