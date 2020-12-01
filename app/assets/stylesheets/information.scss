@@ -54,14 +54,21 @@
     float: left;
 }
 
-.profile-picture-1{
+.user-profile-link{
     float: left;
+    position: absolute;
+    margin-left: 350px;
+    border-radius: 50%;
+}
+
+.profile-picture-1{
+    // float: left;
     height: 60px;
     width: 60px;
     background-image: image-url('rick.png');
     background-size: contain;
-    position: absolute;
-    margin-left: 350px;
+    // position: absolute;
+    // margin-left: 350px;
     border-radius: 50%;
 }
 

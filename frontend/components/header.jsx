@@ -10,8 +10,10 @@ const Header = ({ currentUser, signOut, businessId }) => {
                     <Link to="/" className="header-link-review"> Write a Review </Link>
                     <button className="header-button-search" onClick={signOut}>Log out</button>
                 </div>
-                <div className="profile-picture-1">
-                </div>
+                <Link to={`/users/${currentUser.id}`} className="user-profile-link">
+                    <div className="profile-picture-1">
+                    </div>
+                </Link>
             </div>
         ) : (
                 <div className="session_buttons-search">
