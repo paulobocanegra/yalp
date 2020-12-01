@@ -9,11 +9,13 @@ import FooterComponent from './footer';
 import BusinessShowContainer from "./businesses/business_show_container";
 import BusinessIndexContainer from "./businesses/business_index_container";
 import CreateReviewContainer from './reviews/create_reviews_container';
+import ProfileContainer from './user/profile_container';
 // import ReviewFormContainer from "./reviews/review_form_container";
 
 const App = () => (
     <div>
         <Switch>
+            <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
             <ProtectedRoute exact path="/businesses/:businessId/create" component={CreateReviewContainer} />
             <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
             <AuthRoute exact path="/signin" component={SignInFormContainer} />
