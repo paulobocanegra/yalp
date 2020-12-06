@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 import HeaderContainer from '../header_container'
-import ReviewIndexContainer from '../reviews/review_index_container'
+// import ReviewIndexContainer from '../reviews/review_index_container'
+import UserReviewContainer from '../reviews/user_reviews_container'
 
 class Profile extends React.Component{
     constructor(props) {
@@ -56,7 +57,7 @@ class Profile extends React.Component{
                     <div className="user-review-container">
                         <h1>{this.props.currentUser.first_name}'s Profile</h1>
                         {/* <div className="user-reviews"> */}
-                            <ReviewIndexContainer className="user-reviews"/>
+                        <UserReviewContainer className="user-reviews"/>
                             {/* <p>{this.props.reviews}</p> */}
                         {/* </div> */}
                     </div>

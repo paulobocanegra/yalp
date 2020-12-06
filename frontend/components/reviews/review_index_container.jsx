@@ -17,7 +17,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
     return {
         fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId)),
-        fetchUserReviews: (userId) => dispatch(fetchUserReviews(userId)),
+        // fetchUserReviews: (userId) => dispatch(fetchUserReviews(userId)),
         fetchReviews: (businessId) => dispatch(fetchReviews(businessId)),
         createReview: (businessId, review) => dispatch(createReview(businessId, review)),
         removeErrors: () => dispatch(removeErrors())
