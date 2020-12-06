@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const Auth = ({ component: Component, path, loggedIn, exact, location }) => {
-    debugger
+    // debugger
     const queryStringArray = location.search.split("=");
     const id = queryStringArray[queryStringArray.length - 1];
     const route = id ? `/businesses/${id}` : `/`;

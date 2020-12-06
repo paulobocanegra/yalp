@@ -8,11 +8,13 @@ class Profile extends React.Component{
         this.state = {
             loading: true,
         };
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
+        // this.props.fetchUsers()
         this.props.fetchUser(this.props.currentUser.id)
+        this.props.fetchUserReviews(this.props.currentUser.id)
+        // debugger
             .then(() => {
                 this.setState({ loading: false })
             })
@@ -33,9 +35,8 @@ class Profile extends React.Component{
                 </div>
                 <div className="profile-container">
                     <div className="left-most-container">
-                        <div className="profile-picture">
+                        <div className="profile-picture-user-show">
                         </div>
-                        <h1>{this.props.currentUser.first_name}'s Profile</h1>
                     </div>
                     <div className="profile-user-info">
 
@@ -46,6 +47,16 @@ class Profile extends React.Component{
                     </div>
                     <div className="user-actions">
                         <Link to={`/users/${this.props.currentUser.id}/update`}>Update Profile</Link>
+                    </div>
+                </div>
+                <div className="profile-content">
+                    <div className="under-profile-picture">
+                    </div>
+                    <div className="user-review-container">
+                        <h1>{this.props.currentUser.first_name}'s Profile</h1>
+                        <div className="user-reviews">
+                            <p>{this.props.reviews}</p>
+                        </div>
                     </div>
                 </div>
             </div>

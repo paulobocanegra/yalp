@@ -12,7 +12,8 @@ class BusinessShowComponent extends React.Component{
 
     
     componentDidMount() {
-        this.props.fetchBusiness(this.props.match.params.businessId)
+        this.props.fetchBusinesses();
+        this.props.fetchBusiness(this.props.match.params.businessId);
         this.props.fetchReviews(this.props.match.params.businessId)
             .then(()=> {
                 this.setState({loading: false})
@@ -23,9 +24,10 @@ class BusinessShowComponent extends React.Component{
         if(this.state.loading){
             return <div></div>
         }
-        if (!this.props.currentBusiness) {
+        if (!this.props.currentBusiness && !this.props.currentBusiness.photoUrls) {
             return null; 
         }
+        // debugger
         return(
             <div className="business-show-main-container">
                 <div className="business-show-main-left">

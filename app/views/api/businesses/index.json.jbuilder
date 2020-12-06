@@ -6,6 +6,6 @@
         else
             json.main_photoUrl ""
         end
-        json.photoUrl business.photos.map {|photo| url_for(photo)}
+        json.photoUrls business.photos.map {|photo| url_for(photo)}
     end
 end

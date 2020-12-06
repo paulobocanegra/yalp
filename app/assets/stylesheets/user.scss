@@ -1,16 +1,46 @@
 .profile-container{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+    display: table;
+    table-layout: auto;
+    width: 960px;
+    padding: 9px 0px 24px;
+    position: relative;
+    margin-left: 15vw;
+    // justify-content: space-around;
+    // flex-direction: row;
+}
+
+.user-review-container{
+    margin-left: 15vw;
 
 }
 
+
+.profile-picture-user-show{
+    height: 220px;
+    width: 220px;
+    background-image: image-url('rick.png');
+    background-size: contain;
+}
+
 .profile-user-info{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    // display: flex;
+    // justify-content: space-between;
+    // flex-direction: row;
+    display: table-cell;
+    vertical-align: bottom;
     background-color: teal; 
     height: 150px;
     width: 465px;
 }
 
+.user-actions{
+    // margin-left: -200px;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.user-reviews{
+    height: 600px;
+    width: 465px;
+    background-color:violet;
+}

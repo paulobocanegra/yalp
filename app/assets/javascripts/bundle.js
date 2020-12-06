@@ -138,7 +138,7 @@ var fetchBusiness = function fetchBusiness(businessId) {
 /*!********************************************!*\
   !*** ./frontend/actions/review_actions.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW, RECEIVE_USER_REVIEWS, RECEIVE_REVIEW_ERRORS, REMOVE_ERRORS, RETURN_SINGLE_REVIEW, receiveAllReviews, receiveReview, receiveUserReviews, receiveErrors, removeErrors, returnSingleReview, fetchReviews, fetchUserReviews, fetchReview, createReview, removeReview */
+/*! exports provided: RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW, RECEIVE_USER_REVIEWS, REMOVE_REVIEW, RECEIVE_REVIEW_ERRORS, REMOVE_ERRORS, RETURN_SINGLE_REVIEW, receiveAllReviews, receiveReview, receiveUserReviews, deleteReview, receiveErrors, removeErrors, returnSingleReview, fetchReviews, fetchUserReviews, fetchReview, createReview, removeReview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -146,12 +146,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_REVIEWS", function() { return RECEIVE_ALL_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER_REVIEWS", function() { return RECEIVE_USER_REVIEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_REVIEW", function() { return REMOVE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW_ERRORS", function() { return RECEIVE_REVIEW_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_ERRORS", function() { return REMOVE_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RETURN_SINGLE_REVIEW", function() { return RETURN_SINGLE_REVIEW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllReviews", function() { return receiveAllReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveUserReviews", function() { return receiveUserReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveErrors", function() { return receiveErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeErrors", function() { return removeErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "returnSingleReview", function() { return returnSingleReview; });
@@ -164,8 +166,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
 var RECEIVE_REVIEW = "RECEIVE_REVIEW";
-var RECEIVE_USER_REVIEWS = "RECEIVE_USER_REVIEWS"; // export const REMOVE_REVIEW = "REMOVE_REVIEW";
-
+var RECEIVE_USER_REVIEWS = "RECEIVE_USER_REVIEWS";
+var REMOVE_REVIEW = "REMOVE_REVIEW";
 var RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 var REMOVE_ERRORS = "REMOVE_ERRORS";
 var RETURN_SINGLE_REVIEW = "RETURN_SINGLE_REVIEW";
@@ -186,13 +188,13 @@ var receiveUserReviews = function receiveUserReviews(reviews) {
     type: RECEIVE_USER_REVIEWS,
     reviews: reviews
   };
-}; // export const deleteReview = (reviewId) => {
-//     return {
-//         type: REMOVE_REVIEW,
-//         reviewId
-//     }
-// }
-
+};
+var deleteReview = function deleteReview(reviewId) {
+  return {
+    type: REMOVE_REVIEW,
+    reviewId: reviewId
+  };
+};
 var receiveErrors = function receiveErrors(errors) {
   return {
     type: RECEIVE_REVIEW_ERRORS,
@@ -249,7 +251,7 @@ var createReview = function createReview(businessId, review) {
 var removeReview = function removeReview(reviewId) {
   return function (dispatch) {
     return _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["removeReview"](reviewId).then(function () {
-      return dispatch(removeReview(reviewId), function (errors) {
+      return dispatch(deleteReview(reviewId), function (errors) {
         return dispatch(receiveErrors(errors.response.JSON));
       });
     });
@@ -682,6 +684,7 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      this.props.fetchBusinesses();
       this.props.fetchBusiness(this.props.match.params.businessId);
       this.props.fetchReviews(this.props.match.params.businessId).then(function () {
         _this2.setState({
@@ -696,9 +699,10 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       }
 
-      if (!this.props.currentBusiness) {
+      if (!this.props.currentBusiness && !this.props.currentBusiness.photoUrls) {
         return null;
-      }
+      } // debugger
+
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-show-main-container"
@@ -810,6 +814,9 @@ var mSTP = function mSTP(state, ownProps) {
 
 var mDTP = function mDTP(dispatch) {
   return {
+    fetchBusinesses: function fetchBusinesses() {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusinesses"])());
+    },
     fetchBusiness: function fetchBusiness(businessId) {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(businessId));
     },
@@ -2419,8 +2426,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       loading: true
-    }; // this.handleSubmit = this.handleSubmit.bind(this);
-
+    };
     return _this;
   }
 
@@ -2429,7 +2435,10 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.props.fetchUser(this.props.currentUser.id).then(function () {
+      // this.props.fetchUsers()
+      this.props.fetchUser(this.props.currentUser.id);
+      this.props.fetchUserReviews(this.props.currentUser.id) // debugger
+      .then(function () {
         _this2.setState({
           loading: false
         });
@@ -2454,14 +2463,22 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "left-most-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "profile-picture"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.first_name, "'s Profile")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-picture-user-show"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-user-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.first_name, " ", this.props.currentUser.last_name[0] + "."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.currentUser.zip_code))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-actions"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/users/".concat(this.props.currentUser.id, "/update")
-      }, "Update Profile"))));
+      }, "Update Profile"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "under-profile-picture"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-review-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.first_name, "'s Profile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-reviews"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.reviews)))));
     }
   }]);
 
@@ -2492,7 +2509,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    currentUser: state.entities.users[state.session.currentUserId]
+    currentUser: state.entities.users[state.session.currentUserId] // reviews: Object.values(state.entities.reviews)
+
   };
 };
 
@@ -2500,9 +2518,10 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchUser: function fetchUser(userId) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["fetchUser"])(userId));
-    } // fetchReviews: 
-    // updateUser: (userId, user) => dispatch(updateUser(userId, user))
-    // signOut: () => dispatch(signOut()),
+    },
+    fetchUserReviews: function fetchUserReviews(userId) {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUserReviews"])(userId));
+    } // updateUser: (userId, user) => dispatch(updateUser(userId, user))
 
   };
 };
@@ -2902,6 +2921,10 @@ var reviewsReducer = function reviewsReducer() {
       newState = action.reviews;
       return newState;
 
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_USER_REVIEWS"]:
+      newState = action.reviews;
+      return newState;
+
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
       return Object.assign(newState, action.payload.reviews);
 
@@ -3026,17 +3049,21 @@ var sessionReducer = function sessionReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
 var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state);
+  Object.freeze(state); // let newState = Object.assign({}, state)
 
   switch (action.type) {
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      // newState[currentUser] = action.user
+      // return newState
       return Object.assign({}, state, _defineProperty({}, action.user.id, action.user));
 
     default:
@@ -3178,7 +3205,7 @@ var Auth = function Auth(_ref) {
       loggedIn = _ref.loggedIn,
       exact = _ref.exact,
       location = _ref.location;
-  debugger;
+  // debugger
   var queryStringArray = location.search.split("=");
   var id = queryStringArray[queryStringArray.length - 1];
   var route = id ? "/businesses/".concat(id) : "/";
