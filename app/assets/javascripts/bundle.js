@@ -1529,6 +1529,9 @@ var mDTP = function mDTP(dispatch) {
     fetchBusiness: function fetchBusiness(businessId) {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(businessId));
     },
+    fetchUserReviews: function fetchUserReviews(userId) {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["fetchUserReviews"])(userId));
+    },
     fetchReviews: function fetchReviews(businessId) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["fetchReviews"])(businessId));
     },
@@ -2387,6 +2390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _header_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../header_container */ "./frontend/components/header_container.jsx");
+/* harmony import */ var _reviews_review_index_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reviews/review_index_container */ "./frontend/components/reviews/review_index_container.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2408,6 +2412,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2466,7 +2471,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "profile-picture-user-show"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-user-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.first_name, " ", this.props.currentUser.last_name[0] + "."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.currentUser.zip_code))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.first_name + "."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.currentUser.zip_code))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-actions"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/users/".concat(this.props.currentUser.id, "/update")
@@ -2476,9 +2481,9 @@ var Profile = /*#__PURE__*/function (_React$Component) {
         className: "under-profile-picture"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-review-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.first_name, "'s Profile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.first_name, "'s Profile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_review_index_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         className: "user-reviews"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.reviews)))));
+      }))));
     }
   }]);
 
@@ -2509,8 +2514,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    currentUser: state.entities.users[state.session.currentUserId] // reviews: Object.values(state.entities.reviews)
-
+    currentUser: state.entities.users[state.session.currentUserId],
+    reviews: Object.values(state.entities.reviews)
   };
 };
 
@@ -3049,11 +3054,9 @@ var sessionReducer = function sessionReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
-
+ // import { RECEIVE_USER_REVIEWS } from '../actions/review_actions'
 
 var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 import HeaderContainer from '../header_container'
+import ReviewIndexContainer from '../reviews/review_index_container'
 
 class Profile extends React.Component{
     constructor(props) {
@@ -41,7 +42,7 @@ class Profile extends React.Component{
                     <div className="profile-user-info">
 
                         <div>
-                            <h1>{this.props.currentUser.first_name} {this.props.currentUser.last_name[0] + "."}</h1>
+                            <h1>{this.props.currentUser.first_name + "."}</h1>
                             <h3>{this.props.currentUser.zip_code}</h3>
                         </div>
                     </div>
@@ -54,9 +55,10 @@ class Profile extends React.Component{
                     </div>
                     <div className="user-review-container">
                         <h1>{this.props.currentUser.first_name}'s Profile</h1>
-                        <div className="user-reviews">
-                            <p>{this.props.reviews}</p>
-                        </div>
+                        {/* <div className="user-reviews"> */}
+                            <ReviewIndexContainer className="user-reviews"/>
+                            {/* <p>{this.props.reviews}</p> */}
+                        {/* </div> */}
                     </div>
                 </div>
             </div>

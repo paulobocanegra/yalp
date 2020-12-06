@@ -6,7 +6,7 @@ import Profile from "./profile"
 const mSTP = (state) => {
     return {
         currentUser: state.entities.users[state.session.currentUserId],
-        // reviews: Object.values(state.entities.reviews)
+        reviews: Object.values(state.entities.reviews)
     };
 };
 

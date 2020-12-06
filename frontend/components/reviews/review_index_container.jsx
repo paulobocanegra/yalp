@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchReviews } from '../../actions/review_actions'
+import { fetchReviews, fetchUserReviews } from '../../actions/review_actions'
 import { fetchBusiness } from '../../actions/business_actions'
 import ReviewIndex from './review_index';
 
@@ -17,6 +17,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
     return {
         fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId)),
+        fetchUserReviews: (userId) => dispatch(fetchUserReviews(userId)),
         fetchReviews: (businessId) => dispatch(fetchReviews(businessId)),
         createReview: (businessId, review) => dispatch(createReview(businessId, review)),
         removeErrors: () => dispatch(removeErrors())
