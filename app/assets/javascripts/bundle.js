@@ -1808,34 +1808,33 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
-/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _user_reviews_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user_reviews_index */ "./frontend/components/reviews/user_reviews_index.jsx");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _user_reviews_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_reviews_index */ "./frontend/components/reviews/user_reviews_index.jsx");
  // import { fetchReviews, fetchUserReviews } from '../../actions/review_actions'
-
+// import { fetchBusiness, fetchBusinesses } from '../../actions/business_actions'
 
 
 
 
 var mSTP = function mSTP(state) {
   return {
-    reviews: Object.values(state.entities.reviews) // errors: state.errors.reviewsErrors,
+    reviews: Object.values(state.entities.reviews) // business: state.entities.business[state.entities.]
+    // errors: state.errors.reviewsErrors,
 
   };
 };
 
 var mDTP = function mDTP(dispatch) {
   return {
-    fetchBusiness: function fetchBusiness(businessId) {
-      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusiness"])(businessId));
-    },
+    // fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId)),
+    // fetchBusinesses: () => dispatch(fetchBusiness()),
     fetchUserReviews: function fetchUserReviews(userId) {
-      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUserReviews"])(userId));
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["fetchUserReviews"])(userId));
     },
     // fetchReviews: (businessId) => dispatch(fetchReviews(businessId)),
     // createReview: (businessId, review) => dispatch(createReview(businessId, review)),
     removeReview: function removeReview(reviewId) {
-      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["removeReview"])(reviewId));
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["removeReview"])(reviewId));
     },
     removeErrors: function (_removeErrors) {
       function removeErrors() {
@@ -1853,7 +1852,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_user_reviews_index__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_user_reviews_index__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -1955,7 +1954,8 @@ var UserReviewsIndex = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_review_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           review: review,
           key: review.id,
-          removeReview: _this2.props.removeReview
+          removeReview: _this2.props.removeReview,
+          businessId: review.business_id
         });
       })));
     }
@@ -2732,6 +2732,7 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       // this.props.fetchUsers()
+      this.props.fetchBusinesses();
       this.props.fetchUser(this.props.currentUser.id);
       this.props.fetchUserReviews(this.props.currentUser.id) // debugger
       .then(function () {
@@ -2797,7 +2798,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profile */ "./frontend/components/user/profile.jsx");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./profile */ "./frontend/components/user/profile.jsx");
+
 
 
 
@@ -2817,12 +2820,15 @@ var mDTP = function mDTP(dispatch) {
     },
     fetchUserReviews: function fetchUserReviews(userId) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUserReviews"])(userId));
+    },
+    fetchBusinesses: function fetchBusinesses() {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_3__["fetchBusinesses"])());
     } // updateUser: (userId, user) => dispatch(updateUser(userId, user))
 
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_profile__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_profile__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 

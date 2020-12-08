@@ -41,6 +41,7 @@ class UserReviewsItem extends React.Component {
                     </div>
                     <div className="review-user-detail">
                         <h3 className="review-username">{this.props.review.user}</h3>
+                        {/* <h3 className="review-username">{state.entities.businesses[this.props.key].name}</h3> */}
                         <p><b>99</b> friends</p>
                         <p>4 reviews</p>
                     </div>
