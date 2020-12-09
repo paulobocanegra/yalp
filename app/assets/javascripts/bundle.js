@@ -1687,6 +1687,9 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -1723,6 +1726,19 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+ // const mSTP = (state) => {
+//     return {
+//         business: state.entities.businesses[ownProps.businessId]
+//     }
+// }
+// const mDTP = (dispatch) => {
+//     return {
+//         removeReview: (reviewId) => dispatch(removeReview(reviewId)),
+//         fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId))
+//     } 
+// }
+
 var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
   _inherits(UserReviewsItem, _React$Component);
 
@@ -1732,7 +1748,10 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, UserReviewsItem);
 
     return _super.call(this, props);
-  } // handleDelete(e) {
+  } // componentDidMount(){
+  //     this.props.fetchBusiness(this.props.businessId)
+  // }
+  // handleDelete(e) {
   //     e.preventDefault();
   //     this.props.removeReview(this.props.review.id)
   // }
@@ -1777,7 +1796,7 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
         className: "review-user-detail"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "review-username"
-      }, this.props.review.user), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "99"), " friends"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "4 reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.businesses), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "99"), " friends"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "4 reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.currentStars()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-body"
@@ -1794,7 +1813,7 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
   return UserReviewsItem;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (UserReviewsItem);
+/* harmony default export */ __webpack_exports__["default"] = (UserReviewsItem); // export default connect(mSTP, mDTP)(UserReviewsItem)
 
 /***/ }),
 
@@ -1818,7 +1837,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    reviews: Object.values(state.entities.reviews) // business: state.entities.business[state.entities.]
+    reviews: Object.values(state.entities.reviews) // business: state.entities.business[state.]
     // errors: state.errors.reviewsErrors,
 
   };
@@ -1946,15 +1965,13 @@ var UserReviewsIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviews"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.reviews.reverse().map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_review_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           review: review,
-          key: review.id,
-          removeReview: _this2.props.removeReview,
+          key: review.id // removeReview={this.props.removeReview}
+          ,
           businessId: review.business_id
         });
       })));

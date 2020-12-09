@@ -8,7 +8,7 @@ import UserReviewsIndex from './user_reviews_index';
 const mSTP = (state) => {
     return {
         reviews: Object.values(state.entities.reviews),
-        // business: state.entities.business[state.entities.]
+        // business: state.entities.business[state.]
         // errors: state.errors.reviewsErrors,
     }
 };
