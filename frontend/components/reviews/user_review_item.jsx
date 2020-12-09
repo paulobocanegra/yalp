@@ -58,10 +58,10 @@ class UserReviewsItem extends React.Component {
         return (
             <li>
                 <div className="reviews">
-                    <div className="profile-picture">
-                    </div>
+                    <img className="business-img" src={this.props.review.business.main_photo}/>
+                    {/* </div> */}
                     <div className="review-user-detail">
-                        <h3 className="review-username">{this.props.businesses}</h3>
+                        <h3 className="review-username">{this.props.review.business.name}</h3>
                         {/* <h3 className="review-username">{state.entities.businesses[this.props.key].name}</h3> */}
                         <p><b>99</b> friends</p>
                         <p>4 reviews</p>

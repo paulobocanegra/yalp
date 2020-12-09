@@ -39,7 +39,7 @@ class UserReviewsIndex extends React.Component {
                 <ul>
                     {this.props.reviews.reverse().map(review => (<UserReviewsItem review={review}
                         key={review.id} 
-                        // removeReview={this.props.removeReview}
+                        removeReview={this.props.removeReview}
                         businessId={review.business_id}/>))}
                 </ul>
             </div>
