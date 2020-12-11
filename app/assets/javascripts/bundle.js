@@ -1688,8 +1688,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -1725,9 +1723,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-
-
- // const mSTP = (state) => {
+ // import { removeReview } from '../../actions/review_actions'
+// import { fetchBusiness } from '../../actions/business_actions'
+// const mSTP = (state) => {
 //     return {
 //         business: state.entities.businesses[ownProps.businessId]
 //     }
@@ -1745,22 +1743,28 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(UserReviewsItem);
 
   function UserReviewsItem(props) {
+    var _this;
+
     _classCallCheck(this, UserReviewsItem);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    return _this;
   } // componentDidMount(){
   //     this.props.fetchBusiness(this.props.businessId)
-  // }
-  // handleDelete(e) {
-  //     e.preventDefault();
-  //     this.props.removeReview(this.props.review.id)
   // }
 
 
   _createClass(UserReviewsItem, [{
+    key: "handleDelete",
+    value: function handleDelete(e) {
+      e.preventDefault();
+      this.props.removeReview(this.props.review.id);
+    }
+  }, {
     key: "currentStars",
     value: function currentStars() {
-      var _this = this;
+      var _this2 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "starRating-current"
@@ -1771,7 +1775,7 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fas fa-star",
             key: i,
-            id: i + 1 <= _this.props.review.rating ? "checked" : "notChecked"
+            id: i + 1 <= _this2.props.review.rating ? "checked" : "notChecked"
           }) // </div>
 
         );
@@ -1780,8 +1784,6 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       // if (this.state.loading) {
       //     return <div></div>
       // }
@@ -1789,12 +1791,12 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
       //     return null;
       // }
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "reviews"
+        className: "user-reviews-itemews"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "business-img",
+        className: "user-reviews-business-img",
         src: this.props.review.business.main_photo
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "review-user-detail"
+        className: "review-business-detail"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "review-username"
       }, this.props.review.business.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "99"), " friends"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "4 reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1804,9 +1806,7 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
       }, this.props.review.body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "delete-review"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return _this2.props.removeReview(_this2.props.review.id);
-        }
+        onClick: this.handleDelete
       }, "Delete"))));
     }
   }]);

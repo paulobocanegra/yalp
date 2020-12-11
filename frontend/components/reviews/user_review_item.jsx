@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { removeReview } from '../../actions/review_actions'
-import { fetchBusiness } from '../../actions/business_actions'
+// import { removeReview } from '../../actions/review_actions'
+// import { fetchBusiness } from '../../actions/business_actions'
 
 // const mSTP = (state) => {
 //     return {
@@ -19,17 +19,17 @@ import { fetchBusiness } from '../../actions/business_actions'
 class UserReviewsItem extends React.Component {
     constructor(props) {
         super(props)
-        
+        this.handleDelete = this.handleDelete.bind(this)
     }
 
     // componentDidMount(){
     //     this.props.fetchBusiness(this.props.businessId)
     // }
 
-    // handleDelete(e) {
-    //     e.preventDefault();
-    //     this.props.removeReview(this.props.review.id)
-    // }
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.removeReview(this.props.review.id)
+    }
 
     currentStars() {
         return (
@@ -57,10 +57,10 @@ class UserReviewsItem extends React.Component {
         // }
         return (
             <li>
-                <div className="reviews">
-                    <img className="business-img" src={this.props.review.business.main_photo}/>
+                <div className="user-reviews-itemews">
+                    <img className="user-reviews-business-img" src={this.props.review.business.main_photo}/>
                     {/* </div> */}
-                    <div className="review-user-detail">
+                    <div className="review-business-detail">
                         <h3 className="review-username">{this.props.review.business.name}</h3>
                         {/* <h3 className="review-username">{state.entities.businesses[this.props.key].name}</h3> */}
                         <p><b>99</b> friends</p>
@@ -76,7 +76,7 @@ class UserReviewsItem extends React.Component {
                         </div>
                     </div>
                     <div className="delete-review">
-                        <button onClick={() => this.props.removeReview(this.props.review.id)}>Delete</button>
+                        <button onClick={this.handleDelete}>Delete</button>
                     </div>
                 </div>
             </li>

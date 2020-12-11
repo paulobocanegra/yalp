@@ -32,11 +32,15 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
-    # def destroy
-    #     @review = Review.find_by(id: params[:id])
-    #     @review.destroy
-    #     render :show
-    # end
+    def destroy
+        @review = Review.find_by(id: params[:id])
+        # @review.destroy
+        if @review.destroy
+            render :show
+        else
+            render json: @review.errors.full_messages, status: 404
+        end
+    end
     
 
     private
