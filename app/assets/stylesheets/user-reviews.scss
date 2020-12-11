@@ -1,14 +1,17 @@
-.user-reviews-item{
+.user-reviews-items{
     display: flex;
-    flex-direction: row;
-    padding-top: 60px;
+    flex-direction: column;
+    margin-left: 18vw;
+    // padding-top: 60px;
     border-top: 1px solid #e2e0e0;
-    margin-bottom: -20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 720px;
 }
 
 .user-reviews-business-img{
-    height: 185px;
-    width: 250px;
+    height: 60px;
+    width: 60px;
     border-radius: 3px;
     opacity:  0.9;
 }
@@ -16,7 +19,31 @@
 .review-business-detail{
     font-size: 12px;
     line-height: 15px;
-    width: 80px;
+    width: 180px;
     margin-top: 8px;
     margin-left: 8px;
+}
+
+.review-business-name{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+
+.user-reviews-content{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    // height: 230px;
+}
+
+.delete-review{
+    margin-top: 35px;
+    margin-left: 660px;
+}
+.business-photo-info-holder{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
 }

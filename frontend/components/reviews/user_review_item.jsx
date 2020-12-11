@@ -57,16 +57,18 @@ class UserReviewsItem extends React.Component {
         // }
         return (
             <li>
-                <div className="user-reviews-itemews">
-                    <img className="user-reviews-business-img" src={this.props.review.business.main_photo}/>
-                    {/* </div> */}
-                    <div className="review-business-detail">
-                        <h3 className="review-username">{this.props.review.business.name}</h3>
-                        {/* <h3 className="review-username">{state.entities.businesses[this.props.key].name}</h3> */}
-                        <p><b>99</b> friends</p>
-                        <p>4 reviews</p>
+                <div className="user-reviews-items">
+                    <div className="business-photo-info-holder">
+                        {/* </div> */}
+                            <img className="user-reviews-business-img" src={this.props.review.business.main_photo}/>
+                        <div className="review-business-detail">
+                            <h3 className="review-business-name"> {this.props.review.business.name}</h3>
+                            {/* <h3 className="review-username">{state.entities.businesses[this.props.key].name}</h3> */}
+                            <p>Business Adress</p>
+                            <p>City, CA</p>
+                        </div>
                     </div>
-                    <div className="review-content">
+                    <div className="user-reviews-content">
                         <div>
                             {/* <img className="rating-img" id="review-rating" src={window.rating4} /> */}
                             {this.currentStars()}
