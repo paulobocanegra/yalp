@@ -1,10 +1,12 @@
 .profile-container{
     display: table;
-    table-layout: auto;
+    // table-layout: auto;
     width: 960px;
     padding: 9px 0px 24px;
     position: relative;
     margin-left: 15vw;
+    // border-collapse: collapse;
+    border-spacing: 0;
     // justify-content: space-around;
     // flex-direction: row;
 }
@@ -43,4 +45,8 @@
     height: 600px;
     width: 465px;
     background-color:violet;
+}
+
+.user-username{
+    font-size: 35px;
 }
