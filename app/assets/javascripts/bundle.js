@@ -2898,7 +2898,6 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
       first_name: _this.props.currentUser.first_name,
       last_name: _this.props.currentUser.last_name,
       email: _this.props.currentUser.email,
-      password: '',
       zip_code: _this.props.currentUser.zip_code
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -2919,7 +2918,6 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      4;
       this.props.updateUser(this.props.currentUser.id, user);
     } // renderErrors() {
     //     return (

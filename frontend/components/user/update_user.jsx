@@ -9,7 +9,6 @@ class UpdateUser extends React.Component {
             first_name: this.props.currentUser.first_name,
             last_name: this.props.currentUser.last_name,
             email: this.props.currentUser.email,
-            password: '',
             zip_code: this.props.currentUser.zip_code,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,7 +20,7 @@ class UpdateUser extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state); 4
+        const user = Object.assign({}, this.state); 
         this.props.updateUser(this.props.currentUser.id, user);
     }
 
