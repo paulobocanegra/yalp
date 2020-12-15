@@ -48,47 +48,62 @@ class UpdateUser extends React.Component {
                     {this.renderErrors()}
                 </div> */}
 
-              
+                <div className="update-profile-container">
+                    {/* <div className=""> */}
+                        <div className="update-nav-bar">
 
-                <div className="session-container">
-                    <div className="session-container-left">
-                        <form className="session-form" onSubmit={this.handleSubmit}>
-                            <h1 className="top-message">Profile</h1>
-                            
-                            <h4 className="top-session-input-register">Your profile information</h4>
-                            <div className="form-div">
-                                <div className="full-name">
-                                    <input className="input-field-fname" type="text"
-                                        value={this.state.first_name}
-                                        onChange={this.update('first_name')}
-                                        placeholder="First Name" required />
+                        </div>
+                        <form  onSubmit={this.handleSubmit}>
+                            <div className="update-profile-form">
+                                <h1 className="">Profile</h1>
+                                
+                                <h4 className="top-session-input-register">Update your profile information</h4>
+                                <div className="form-div">
+                                    <label htmlFor="edit-first-name"> First Name</label>
+                                    <span className="required-span">This field is required</span>
+                                            <input id="edit-first-name" className="input-field-update" type="text"
+                                                value={this.state.first_name}
+                                                onChange={this.update('first_name')}
+                                                placeholder="First Name" required />
+                                    <br/>
+                                    <label htmlFor="edit-last-name"> Last Name</label>
+                                    <span className="required-span">This field is required</span>
+                                        <input id="edit-last-name" className="input-field-update" type="text"
+                                            value={this.state.last_name}
+                                            onChange={this.update('last_name')}
+                                            placeholder="Last Name" required />
+                                    <br/>
 
-                                    <input className="input-field-lname" type="text"
-                                        value={this.state.last_name}
-                                        onChange={this.update('last_name')}
-                                        placeholder="Last Name" required />
+                                    <label htmlFor="edit-email"> Email </label>
+                                    <span className="required-span">This field is required</span>
+                                    <input id="edit-email" className="input-field-update" type="text"
+                                            value={this.state.email}
+                                            onChange={this.update('email')}
+                                            placeholder="Email" required />
+
+                                        {/* <input type="password"
+                                            className="input-field-update"
+                                            value={this.state.password}
+                                            onChange={this.update('password')}
+                                            placeholder="Password"
+                                            required /> */}
+                                    <br/>
+
+                                    <label htmlFor="edit-zip"> Zip Code </label>
+                                    <span className="required-span">This field is required</span>
+                                    <input id="edit-zip" className="input-field-update" type="text"
+                                        value={this.state.zip_code}
+                                        onChange={this.update('zip_code')}
+                                        placeholder="Zip Code" required />
+                                    <br/>
+                                    <div className="update-buttons">
+                                        <button className="update-button">Save Changes</button>
+                                        <Link className="update-cancel" to={`/users/${this.props.currentUser.id}`}>Cancel</Link>
+                                    </div>
                                 </div>
-
-                                <input className="input-field" type="text"
-                                    value={this.state.email}
-                                    onChange={this.update('email')}
-                                    placeholder="Email" required />
-
-                                <input type="password"
-                                    className="input-field"
-                                    value={this.state.password}
-                                    onChange={this.update('password')}
-                                    placeholder="Password"
-                                    required />
-
-                                <input className="input-field" type="text"
-                                    value={this.state.zip_code}
-                                    onChange={this.update('zip_code')}
-                                    placeholder="Zip Code" required />
-                                <button className="sign-in-button">Update</button>
                             </div>
                         </form>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         );

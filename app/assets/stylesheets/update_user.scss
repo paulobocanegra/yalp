@@ -1,0 +1,55 @@
+.input-field-update{
+    display: inline-block;
+    width: 435px;
+    height: 30px;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid gray;
+}
+
+.update-button{
+    background-color: rgb(218, 86, 86);
+    color: whitesmoke;
+    width: 120px;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.update-buttons{
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-around;
+}
+
+.update-cancel{
+    text-decoration: none;
+    color: rgb(58, 122, 241);
+    margin-top: 19px;
+    margin-left: 40px;
+}
+
+.update-nav-bar{
+    background-color: blue;
+    height: 370px;
+    width: 235px;
+}
+
+.update-profile-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.form-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.required-span{
+    color: gray;
+    font-size: 13px;
+}

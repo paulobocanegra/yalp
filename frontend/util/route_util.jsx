@@ -7,7 +7,7 @@ const Auth = ({ component: Component, path, loggedIn, exact, location }) => {
     const queryStringArray = location.search.split("=");
     const id = queryStringArray[queryStringArray.length - 1];
     const route = id ? `/businesses/${id}` : `/`;
-    debugger
+    // debugger
     return (
         <Route path={path} exact={exact} render={(props) => (
         !loggedIn ? (
