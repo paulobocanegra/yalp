@@ -37,6 +37,7 @@
 
 .show-header{
     display: flex;
+    justify-content: center;
     background-color: white;
     max-width: 2000px;
 }
@@ -77,6 +78,7 @@
     height: 120px;
     display: flex;
     flex-direction: row;
+    // justify-content: center;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid whitesmoke;

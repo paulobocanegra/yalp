@@ -1,5 +1,7 @@
 
 .footer-div{
+    display: flex;
+    justify-content: center;
     background-color: rgb(221, 221, 221);
     color: rgb(149, 140, 128);
     height: 230px;
@@ -8,7 +10,7 @@
     border-top:  1.5px solid gray;
 }
 
-.footer-section {
+.footer-section{
     display: flex;
     justify-content: space-between;
     width: 960px;
@@ -30,7 +32,7 @@
 }
 
 .footer-ul{
-    margin-left: 33%;
+    // margin-left: 33%;
     padding-top: 15px;
     padding-bottom: 5px;
 }
