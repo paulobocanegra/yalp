@@ -12,4 +12,8 @@ class Review < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
+    # has_one_attached :business_photo,
+    # through: :business,
+    # source: :main_photo
+
 end

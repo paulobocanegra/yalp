@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW, RETURN_SINGLE_REVIEW, RECEIVE_USER_REVIEWS } from '../actions/review_actions'
+import { RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW, RETURN_SINGLE_REVIEW, RECEIVE_USER_REVIEWS, REMOVE_REVIEW } from '../actions/review_actions'
 
 const reviewsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -14,6 +14,9 @@ const reviewsReducer = (state = {}, action) => {
             return Object.assign(newState, action.payload.reviews);
         case RETURN_SINGLE_REVIEW:
             return action.review
+        case REMOVE_REVIEW:
+            delete newState[action.reviewId]
+            return newState
         default:
             return state;
     }

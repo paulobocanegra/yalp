@@ -3243,6 +3243,10 @@ var reviewsReducer = function reviewsReducer() {
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RETURN_SINGLE_REVIEW"]:
       return action.review;
 
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_REVIEW"]:
+      delete newState[action.reviewId];
+      return newState;
+
     default:
       return state;
   }
