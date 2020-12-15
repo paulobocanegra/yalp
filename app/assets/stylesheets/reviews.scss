@@ -90,7 +90,6 @@
     display: flex;
     flex-direction: column;
     width: 400px;
-    // height: 230px;
     padding-left: 135px;
 }
 
@@ -125,7 +124,7 @@
     height: 75px;
     background-color: #F5BFB8;
     display: flex;
-    justify-content: space-between;;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -200,26 +199,26 @@
 //STARS
 
 .starRating-current > #checked {
-    color: 218, 86, 86;
+    color: rgb(218, 86, 86);
 }
 .starRating-current > #notChecked{
-  border-color: white;
-  color: white;
+    border-color: white;
+    color: white;
 }
 
 .stars-outer {
-  position: relative;
-  display: inline-block;
-  color: #ccc;
-  margin-right: 5px;
+    position: relative;
+    display: inline-block;
+    color: #ccc;
+    margin-right: 5px;
 }
 .stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: black;
   /* margin-right: 10px; */
 }
 

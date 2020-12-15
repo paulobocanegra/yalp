@@ -4,7 +4,7 @@
     width: 960px;
     padding: 9px 0px 24px;
     position: relative;
-    margin-left: 15vw;
+    margin-left: 18vw;
     // border-collapse: collapse;
     border-spacing: 0;
     // justify-content: space-around;
@@ -12,8 +12,7 @@
 }
 
 .user-review-container{
-    margin-left: 15vw;
-
+    margin-left: 18vw;
 }
 
 
@@ -25,20 +24,20 @@
 }
 
 .profile-user-info{
-    // display: flex;
-    // justify-content: space-between;
-    // flex-direction: row;
     display: table-cell;
     vertical-align: bottom;
-    background-color: teal; 
+    // background-color: teal; 
     height: 150px;
     width: 465px;
 }
 
 .user-actions{
     // margin-left: -200px;
+    height: 100px;
     display: table-cell;
     vertical-align: bottom;
+    // border-left: 1px solid gray;
+    padding-left: 10px;
 }
 
 .user-reviews{
@@ -49,4 +48,16 @@
 
 .user-username{
     font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.number-reviews{
+    padding-top: 2px;
+    font-weight: 550;
+    margin-left: 5px;
+}
+
+.reviews-holder{
+    display: flex;
+    flex-direction: row;
 }

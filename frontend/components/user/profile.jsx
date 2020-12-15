@@ -42,10 +42,15 @@ class Profile extends React.Component{
                         </div>
                     </div>
                     <div className="profile-user-info">
-
                         <div>
                             <h1 className="user-username">{this.props.currentUser.first_name}</h1>
                             <h3>{this.props.currentUser.zip_code}</h3>
+                            <br/>
+                            <div className="reviews-holder">  
+                                <i className="fas fa-star" />
+                                <div className="number-reviews">{Object.values(this.props.reviews).length} Reviews</div>
+                            </div>
+
                         </div>
                     </div>
                     <div className="user-actions">

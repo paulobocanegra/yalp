@@ -1,20 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux';
-// import { removeReview } from '../../actions/review_actions'
-// import { fetchBusiness } from '../../actions/business_actions'
-
-// const mSTP = (state) => {
-//     return {
-//         business: state.entities.businesses[ownProps.businessId]
-//     }
-// }
-
-// const mDTP = (dispatch) => {
-//     return {
-//         removeReview: (reviewId) => dispatch(removeReview(reviewId)),
-//         fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId))
-//     } 
-// }
 
 class UserReviewsItem extends React.Component {
     constructor(props) {
@@ -49,12 +33,7 @@ class UserReviewsItem extends React.Component {
     }
 
     render() {
-        // if (this.state.loading) {
-        //     return <div></div>
-        // }
-        //   if (!this.props.reviews) {
-        //     return null;
-        // }
+
         return (
             <li>
                 <div className="user-reviews-items">
@@ -87,4 +66,3 @@ class UserReviewsItem extends React.Component {
 }
 
 export default UserReviewsItem;
-// export default connect(mSTP, mDTP)(UserReviewsItem)
