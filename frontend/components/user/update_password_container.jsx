@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
-import UpdateUser from "./update_user"
+import UpdateUserPassword from "./update_user"
 
 const mSTP = (state) => {
     return {
@@ -15,4 +15,4 @@ const mDTP = dispatch => {
     };
 };
 
-export default connect(mSTP, mDTP)(UpdateUser);
+export default connect(mSTP, mDTP)(UpdateUserPassword);

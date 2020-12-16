@@ -3,6 +3,18 @@ import React from 'react'
 import SearchBarShow from './search_bar_show'
 import { Link } from "react-router-dom"
 
+
+// class Header extends React.Component{
+//     constructor(props){
+//         super(props)
+//     }
+
+//     componentDidMount(){
+            
+//     }
+
+// }
+
 const Header = ({ currentUser, signOut, businessId }) => {
         const display = currentUser ? (
             <div className="session_buttons-search">

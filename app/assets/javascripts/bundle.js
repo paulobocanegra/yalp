@@ -556,8 +556,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    businesses: Object.values(state.entities.businesses) // currentUserId: state.session.currentUserId
-
+    businesses: Object.values(state.entities.businesses)
   };
 };
 
@@ -942,7 +941,13 @@ __webpack_require__.r(__webpack_exports__);
  // import SearchBar from './search_bar'
 
 
-
+ // class Header extends React.Component{
+//     constructor(props){
+//         super(props)
+//     }
+//     componentDidMount(){
+//     }
+// }
 
 var Header = function Header(_ref) {
   var currentUser = _ref.currentUser,
@@ -2911,6 +2916,11 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(UpdateUser, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchUser(this.props.currentUser.id);
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -2947,12 +2957,28 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
         className: "update-profile-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "update-nav-bar"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "account-settings"
+      }, this.state.first_name, "'s Account Settings ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "profile-list-holder"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "header-link-profile",
+        to: ""
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "update-link",
+        id: "selected-link"
+      }, "Profile")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "header-link-profile",
+        to: ""
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "update-link",
+        id: "bottom-link"
+      }, "Password")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "update-profile-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: ""
+        className: "profile-title"
       }, "Profile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -3036,9 +3062,7 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _update_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./update_user */ "./frontend/components/user/update_user.jsx");
-
+/* harmony import */ var _update_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./update_user */ "./frontend/components/user/update_user.jsx");
 
 
 
@@ -3054,15 +3078,13 @@ var mDTP = function mDTP(dispatch) {
     fetchUser: function fetchUser(userId) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["fetchUser"])(userId));
     },
-    // fetchReviews: 
     updateUser: function updateUser(userId, user) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["updateUser"])(userId, user));
-    } // signOut: () => dispatch(signOut()),
-
+    }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_update_user__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_update_user__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 

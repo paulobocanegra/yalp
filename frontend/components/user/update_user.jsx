@@ -14,6 +14,10 @@ class UpdateUser extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount(){
+        this.props.fetchUser(this.props.currentUser.id)
+    }
+
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value });
     }
@@ -51,11 +55,28 @@ class UpdateUser extends React.Component {
                 <div className="update-profile-container">
                     {/* <div className=""> */}
                         <div className="update-nav-bar">
+                            <div>
+                                <p className="account-settings">{this.state.first_name}'s Account Settings </p>
+                            </div>
+                            <ul className="profile-list-holder">
+                                <Link className="header-link-profile" to="">
+                                    <li className="update-link" id="selected-link">Profile</li>
+                                </Link>
+                                <Link className="header-link-profile" to="">
+                                    <li className="update-link" id="bottom-link">Password</li>
+                                </Link>
 
+                                {/* <li className="update-link" id="selected-link">
+                                    <Link className="header-link-profile" to="">Profile</Link>
+                                </li>
+                                <li className="update-link" id="bottom-link">
+                                    <Link className="header-link-profile" to="">Password</Link>
+                                </li> */}
+                            </ul>
                         </div>
                         <form  onSubmit={this.handleSubmit}>
                             <div className="update-profile-form">
-                                <h1 className="">Profile</h1>
+                                <h1 className="profile-title">Profile</h1>
                                 
                                 <hr/>
                                 <div className="form-div">
