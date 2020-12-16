@@ -22,6 +22,9 @@ class FooterComponent extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div className="gotham" id="session-picture">
+                    <img src={window.gotham} />
+                </div>
             </div>
             )  
         }

@@ -556,7 +556,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    businesses: Object.values(state.entities.businesses)
+    businesses: Object.values(state.entities.businesses) // currentUserId: state.session.currentUserId
+
   };
 };
 
@@ -909,7 +910,12 @@ var FooterComponent = /*#__PURE__*/function (_React$Component) {
         className: "footer-li"
       }, "Email: paulobocanegra@gmail.com"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "footer-li"
-      }, "Phone: (925) 395 7377"))))));
+      }, "Phone: (925) 395 7377"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "gotham",
+        id: "session-picture"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.gotham
+      })));
     }
   }]);
 
@@ -2919,6 +2925,7 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.updateUser(this.props.currentUser.id, user);
+      this.props.history.push("/users/".concat(this.props.currentUser.id));
     } // renderErrors() {
     //     return (
     //         <ul className="errors-message">
@@ -2946,12 +2953,11 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
         className: "update-profile-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: ""
-      }, "Profile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        className: "top-session-input-register"
-      }, "Update your profile information"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Profile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "edit-first-name"
+        htmlFor: "edit-first-name",
+        className: "input-label"
       }, " First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "required-span"
       }, "This field is required"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2963,7 +2969,8 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
         placeholder: "First Name",
         required: true
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "edit-last-name"
+        htmlFor: "edit-last-name",
+        className: "input-label"
       }, " Last Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "required-span"
       }, "This field is required"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2975,7 +2982,8 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
         placeholder: "Last Name",
         required: true
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "edit-email"
+        htmlFor: "edit-email",
+        className: "input-label"
       }, " Email "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "required-span"
       }, "This field is required"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2987,7 +2995,8 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
         placeholder: "Email",
         required: true
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "edit-zip"
+        htmlFor: "edit-zip",
+        className: "input-label"
       }, " Zip Code "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "required-span"
       }, "This field is required"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {

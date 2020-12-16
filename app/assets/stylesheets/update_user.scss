@@ -41,6 +41,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 50px;
 }
 
 
@@ -52,4 +53,11 @@
 .required-span{
     color: gray;
     font-size: 13px;
+}
+
+.input-label{
+    color: rgb(31, 31, 31);
+    font-size: 15px;
+    font-weight: 600;
+    padding-bottom: 3px;
 }

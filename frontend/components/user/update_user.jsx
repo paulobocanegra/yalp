@@ -21,7 +21,8 @@ class UpdateUser extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state); 
-        this.props.updateUser(this.props.currentUser.id, user);
+        this.props.updateUser(this.props.currentUser.id, user)
+        this.props.history.push(`/users/${this.props.currentUser.id}`)
     }
 
 
@@ -56,16 +57,16 @@ class UpdateUser extends React.Component {
                             <div className="update-profile-form">
                                 <h1 className="">Profile</h1>
                                 
-                                <h4 className="top-session-input-register">Update your profile information</h4>
+                                <hr/>
                                 <div className="form-div">
-                                    <label htmlFor="edit-first-name"> First Name</label>
+                                    <label htmlFor="edit-first-name" className="input-label"> First Name</label>
                                     <span className="required-span">This field is required</span>
                                             <input id="edit-first-name" className="input-field-update" type="text"
                                                 value={this.state.first_name}
                                                 onChange={this.update('first_name')}
                                                 placeholder="First Name" required />
                                     <br/>
-                                    <label htmlFor="edit-last-name"> Last Name</label>
+                                <label htmlFor="edit-last-name" className="input-label"> Last Name</label>
                                     <span className="required-span">This field is required</span>
                                         <input id="edit-last-name" className="input-field-update" type="text"
                                             value={this.state.last_name}
@@ -73,7 +74,7 @@ class UpdateUser extends React.Component {
                                             placeholder="Last Name" required />
                                     <br/>
 
-                                    <label htmlFor="edit-email"> Email </label>
+                                <label htmlFor="edit-email" className="input-label"> Email </label>
                                     <span className="required-span">This field is required</span>
                                     <input id="edit-email" className="input-field-update" type="text"
                                             value={this.state.email}
@@ -88,7 +89,7 @@ class UpdateUser extends React.Component {
                                             required /> */}
                                     <br/>
 
-                                    <label htmlFor="edit-zip"> Zip Code </label>
+                                <label htmlFor="edit-zip" className="input-label"> Zip Code </label>
                                     <span className="required-span">This field is required</span>
                                     <input id="edit-zip" className="input-field-update" type="text"
                                         value={this.state.zip_code}
