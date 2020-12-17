@@ -53,9 +53,29 @@ class Profile extends React.Component{
 
                         </div>
                     </div>
-                    <div className="user-actions">
-                        <Link to={`/users/${this.props.currentUser.id}/update`}>Update Profile</Link>
+                    <div className="update-nav-bar user-actions">
+                        {/* <div>
+                            <p className="account-settings">{this.state.first_name}Settings </p>
+                        </div> */}
+                        <ul className="profile-list-holder">
+                            <Link className="header-link-profile" to={`/users/${this.props.currentUser.id}/update`}>
+                                <li className="update-link" >Update Profile</li>
+                            </Link>
+                            <Link className="header-link-profile" to={`/users/${this.props.currentUser.id}/update-password`}>
+                                <li className="update-link" id="bottom-link">Change Password</li>
+                            </Link>
+
+                            {/* <li className="update-link" id="selected-link">
+                                    <Link className="header-link-profile" to="">Profile</Link>
+                                </li>
+                                <li className="update-link" id="bottom-link">
+                                    <Link className="header-link-profile" to="">Password</Link>
+                                </li> */}
+                        </ul>
                     </div>
+                    {/* <div className="user-actions">
+                        <Link to={`/users/${this.props.currentUser.id}/update`}>Update Profile</Link>
+                    </div> */}
                 </div>
                 <div className="profile-content">
                     <div className="under-profile-picture">
