@@ -3000,8 +3000,7 @@ var UpdateUserPassword = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "update-link"
       }, "Profile")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "header-link-profile",
-        to: ""
+        className: "header-link-profile"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", _defineProperty({
         className: "update-link",
         id: "bottom-link"
@@ -3216,8 +3215,7 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
       }, this.state.first_name, "'s Account Settings ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "profile-list-holder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "header-link-profile",
-        to: ""
+        className: "header-link-profile"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "update-link",
         id: "selected-link"

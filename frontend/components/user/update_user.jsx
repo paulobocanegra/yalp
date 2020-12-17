@@ -59,7 +59,7 @@ class UpdateUser extends React.Component {
                                 <p className="account-settings">{this.state.first_name}'s Account Settings </p>
                             </div>
                             <ul className="profile-list-holder">
-                                <Link className="header-link-profile" to="">
+                                <Link className="header-link-profile">
                                     <li className="update-link" id="selected-link">Profile</li>
                                 </Link>
                             <Link className="header-link-profile" to={`/users/${this.props.currentUser.id}/update-password`}>
