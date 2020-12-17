@@ -46,7 +46,7 @@ class UpdateUserPassword extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="update-password-container">
                 <div className="show-header">
                     <HeaderContainer />
                 </div>
