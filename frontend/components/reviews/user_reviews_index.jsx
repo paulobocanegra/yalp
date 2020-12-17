@@ -37,6 +37,7 @@ class UserReviewsIndex extends React.Component {
         return (
             <div className="reviews">
                 <ul>
+                    <h1 className="reviews-top">Reviews</h1>
                     {this.props.reviews.reverse().map(review => (<UserReviewsItem review={review} 
                                                                     key={review.id} 
                                                                     removeReview={this.props.removeReview}

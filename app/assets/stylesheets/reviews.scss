@@ -67,6 +67,14 @@
     padding-bottom: 50px;
 }
 
+.reviews-top{
+    color: rgb(218, 86, 86);
+    margin-left: 15vw;
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 5px;
+}
+
 .profile-picture{
     height: 60px;
     width: 60px;
@@ -161,18 +169,20 @@
 
 
 .select-rating{
-    width: 220px;
+    width: 350px;
     margin: 20px 0px 20px 20px;
 }
 
 .select-rating-title{
     color: gray;
+    margin-left: -130px;
 }
 
 .rating-score-holder{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    // flex-direction: row;
+    // justify-content: space-around;
     align-items: center;
 }
 
@@ -199,11 +209,12 @@
 //STARS
 
 .starRating-current > #checked {
-    color: rgb(218, 86, 86);
+    color: white;
 }
 .starRating-current > #notChecked{
     border-color: white;
     color: white;
+    background-color: whitesmoke;
 }
 
 .stars-outer {
@@ -228,12 +239,17 @@
 //     align-items: center;
 // }
 
-// .fa-star{
-//     background-color: rgb(218, 86, 86);
-// }
+.fa-star{
+    // background-color: rgb(218, 86, 86);
+    background-color:  rgb(218, 86, 86);
+    border-right: white;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 1px;
+}
 
 .fas{
-    color: rgb(218, 86, 86);
+    color:white;
 }
 
 .far{
