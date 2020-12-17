@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class UserReviewsItem extends React.Component {
     constructor(props) {
@@ -41,7 +42,9 @@ class UserReviewsItem extends React.Component {
                         {/* </div> */}
                             <img className="user-reviews-business-img" src={this.props.review.business.main_photo}/>
                         <div className="review-business-detail">
-                            <h3 className="review-business-name"> {this.props.review.business.name}</h3>
+                            <Link className="business-name-link" to={`/businesses/${this.props.review.business.id}`}>
+                                <h3 className="review-business-name"> {this.props.review.business.name}</h3>
+                            </Link>
                             {/* <h3 className="review-username">{state.entities.businesses[this.props.key].name}</h3> */}
                             <p>Business Adress</p>
                             <p>City, CA</p>
