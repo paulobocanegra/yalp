@@ -397,6 +397,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reviews_create_reviews_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reviews/create_reviews_container */ "./frontend/components/reviews/create_reviews_container.jsx");
 /* harmony import */ var _user_profile_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./user/profile_container */ "./frontend/components/user/profile_container.jsx");
 /* harmony import */ var _user_update_user_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./user/update_user_container */ "./frontend/components/user/update_user_container.jsx");
+/* harmony import */ var _user_update_password_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./user/update_password_container */ "./frontend/components/user/update_password_container.jsx");
+
 
 
 
@@ -416,6 +418,10 @@ var App = function App() {
     exact: true,
     path: "/businesses/:businessId/create",
     component: _reviews_create_reviews_container__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
+    exact: true,
+    path: "/users/:userId/update-password",
+    component: _user_update_password_container__WEBPACK_IMPORTED_MODULE_12__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     exact: true,
     path: "/users/:userId/update",
@@ -2853,6 +2859,229 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/user/update_password.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/user/update_password.jsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _header_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../header_container */ "./frontend/components/header_container.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var UpdateUserPassword = /*#__PURE__*/function (_React$Component) {
+  _inherits(UpdateUserPassword, _React$Component);
+
+  var _super = _createSuper(UpdateUserPassword);
+
+  function UpdateUserPassword(props) {
+    var _this;
+
+    _classCallCheck(this, UpdateUserPassword);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      first_name: _this.props.currentUser.first_name,
+      last_name: _this.props.currentUser.last_name,
+      email: _this.props.currentUser.email,
+      zip_code: _this.props.currentUser.zip_code,
+      old_password: "",
+      new_password: "",
+      new_password2: "",
+      password: _this.props.currentUser.password
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UpdateUserPassword, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var user = Object.assign({}, this.state);
+
+      if (this.new_password === this.new_password2 && this.old_password === this.password) {
+        this.props.updateUser(this.props.currentUser.id, user);
+        this.props.history.push("/users/".concat(this.props.currentUser.id));
+      }
+    } // renderErrors() {
+    //     return (
+    //         <ul className="errors-message">
+    //             {this.props.errors.map((error, i) => (
+    //                 <li key={`error-${i}`}>
+    //                     {error}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
+
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "update-profile-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "update-nav-bar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "account-settings"
+      }, this.state.first_name, "'s Account Settings ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "profile-list-holder"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "header-link-profile",
+        to: "/users/".concat(this.props.currentUser.id, "/update")
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "update-link"
+      }, "Profile")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "header-link-profile",
+        to: ""
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", _defineProperty({
+        className: "update-link",
+        id: "bottom-link"
+      }, "id", "selected-link"), "Password")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "update-profile-form"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "profile-title"
+      }, "Change Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "old-password",
+        className: "input-label"
+      }, " Old Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "required-span"
+      }, "This field is required"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "old-password",
+        className: "input-field-update",
+        type: "password",
+        value: this.state.password,
+        onChange: this.update('old_password'),
+        placeholder: "",
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "edit-new-password",
+        className: "input-label"
+      }, " New Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "required-span"
+      }, "This field is required"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-new-password",
+        className: "input-field-update",
+        type: "password",
+        value: this.state.new_password,
+        onChange: this.update('new_password'),
+        placeholder: "",
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "edit-new-password2",
+        className: "input-label"
+      }, " Confirm New Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "required-span"
+      }, "This field is required"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "edit-new-password2",
+        className: "input-field-update",
+        type: "password",
+        value: this.state.new_password2,
+        onChange: this.update('new_password2'),
+        placeholder: "",
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "update-buttons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "update-button"
+      }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "update-cancel",
+        to: "/users/".concat(this.props.currentUser.id)
+      }, "Cancel")))))));
+    }
+  }]);
+
+  return UpdateUserPassword;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (UpdateUserPassword);
+
+/***/ }),
+
+/***/ "./frontend/components/user/update_password_container.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/user/update_password_container.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _update_password__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./update_password */ "./frontend/components/user/update_password.jsx");
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    currentUser: state.entities.users[state.session.currentUserId]
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchUser: function fetchUser(userId) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["fetchUser"])(userId));
+    },
+    updateUser: function updateUser(userId, user) {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["updateUser"])(userId, user));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_update_password__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/user/update_user.jsx":
 /*!**************************************************!*\
   !*** ./frontend/components/user/update_user.jsx ***!
@@ -2969,7 +3198,7 @@ var UpdateUser = /*#__PURE__*/function (_React$Component) {
         id: "selected-link"
       }, "Profile")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "header-link-profile",
-        to: ""
+        to: "/users/".concat(this.props.currentUser.id, "/update-password")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "update-link",
         id: "bottom-link"

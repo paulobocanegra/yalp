@@ -10,9 +10,10 @@ class UpdateUserPassword extends React.Component {
             last_name: this.props.currentUser.last_name,
             email: this.props.currentUser.email,
             zip_code: this.props.currentUser.zip_code,
-            oldPassword: "",
-            newPassword: "",
-            newPassword2: "",
+            old_password: "",
+            new_password: "",
+            new_password2: "",
+            password: this.props.currentUser.password
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -24,8 +25,10 @@ class UpdateUserPassword extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.updateUser(this.props.currentUser.id, user)
-        this.props.history.push(`/users/${this.props.currentUser.id}`)
+        if(this.new_password === this.new_password2 && this.old_password === this.password){
+            this.props.updateUser(this.props.currentUser.id, user)
+            this.props.history.push(`/users/${this.props.currentUser.id}`)
+        } 
     }
 
 
@@ -54,51 +57,53 @@ class UpdateUserPassword extends React.Component {
                 <div className="update-profile-container">
                     {/* <div className=""> */}
                     <div className="update-nav-bar">
+                        <div>
+                            <p className="account-settings">{this.state.first_name}'s Account Settings </p>
+                        </div>
+                        <ul className="profile-list-holder">
+                            <Link className="header-link-profile" to={`/users/${this.props.currentUser.id}/update`}>
+                                <li className="update-link">Profile</li>
+                            </Link>
+                            <Link className="header-link-profile" to="">
+                                <li className="update-link" id="bottom-link" id="selected-link">Password</li>
+                            </Link>
 
+                            {/* <li className="update-link" id="selected-link">
+                                    <Link className="header-link-profile" to="">Profile</Link>
+                                </li>
+                                <li className="update-link" id="bottom-link">
+                                    <Link className="header-link-profile" to="">Password</Link>
+                                </li> */}
+                        </ul>
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className="update-profile-form">
-                            <h1 className="profile-title">Profile</h1>
+                            <h1 className="profile-title">Change Password</h1>
 
                             <hr />
                             <div className="form-div">
                                 <label htmlFor="old-password" className="input-label"> Old Password</label>
                                 <span className="required-span">This field is required</span>
-                                <input id="old-password" className="input-field-update" type="text"
-                                    value={this.state.first_name}
-                                    onChange={this.update('first_name')}
-                                    placeholder="First Name" required />
+                                <input id="old-password" className="input-field-update" type="password"
+                                    value={this.state.password}
+                                    onChange={this.update('old_password')}
+                                    placeholder="" required />
                                 <br />
-                                <label htmlFor="edit-last-name" className="input-label"> Last Name</label>
+                                <label htmlFor="edit-new-password" className="input-label"> New Password</label>
                                 <span className="required-span">This field is required</span>
-                                <input id="edit-last-name" className="input-field-update" type="text"
-                                    value={this.state.last_name}
-                                    onChange={this.update('last_name')}
-                                    placeholder="Last Name" required />
+                                <input id="edit-new-password" className="input-field-update" type="password"
+                                    value={this.state.new_password}
+                                    onChange={this.update('new_password')}
+                                    placeholder="" required />
                                 <br />
-
-                                <label htmlFor="edit-email" className="input-label"> Email </label>
+                                <label htmlFor="edit-new-password2" className="input-label"> Confirm New Password</label>
                                 <span className="required-span">This field is required</span>
-                                <input id="edit-email" className="input-field-update" type="text"
-                                    value={this.state.email}
-                                    onChange={this.update('email')}
-                                    placeholder="Email" required />
-
-                                {/* <input type="password"
-                                            className="input-field-update"
-                                            value={this.state.password}
-                                            onChange={this.update('password')}
-                                            placeholder="Password"
-                                            required /> */}
+                                <input id="edit-new-password2" className="input-field-update" type="password"
+                                    value={this.state.new_password2}
+                                    onChange={this.update('new_password2')}
+                                    placeholder="" required />
                                 <br />
-
-                                <label htmlFor="edit-zip" className="input-label"> Zip Code </label>
-                                <span className="required-span">This field is required</span>
-                                <input id="edit-zip" className="input-field-update" type="text"
-                                    value={this.state.zip_code}
-                                    onChange={this.update('zip_code')}
-                                    placeholder="Zip Code" required />
-                                <br />
+                                
                                 <div className="update-buttons">
                                     <button className="update-button">Save Changes</button>
                                     <Link className="update-cancel" to={`/users/${this.props.currentUser.id}`}>Cancel</Link>

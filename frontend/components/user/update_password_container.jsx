@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
-import UpdateUserPassword from "./update_user"
+import UpdateUserPassword from "./update_password"
 
 const mSTP = (state) => {
     return {

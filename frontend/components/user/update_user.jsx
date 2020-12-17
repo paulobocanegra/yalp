@@ -62,7 +62,7 @@ class UpdateUser extends React.Component {
                                 <Link className="header-link-profile" to="">
                                     <li className="update-link" id="selected-link">Profile</li>
                                 </Link>
-                                <Link className="header-link-profile" to="">
+                            <Link className="header-link-profile" to={`/users/${this.props.currentUser.id}/update-password`}>
                                     <li className="update-link" id="bottom-link">Password</li>
                                 </Link>
 

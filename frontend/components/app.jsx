@@ -11,12 +11,14 @@ import BusinessIndexContainer from "./businesses/business_index_container";
 import CreateReviewContainer from './reviews/create_reviews_container';
 import ProfileContainer from './user/profile_container';
 import UpdateUserContainer from './user/update_user_container'
+import UpdateUserPassword from './user/update_password_container'
 // import ReviewFormContainer from "./reviews/review_form_container";
 
 const App = () => (
     <div>
         <Switch>
             <ProtectedRoute exact path="/businesses/:businessId/create" component={CreateReviewContainer} />
+            <ProtectedRoute exact path="/users/:userId/update-password" component={UpdateUserPassword} />
             <ProtectedRoute exact path="/users/:userId/update" component={UpdateUserContainer} />
             <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
             <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
