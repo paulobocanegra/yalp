@@ -6,11 +6,15 @@ import SearchBar from "./search_bar"
 
 const Home = ({currentUser, signOut}) => {
     const display = currentUser ? (
-        <div className="session_buttons">
+        <div className="session-buttons">
             <button className="header-button" onClick={signOut}>Log out</button>
-            </div>
+            <Link to={`/users/${currentUser.id}`} className="user-profile-link">
+                <div className="profile-picture">
+                </div>
+            </Link>
+        </div>
     ) : (
-        <div className="session_buttons">
+        <div className="session-buttons">
             <Link to="/signin" className="header-link">Log In</Link>
             <Link to="/signup">
                 <button className="header-button">Sign Up</button>

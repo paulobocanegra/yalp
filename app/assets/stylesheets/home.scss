@@ -2,7 +2,10 @@
     font-family: sans-serif;
 }
 
-.session_buttons{
+.session-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     position: absolute;
     left: 65%; 
     top: 5%;
