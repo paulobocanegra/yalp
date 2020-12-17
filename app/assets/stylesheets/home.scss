@@ -35,11 +35,13 @@
 .header-link{
     color: white;
     font-weight: 600;
-    line-height: 1.28571em;
+    height: 30px;
+    // line-height: 1.28571em;
     font-size: 14px;
     border-bottom: 2px solid transparent;
-    padding-bottom: 8px;
+    // padding-bottom: 8px;
     text-decoration: none;
+    margin-top: 25px;
 }
 
 .header-link:hover{
