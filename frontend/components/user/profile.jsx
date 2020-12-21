@@ -43,7 +43,7 @@ class Profile extends React.Component{
                             </div>
                         </div>
                         <div className="profile-user-info">
-                            <div>
+                            <div className="user-info-holder">
                                 <h1 className="user-username">{this.props.currentUser.first_name}</h1>
                                 <h3>{this.props.currentUser.zip_code}</h3>
                                 <br/>

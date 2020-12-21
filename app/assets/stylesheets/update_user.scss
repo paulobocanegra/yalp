@@ -72,13 +72,14 @@
     display: table;
     list-style: none;
     padding-top: 15px;
+    // border-left: 1px solid gray;
 }
 
 .update-link{
     display: table-cell;
     vertical-align: middle;
     color: rgb(58, 122, 241);
-    border-top: 1px solid whitesmoke;
+    border-top: 2px solid whitesmoke;
     height: 45px;
     width: 220px;
     padding-left: 15px;
@@ -86,7 +87,7 @@
 }
 
 .update-link:hover{ 
-    background-color: whitesmoke;
+    text-decoration: underline;
 }
 
 #bottom-link{
