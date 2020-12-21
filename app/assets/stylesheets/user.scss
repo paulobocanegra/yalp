@@ -1,18 +1,27 @@
 .profile-container{
-    display: table;
+    // display: table;
+    // border-spacing: 0;
     // table-layout: auto;
-    width: 960px;
+    // margin-left: 18vw;
+    background-color: whitesmoke;
+    width: 100vw;
     padding: 9px 0px 24px;
     position: relative;
-    margin-left: 18vw;
     // border-collapse: collapse;
+}
+
+.profile-content-container{
+    width: 60vw;
+    display: table;
     border-spacing: 0;
-    // justify-content: space-around;
-    // flex-direction: row;
+    table-layout: auto;
+    margin-left: 18vw;
+  
 }
 
 .user-review-container{
     margin-left: 18vw;
+    width: 1000px;
 }
 
 .under-profile-text{
@@ -33,6 +42,10 @@
 .profile-user-info{
     display: table-cell;
     vertical-align: bottom;
+    padding: 1em;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-around;
     // background-color: teal; 
     height: 150px;
     width: 465px;

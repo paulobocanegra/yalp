@@ -62,8 +62,8 @@
 .reviews{
     display: flex;
     flex-direction: row;
-    padding-top: 60px;
-    border-top: 2px solid whitesmoke;
+    padding-top: 30px;
+    // border-top: 2px solid whitesmoke;
     padding-bottom: 50px;
     width: 650px;
     // width: max-content;
@@ -71,7 +71,7 @@
 
 .reviews-top{
     color: rgb(218, 86, 86);
-    margin-left: 13vh;
+    margin-left: 25vh;
     font-weight: 600;
     font-size: 24px;
     padding-bottom: 5px;
