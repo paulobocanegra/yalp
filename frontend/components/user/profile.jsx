@@ -41,8 +41,6 @@ class Profile extends React.Component{
                         <div className="left-most-container">
                             <div className="profile-picture-user-show">
                             </div>
-                            <div className="profile-picture-user-no-show">
-                            </div>
                         </div>
                         <div className="profile-user-info">
                             <div>
