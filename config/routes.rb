@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     end
     resources :businesses, only:[:index, :show] do 
       resources :reviews, only:[:create, :index]
+      collection do 
+        get :search, to: "businesses#search", as: "search"
+      end
     end
     resource :session, only: [:create, :destroy]
     resources :reviews, only:[:show, :update, :destroy]

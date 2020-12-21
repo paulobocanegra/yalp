@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import BusinessIndexContainer from '../components/businesses/business_index_container'
-import SearchBar from "./search_bar"
+import SearchBarContainer from "./search/search_bar_container"
 
 
 const Home = ({currentUser, signOut}) => {
@@ -29,7 +29,7 @@ const Home = ({currentUser, signOut}) => {
                     <img src={window.logoURL} />
                 </Link>
                 <div className="index-search-bar">
-                    <SearchBar/>
+                    <SearchBarContainer/>
                 </div>
             </div>
                 {display}

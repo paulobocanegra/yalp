@@ -90,7 +90,7 @@
 /*!**********************************************!*\
   !*** ./frontend/actions/business_actions.js ***!
   \**********************************************/
-/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_BUSINESS, receiveAllBusinesses, receiveBusiness, fetchBusinesses, fetchBusiness */
+/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_BUSINESS, receiveAllBusinesses, receiveBusiness, fetchBusinesses, fetchBusiness, getSearchBusinesses */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -101,6 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBusiness", function() { return receiveBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusinesses", function() { return fetchBusinesses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSearchBusinesses", function() { return getSearchBusinesses; });
 /* harmony import */ var _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/business_api_util */ "./frontend/util/business_api_util.js");
 
 var RECEIVE_ALL_BUSINESSES = "RECEIVE_BUSINESSES";
@@ -128,6 +129,13 @@ var fetchBusiness = function fetchBusiness(businessId) {
   return function (dispatch) {
     return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBusiness"](businessId).then(function (result) {
       return dispatch(receiveBusiness(result));
+    });
+  };
+};
+var getSearchBusinesses = function getSearchBusinesses(query) {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["getSearchBusinesses"](query).then(function (businesses) {
+      return dispatch(receiveAllBusinesses(businesses));
     });
   };
 };
@@ -411,7 +419,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import ReviewFormContainer from "./reviews/review_form_container";
+ // import SearchBarContainer from './search/search_bar_container'
+// import ReviewFormContainer from "./reviews/review_form_container";
 
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
@@ -430,6 +439,10 @@ var App = function App() {
     exact: true,
     path: "/users/:userId",
     component: _user_profile_container__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
+    exact: true,
+    path: "/businesses/search/query",
+    component: _businesses_business_index_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/businesses/:businessId",
@@ -1059,7 +1072,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _components_businesses_business_index_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/businesses/business_index_container */ "./frontend/components/businesses/business_index_container.jsx");
-/* harmony import */ var _search_bar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search_bar */ "./frontend/components/search_bar.jsx");
+/* harmony import */ var _search_search_bar_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search/search_bar_container */ "./frontend/components/search/search_bar_container.jsx");
 
 
 
@@ -1099,7 +1112,7 @@ var Home = function Home(_ref) {
     src: window.logoURL
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "index-search-bar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_bar__WEBPACK_IMPORTED_MODULE_3__["default"], null))), display, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_bar_container__WEBPACK_IMPORTED_MODULE_3__["default"], null))), display, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "business-index-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_businesses_business_index_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };
@@ -2029,6 +2042,36 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/components/search/search_bar_container.jsx":
+/*!*************************************************************!*\
+  !*** ./frontend/components/search/search_bar_container.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _search_bar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../search_bar */ "./frontend/components/search_bar.jsx");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    getSearchBusinesses: function getSearchBusinesses(query) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["getSearchBusinesses"])(query));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mDTP)(_search_bar__WEBPACK_IMPORTED_MODULE_1__["default"])));
+
+/***/ }),
+
 /***/ "./frontend/components/search_bar.jsx":
 /*!********************************************!*\
   !*** ./frontend/components/search_bar.jsx ***!
@@ -2069,17 +2112,46 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(SearchBar);
 
-  function SearchBar() {
+  function SearchBar(props) {
+    var _this;
+
     _classCallCheck(this, SearchBar);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      query: ''
+    };
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(SearchBar, [{
+    key: "update",
+    value: function update(e) {
+      e.preventDefault();
+      this.setState({
+        query: e.target.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      this.props.getSearchBusinesses(this.state.query).then(function () {
+        return _this2.props.history.push("/search/".concat(_this2.state.query));
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-bar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "search-bar",
+        onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-bar-left"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -2088,20 +2160,24 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
       }, "Find"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "search-left-input",
         type: "text",
-        placeholder: "delivery, takeout..."
+        placeholder: "delivery, takeout...",
+        onChange: this.update
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-bar-right"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "near-search",
         className: "search-bar-label",
         id: "near"
       }, " Near"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "near-search",
         className: "search-right-input",
         type: "text",
-        placeholder: "San Francisco"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        placeholder: "San Francisco",
+        onChange: this.update
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "search-logo",
         src: window.search
-      })));
+      }))));
     }
   }]);
 
@@ -3672,12 +3748,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state); // let newState = Object.assign({}, state)
+  Object.freeze(state);
 
   switch (action.type) {
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      // newState[currentUser] = action.user
-      // return newState
       return Object.assign({}, state, _defineProperty({}, action.user.id, action.user));
 
     default:
@@ -3721,13 +3795,14 @@ var configureStore = function configureStore() {
 /*!********************************************!*\
   !*** ./frontend/util/business_api_util.js ***!
   \********************************************/
-/*! exports provided: fetchBusinesses, fetchBusiness */
+/*! exports provided: fetchBusinesses, fetchBusiness, getSearchBusinesses */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusinesses", function() { return fetchBusinesses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSearchBusinesses", function() { return getSearchBusinesses; });
 var fetchBusinesses = function fetchBusinesses() {
   return $.ajax({
     url: "/api/businesses",
@@ -3738,6 +3813,15 @@ var fetchBusiness = function fetchBusiness(businessId) {
   return $.ajax({
     url: "/api/businesses/".concat(businessId),
     method: "GET"
+  });
+};
+var getSearchBusinesses = function getSearchBusinesses(query) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/businesses/search",
+    data: {
+      query: query
+    }
   });
 };
 

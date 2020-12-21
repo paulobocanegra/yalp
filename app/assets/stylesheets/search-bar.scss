@@ -14,15 +14,18 @@
 }
 
 .search-bar-left{
-    flex: 1;
-    margin: 5 5 5 5;
-    width: 300px;
+    display: flex;
+    flex-direction: row;
+    margin: 5px 35px 5px 5px;
+    width: 400px;
 }
 
 .search-bar-right{
-    float: left;
-    margin: 5 5 5 0;
-    width: 400px;
+    // float: left;
+    display: flex;
+    flex-direction: row;
+    margin: 5px 5px 5px 0;
+    width: 370px;
 }
 
 .search-left-input{
@@ -60,8 +63,8 @@
 }
 
 .search-bar-label{
-    float: left;
-    position: relative;
+    // float: left;
+    // position: relative;
     font-weight: 600;
     font-size: 19px;
     color: rgb(49, 49, 49);
