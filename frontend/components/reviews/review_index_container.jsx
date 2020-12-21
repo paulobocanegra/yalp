@@ -4,10 +4,12 @@ import { fetchBusiness } from '../../actions/business_actions'
 import ReviewIndex from './review_index';
 
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
     return {
         // authorId: state.session.id,
         reviews: Object.values(state.entities.reviews),
+        ratings: Object.values(state.entities.reviews).map(review => (review.rating)),
+        currentBusiness: ownProps.currentBusiness
         // errors: state.errors.reviewsErrors,
         // businessId: ownProps.match.params.businessId   
         // businessId: state.entities.businesses[0]

@@ -5,7 +5,7 @@
     height: 50px;
     width: 900px;
     background-color: white;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 
@@ -86,4 +86,15 @@
     margin-right: 9px;
     padding-left: 5px;
     border-left: groove;
+}
+
+
+.search-button{
+    margin-left: 35px;
+    width: 55px;
+    border: none;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: rgb(214, 79, 79);
+    cursor: pointer;
 }

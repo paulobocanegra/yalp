@@ -65,7 +65,7 @@ class BusinessShowComponent extends React.Component{
                                         </div>
                                 </div>
                                     <div>
-                                        <ReviewIndexContainer/>
+                                        <ReviewIndexContainer currentBusiness={this.props.currentBusiness}/>
                                     </div>
                                 </ul>
                         </div>

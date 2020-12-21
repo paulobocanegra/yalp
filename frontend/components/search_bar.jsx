@@ -40,8 +40,8 @@ class SearchBar extends React.Component{
                         <input id="near-search" className="search-right-input" type="text" placeholder="San Francisco" 
                         onChange={this.update}/>
                     </div>
-                    <button>
-                        <img className="search-logo" src={window.search} />
+                    <button className="search-button">
+                        <i className="fas fa-search"></i>
                     </button>
                 </form> 
             </div>

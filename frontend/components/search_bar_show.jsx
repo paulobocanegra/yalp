@@ -10,9 +10,9 @@ class SearchBarShow extends React.Component {
                 <div className="search-bar-right-show">
                     <input className="search-right-input-show" type="text" placeholder="San Francisco" />
                 </div>
-                <div>
-                    <img className="search-logo" src={window.search} />
-                </div>
+                <button className="search-button">
+                    <i className="fas fa-search"></i>
+                </button>
             </div>
         )
     }

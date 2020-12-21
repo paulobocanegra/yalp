@@ -1,3 +1,8 @@
+// .rating-avg{
+//     display: flex;
+//     flex-direction: row;
+// }
+
 .review-button-search{
     height: 40px;
     width: 200px;
@@ -226,6 +231,8 @@
     margin-right: 5px;
 }
 .stars-inner {
+    // position: relative;
+    // display: inline-block;
     position: absolute;
     top: 0;
     left: 0;

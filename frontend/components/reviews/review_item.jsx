@@ -41,7 +41,6 @@ class ReviewItem extends React.Component{
                     </div>
                     <div className="review-content">
                         <div>
-                            {/* <img className="rating-img" id="review-rating" src={window.rating4} /> */}
                             {this.currentStars()}
                         </div>
                         <div className="review-body">
