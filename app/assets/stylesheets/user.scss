@@ -5,6 +5,7 @@
     // margin-left: 18vw;
     background-color: whitesmoke;
     width: 100vw;
+    height: 200px;
     padding: 9px 0px 24px;
     position: relative;
     // border-collapse: collapse;
@@ -15,7 +16,7 @@
     display: table;
     border-spacing: 0;
     table-layout: auto;
-    margin-left: 18vw;
+    margin-left: 15vw;
   
 }
 
@@ -32,11 +33,21 @@
 
 
 .profile-picture-user-show{
+    position: absolute;
     height: 220px;
     width: 220px;
     background-image: image-url('rick.png');
     background-size: contain;
     border-radius: 4px;
+    top: 25%;
+}
+
+.profile-picture-user-no-show{
+    height: 220px;
+    width: 220px;
+    // background-image: image-url('rick.png');
+    // background-size: contain;
+    // border-radius: 4px;
 }
 
 .profile-user-info{

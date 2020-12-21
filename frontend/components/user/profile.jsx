@@ -41,6 +41,8 @@ class Profile extends React.Component{
                         <div className="left-most-container">
                             <div className="profile-picture-user-show">
                             </div>
+                            <div className="profile-picture-user-no-show">
+                            </div>
                         </div>
                         <div className="profile-user-info">
                             <div>
@@ -83,7 +85,6 @@ class Profile extends React.Component{
                     <div className="under-profile-picture">
                     </div>
                     <div className="user-review-container">
-                        <p className="under-profile-text" >{this.props.currentUser.first_name}'s Profile</p>
                         {/* <div className="user-reviews"> */}
                         <UserReviewContainer className="user-reviews"/>
                             {/* <p>{this.props.reviews}</p> */}
