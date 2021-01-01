@@ -1,7 +1,11 @@
-// .rating-avg{
-//     display: flex;
-//     flex-direction: row;
-// }
+.rating-avg{
+    display: flex;
+    flex-direction: row;
+}
+
+.review-total{
+    color: gray;
+}
 
 .review-button-search{
     height: 40px;
@@ -267,6 +271,8 @@
 }
 
 .far{
-    color: blue;
+    color: white;
+    background-color: whitesmoke;
+    // border: 1px solid white;
 }
 

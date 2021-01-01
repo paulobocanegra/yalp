@@ -40,7 +40,7 @@ class AvgRating extends React.Component {
                 </div>
                 <div className='review-total'>
                     ({this.reviewCount()})
-        </div>
+                </div>
             </div>
         )
     }

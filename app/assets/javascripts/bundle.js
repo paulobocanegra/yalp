@@ -589,6 +589,7 @@ var mDTP = function mDTP(dispatch) {
     fetchBusinesses: function fetchBusinesses() {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusinesses"])());
     },
+    // fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId)),
     fetchReviews: function fetchReviews(businessId) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_3__["fetchReviews"])(businessId));
     }
@@ -647,11 +648,15 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, BusinessIndexItem);
 
     return _super.call(this, props);
-  }
+  } // componentDidMount(){
+  //     // this.props.fetchBusiness(this.props.business.id);
+  //     this.props.fetchReviews(this.props.business.id)
+  // }
+
 
   _createClass(BusinessIndexItem, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
       this.props.fetchReviews(this.props.business.id);
     }
   }, {
@@ -674,7 +679,7 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
         to: "/businesses/".concat(this.props.business.id),
         className: "business-link"
       }, this.props.business.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_avg_rating_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        businessId: this.props.business.id,
+        businessId: this.props.businessId,
         reviews: this.props.reviews
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "bottom-description"

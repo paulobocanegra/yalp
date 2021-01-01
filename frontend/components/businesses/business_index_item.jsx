@@ -7,7 +7,12 @@ class BusinessIndexItem extends React.Component{
         super(props)
     }
 
-    componentDidMount(){
+    // componentDidMount(){
+    //     // this.props.fetchBusiness(this.props.business.id);
+    //     this.props.fetchReviews(this.props.business.id)
+    // }
+    
+    componentWillUnmount(){
         this.props.fetchReviews(this.props.business.id)
     }
 
@@ -24,7 +29,7 @@ class BusinessIndexItem extends React.Component{
                         <Link to={`/businesses/${this.props.business.id}`} className="business-link">{this.props.business.name}
                         </Link>
                         {/* <p className="bottom-description"><img className="index-rating-img" src={window.rating4} /></p> */}
-                        <AvgRating businessId={this.props.business.id}
+                        <AvgRating businessId={this.props.businessId}
                             reviews={this.props.reviews} />
                         <p className="bottom-description">{this.props.business.bio}</p>
                         <p className="bottom-description">{this.props.business.location}</p>
