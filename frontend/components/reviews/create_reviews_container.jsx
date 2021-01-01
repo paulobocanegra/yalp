@@ -5,7 +5,7 @@ import CreateReview from './create_review_component';
 
 const mSTP = (state, ownProps) => {
     return {
-        authorId: state.session.currentUserId,
+        authorId: state.session.currentUser,
         // errors: state.errors.reviewsErrors,
         businessId: ownProps.match.params.businessId,
         currentBusiness: state.entities.businesses

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom"
 import HeaderContainer from '../header_container'
 import ReviewIndexContainer from '../reviews/review_index_container'
-// import ReviewIndex from '../reviews/review_index';
+import AvgRating from '../reviews/avg_rating_container'
 
 class BusinessShowComponent extends React.Component{
     constructor(props){
@@ -12,7 +12,6 @@ class BusinessShowComponent extends React.Component{
 
     
     componentDidMount() {
-        this.props.fetchBusinesses();
         this.props.fetchBusiness(this.props.match.params.businessId);
         this.props.fetchReviews(this.props.match.params.businessId)
             .then(()=> {
@@ -20,14 +19,14 @@ class BusinessShowComponent extends React.Component{
             })
     }
 
+
     render(){
         if(this.state.loading){
             return <div></div>
         }
-        if (!this.props.currentBusiness && !this.props.currentBusiness.photoUrls) {
-            return null; 
-        }
-        // debugger
+        // if (!this.props.currentBusiness && !this.props.currentBusiness.photoUrls) {
+        //     return null; 
+        // }
         return(
             <div className="business-show-main-container">
                 <div className="business-show-main-left">
@@ -45,7 +44,10 @@ class BusinessShowComponent extends React.Component{
                         <div className="main-show">
                             <ul className="show-info">
                                 <li className="business-title">{this.props.currentBusiness.name}</li>
-                                    <li><img className="rating-img" src={window.rating4} /> </li>
+                                    {/* <li><img className="rating-img" src={window.rating4} /> </li> */}
+                                <li><AvgRating businessId={this.props.currentBusiness.id}
+                                                reviews={this.props.reviews}/>
+                                </li>
                                 <li className="business-bio">{this.props.currentBusiness.bio}</li>
                                 {/* <li>{this.props.currentBusiness.location}</li>         */}
                                 {/* <Link to="/businesses/{}" className="review-button-search">Write a Review</Link> */}

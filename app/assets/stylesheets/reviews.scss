@@ -69,7 +69,7 @@
     flex-direction: row;
     padding-top: 30px;
     // border-top: 2px solid whitesmoke;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     width: 650px;
     // width: max-content;
 }
@@ -224,6 +224,11 @@
     background-color: whitesmoke;
 }
 
+.starRating-current-avg{
+    display: flex;
+    flex-direction: row;
+    position: absolute;}
+
 .stars-outer {
     position: relative;
     display: inline-block;
@@ -264,3 +269,4 @@
 .far{
     color: blue;
 }
+

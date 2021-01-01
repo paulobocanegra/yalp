@@ -3,7 +3,7 @@ import AvgRating from "./avg_rating"
 import { fetchReviews } from "../../actions/review_actions"
 const mSTP = (state, ownProps) => {
     return ({
-        reviews: ownProps.reviews,
+        reviews: Object.values(state.entities.reviews),
         businessId: ownProps.businessId,
     })
 }

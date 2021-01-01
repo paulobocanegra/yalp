@@ -4,7 +4,7 @@ import Header from './header';
 
 const mSTP = (state) => {
     return {
-        currentUser: state.entities.users[state.session.currentUserId],
+        currentUser: state.session.currentUser
     };
 };
 

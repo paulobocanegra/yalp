@@ -4,7 +4,8 @@ import UpdateUser from "./update_user"
 
 const mSTP = (state) => {
     return {
-        currentUser: state.entities.users[state.session.currentUserId],
+        // currentUser: state.session.currentUser,
+        currentUser: state.entities.users[state.session.currentUser.id]
     };
 };
 

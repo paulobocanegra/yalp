@@ -24,7 +24,8 @@ class BusinessIndex extends React.Component {
                     <ul className="business-ul">
                         {
                             this.props.businesses.map((business) => (<BusinessIndexItem business={business}
-                                                                                        key={business.id}/>))
+                                                                                        key={business.id}
+                                                                                        fetchReviews={this.props.fetchReviews}/>))
                         }
                     </ul>
                 </div>

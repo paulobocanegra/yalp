@@ -4,7 +4,7 @@ import UpdateUserPassword from "./update_password"
 
 const mSTP = (state) => {
     return {
-        currentUser: state.entities.users[state.session.currentUserId],
+        currentUser: state.entities.users[state.session.currentUser.id]
     };
 };
 

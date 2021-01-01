@@ -7,3 +7,4 @@
         # json.business_photo review.business.main_photo
     end
 end
+# json.average @average_rating

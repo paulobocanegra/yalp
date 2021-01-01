@@ -11,7 +11,8 @@ class Api::ReviewsController < ApplicationController
             @reviews = Review.where(author_id: params[:user_id])
         
         elsif params.has_key?(:business_id)
-            @reviews = Review.where(business_id: params[:business_id])  
+            @reviews = Review.where(business_id: params[:business_id])
+            @average_rating = @reviews.map{|review| review.rating}.sum/@reviews.length
         else
             @reviews = Review.all
         end

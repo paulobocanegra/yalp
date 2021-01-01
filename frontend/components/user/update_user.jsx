@@ -56,7 +56,7 @@ class UpdateUser extends React.Component {
                     {/* <div className=""> */}
                         <div className="update-nav-bar">
                             <div>
-                                <p className="account-settings">{this.state.first_name}'s Account Settings </p>
+                                <p className="account-settings">{this.props.currentUser.first_name}'s Account Settings </p>
                             </div>
                             <ul className="profile-list-holder">
                                 <Link className="header-link-profile">

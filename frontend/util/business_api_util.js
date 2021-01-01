@@ -12,6 +12,9 @@ export const fetchBusiness = (businessId) => {
     })
 }
 
+// SEARCH BAR HAS 2 INPUTS: ONE FOR LOCATION AND ONE NON-SPECIFIC
+
+// NON-SPECIFIC  (LEFT INPUT)
 export const getSearchBusinesses = (query) => {
     return $.ajax({
         method: "GET",
@@ -19,3 +22,4 @@ export const getSearchBusinesses = (query) => {
         data: {query: query}
     })
 }
+

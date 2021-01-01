@@ -16,8 +16,8 @@ import { Link } from "react-router-dom"
 // }
 
 const Header = ({ currentUser, signOut, businessId }) => {
-        const display = currentUser ? (
-            <div className="session_buttons-search">
+    const display = currentUser ? (
+        <div className="session_buttons-search">
                 <div className="log-out">
                     <Link to="/" className="header-link-review"> Write a Review </Link>
                     <button className="header-button-search" onClick={signOut}>Log out</button>
@@ -38,7 +38,7 @@ const Header = ({ currentUser, signOut, businessId }) => {
                     </Link>
                 </div>
             );
-            console.log(currentUser)
+            // console.log(currentUser)
         return (
             <div className="header-container">
                 <div className="header-container-child" id="logo-id">
