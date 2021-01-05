@@ -1,7 +1,13 @@
 class Api::BusinessesController < ApplicationController
     def index
-        @businesses = Business.all
-        render :index
+        # if params[:query]
+        # # if Business.search_businesses(params[:data])
+        #     @businesses = Business.search_businesses(params[:data])
+        #     render :index
+        # else
+            @businesses = Business.all
+            render :index
+        # end
     end
 
     def show

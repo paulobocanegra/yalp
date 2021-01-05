@@ -12,7 +12,7 @@ class Api::ReviewsController < ApplicationController
         
         elsif params.has_key?(:business_id)
             @reviews = Review.where(business_id: params[:business_id])
-            @average_rating = @reviews.map{|review| review.rating}.sum/@reviews.length
+            # @average_rating = @reviews.map{|review| review.rating}.sum/@reviews.length
         else
             @reviews = Review.all
         end

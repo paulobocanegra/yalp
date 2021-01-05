@@ -3,6 +3,11 @@ class AvgRating extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    componentDidMount(){
+        this.props.fetchReviews(this.props.businessId)
+    }
+
     reviewCount() {
         return this.props.reviews.length
     }

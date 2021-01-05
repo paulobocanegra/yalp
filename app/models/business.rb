@@ -15,5 +15,13 @@ class Business < ApplicationRecord
     has_many :users_reviewed,
     through: :reviews,
     source: :user
+
+    def self.search_businesses(arg)
+        a = (Business.where("name LIKE (?)", "%#{arg}%").map {|el| el}) +
+            (Business.where("name LIKE (?)", "%#{arg.downcase}%").map {|el| el}) +
+            (Business.where("name LIKE (?)", "%#{arg.upcase}%").map {|el| el}) +
+            (Business.where("name LIKE (?)", "%#{arg.capitalize}%").map {|el| el}) 
+        return a.uniq
+    end
 end
 

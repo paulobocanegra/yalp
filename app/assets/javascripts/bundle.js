@@ -648,17 +648,17 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, BusinessIndexItem);
 
     return _super.call(this, props);
-  } // componentDidMount(){
-  //     // this.props.fetchBusiness(this.props.business.id);
-  //     this.props.fetchReviews(this.props.business.id)
-  // }
-
+  }
 
   _createClass(BusinessIndexItem, [{
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // this.props.fetchBusiness(this.props.business.id);
       this.props.fetchReviews(this.props.business.id);
-    }
+    } // componentWillUnmount(){
+    //     this.props.fetchReviews(this.props.business.id)
+    // }
+
   }, {
     key: "render",
     value: function render() {
@@ -679,8 +679,8 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
         to: "/businesses/".concat(this.props.business.id),
         className: "business-link"
       }, this.props.business.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reviews_avg_rating_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        businessId: this.props.businessId,
-        reviews: this.props.reviews
+        businessId: this.props.business.id,
+        fetchReviews: this.props.fetchReviews
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "bottom-description"
       }, this.props.business.bio), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1280,6 +1280,11 @@ var AvgRating = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(AvgRating, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchReviews(this.props.businessId);
+    }
+  }, {
     key: "reviewCount",
     value: function reviewCount() {
       return this.props.reviews.length;
