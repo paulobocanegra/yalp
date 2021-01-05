@@ -12,7 +12,7 @@ import CreateReviewContainer from './reviews/create_reviews_container';
 import ProfileContainer from './user/profile_container';
 import UpdateUserContainer from './user/update_user_container'
 import UpdateUserPassword from './user/update_password_container'
-// import SearchBarContainer from './search/search_bar_container'
+import SearchResultContainer from './search/search_result_container'
 // import ReviewFormContainer from "./reviews/review_form_container";
 
 const App = () => (
@@ -22,8 +22,8 @@ const App = () => (
             <ProtectedRoute exact path="/users/:userId/update-password" component={UpdateUserPassword} />
             <ProtectedRoute exact path="/users/:userId/update" component={UpdateUserContainer} />
             <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
-            <AuthRoute exact path="/businesses/search/query" component={BusinessIndexContainer} />
             <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
+            <AuthRoute exact path="/search/query" component={SearchResultContainer} />
             <AuthRoute exact path="/signin" component={SignInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <Route exact path="/" component={HomeComponentContainer} />

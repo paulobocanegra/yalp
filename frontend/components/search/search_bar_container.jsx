@@ -1,5 +1,5 @@
 import {connect} from "react-redux"
-import SearchBar from "../search_bar"
+import SearchBar from "./search_bar"
 import { getSearchBusinesses } from "../../actions/business_actions"
 import { withRouter } from "react-router-dom"
 

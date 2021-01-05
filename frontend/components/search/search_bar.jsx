@@ -17,6 +17,12 @@ class SearchBar extends React.Component{
         this.setState({ query: e.target.value})
     }
 
+    // handleEnter(e) {
+    //     if (e.key === 'Enter') {
+    //         this.handleSubmit(e);
+    //     }
+    // }
+
     handleSubmit(e){
         e.preventDefault();
 
