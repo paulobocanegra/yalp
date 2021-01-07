@@ -8,7 +8,12 @@ class BusinessIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchBusinesses()
+        if (this.props.match.params.query === undefined){
+            this.props.fetchBusinesses()
+        } else{
+            this.props.getSearchBusinesses(this.props.match.params.query)
+        }
+        // this.props.fetchBusinesses()
     }
 
     render() {
@@ -25,6 +30,7 @@ class BusinessIndex extends React.Component {
                         {
                             this.props.businesses.map((business) => (<BusinessIndexItem business={business}
                                                                                         key={business.id}
+                                                                                        fetchBusiness={this.props.fetchBusiness}
                                                                                         fetchReviews={this.props.fetchReviews}/>))
                         }
                     </ul>

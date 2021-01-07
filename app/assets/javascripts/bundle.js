@@ -444,10 +444,10 @@ var App = function App() {
     exact: true,
     path: "/businesses/:businessId",
     component: _businesses_business_show_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
-    path: "/search/query",
-    component: _search_search_result_container__WEBPACK_IMPORTED_MODULE_13__["default"]
+    path: "/search/:query",
+    component: _home_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/signin",
@@ -525,7 +525,12 @@ var BusinessIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(BusinessIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchBusinesses();
+      if (this.props.match.params.query === undefined) {
+        this.props.fetchBusinesses();
+      } else {
+        this.props.getSearchBusinesses(this.props.match.params.query);
+      } // this.props.fetchBusinesses()
+
     }
   }, {
     key: "render",
@@ -547,6 +552,7 @@ var BusinessIndex = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             business: business,
             key: business.id,
+            fetchBusiness: _this.props.fetchBusiness,
             fetchReviews: _this.props.fetchReviews
           });
         }))));
@@ -574,6 +580,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _business_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./business_index */ "./frontend/components/businesses/business_index.jsx");
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -590,14 +598,19 @@ var mDTP = function mDTP(dispatch) {
     fetchBusinesses: function fetchBusinesses() {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusinesses"])());
     },
-    // fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId)),
+    fetchBusiness: function fetchBusiness(businessId) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(businessId));
+    },
     fetchReviews: function fetchReviews(businessId) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_3__["fetchReviews"])(businessId));
+    },
+    getSearchBusinesses: function getSearchBusinesses(query) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["getSearchBusinesses"])(query));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_business_index__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_business_index__WEBPACK_IMPORTED_MODULE_1__["default"])));
 
 /***/ }),
 
@@ -649,18 +662,23 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, BusinessIndexItem);
 
     return _super.call(this, props);
-  } // componentDidMount(){
-  // this.props.fetchBusiness(this.props.business.id);
-  // this.props.fetchReviews(this.props.business.id)
-  // }
-  // componentWillUnmount(){
-  //     this.props.fetchReviews(this.props.business.id)
-  // }
-
+  }
 
   _createClass(BusinessIndexItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchBusiness(this.props.business.id);
+      this.props.fetchReviews(this.props.business.id);
+    } // componentWillUnmount(){
+    //     this.props.fetchReviews(this.props.business.id)
+    // }
+
+  }, {
     key: "render",
     value: function render() {
+      // if(!this.props.businessId){
+      //     return null
+      // }
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-li"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -1306,10 +1324,9 @@ var AvgRating = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.reviews.length) {
-        return null;
-      }
-
+      // if (!this.props.reviews){
+      //     return null;
+      // }
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rating-avg"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1369,8 +1386,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  debugger;
   return {
-    reviews: Object.values(state.entities.reviews),
+    reviews: state.entities.reviews[ownProps.businessId],
     businessId: ownProps.businessId
   };
 };
@@ -1467,6 +1485,7 @@ var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      this.props.removeErrors();
       this.props.fetchBusiness(this.props.match.params.businessId).then(function () {
         _this2.props.fetchReviews(_this2.props.match.params.businessId);
       }).then(function () {
@@ -1474,6 +1493,11 @@ var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
           loading: false
         });
       });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.removeErrors();
     } //FORM FUNCTIONS
 
   }, {
@@ -1493,16 +1517,18 @@ var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this3.setState(_defineProperty({}, field, e.target.value));
       };
-    } // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>{error}</li>
-    //             ))}
-    //         </ul>
-    //     )
-    // }
-
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "errors-message"
+      }, this.props.errors.map(function (error, i) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: "error-".concat(i)
+        }, error);
+      }));
+    }
   }, {
     key: "starRating",
     value: function starRating() {
@@ -1563,7 +1589,9 @@ var CreateReviewComponent = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/businesses/".concat(this.props.businessId),
         className: "business-name-link"
-      }, this.props.currentBusiness[this.props.businessId].name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, this.props.currentBusiness[this.props.businessId].name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "errors-message"
+      }, this.renderErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "review-form",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1609,10 +1637,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var mSTP = function mSTP(state, ownProps) {
   return {
     authorId: state.session.currentUser,
-    // errors: state.errors.reviewsErrors,
+    errors: state.errors.reviewsErrors,
     businessId: ownProps.match.params.businessId,
     currentBusiness: state.entities.businesses
   };
@@ -1631,8 +1660,10 @@ var mDTP = function mDTP(dispatch) {
     },
     createReview: function createReview(businessId, review) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["createReview"])(businessId, review));
-    } // removeErrors: () => dispatch(removeErrors())
-
+    },
+    removeErrors: function removeErrors() {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["removeErrors"])());
+    }
   };
 };
 
@@ -2344,7 +2375,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
       }, "Find"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "search-left-input",
         type: "text",
-        placeholder: "delivery, takeout...",
+        placeholder: "burgers, sushi...",
         onChange: this.update
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-bar-right"
@@ -2488,7 +2519,7 @@ var SearchResult = /*#__PURE__*/function (_React$Component) {
           className: "business-index"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
           className: "business-ul-title"
-        }, "Find the Best Businesses in Town")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        }, "Search Results:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "business-ul"
         }, this.props.businesses.map(function (business) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_result_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -2655,6 +2686,9 @@ var SearchResultItem = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2678,47 +2712,94 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
+ // import SearchBar from "./search_bar"
+
+
+
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    getSearchBusinesses: function getSearchBusinesses(query) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["getSearchBusinesses"])(query));
+    }
+  };
+};
 
 var SearchBarShow = /*#__PURE__*/function (_React$Component) {
   _inherits(SearchBarShow, _React$Component);
 
   var _super = _createSuper(SearchBarShow);
 
-  function SearchBarShow() {
+  function SearchBarShow(props) {
+    var _this;
+
     _classCallCheck(this, SearchBarShow);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      query: ''
+    };
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(SearchBarShow, [{
+    key: "update",
+    value: function update(e) {
+      e.preventDefault();
+      this.setState({
+        query: e.target.value
+      });
+    } // handleEnter(e) {
+    //     if (e.key === 'Enter') {
+    //         this.handleSubmit(e);
+    //     }
+    // }
+
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      this.props.getSearchBusinesses(this.state.query).then(function () {
+        return _this2.props.history.push("/search/".concat(_this2.state.query));
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-bar-show"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "search-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-bar-left-show"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "search-left-input-show",
         type: "text",
-        placeholder: "delivery, takeout..."
+        placeholder: "burgers, sushi...",
+        onChange: this.update
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-bar-right-show"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "search-right-input-show",
         type: "text",
-        placeholder: "San Francisco"
+        placeholder: "San Francisco",
+        onChange: this.update
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "search-button"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search"
-      })));
+      }))));
     }
   }]);
 
   return SearchBarShow;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (SearchBarShow);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mDTP)(SearchBarShow)));
 
 /***/ }),
 
@@ -4066,7 +4147,9 @@ var reviewsReducer = function reviewsReducer() {
 
   switch (action.type) {
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_REVIEWS"]:
-      newState = action.reviews;
+      var reviewArr = Object.values(action.reviews);
+      var firstReview = reviewArr[0];
+      newState[firstReview.business_id] = action.reviews;
       return newState;
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_USER_REVIEWS"]:

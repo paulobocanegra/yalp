@@ -26,10 +26,10 @@ class Api::ReviewsController < ApplicationController
     def create
         @review = Review.create(review_params)
         @review.author_id = current_user.id
-        if @review.save
+        if @review.save && @review.rating
             render :show
         else
-            render json: @review.errors.full_messages, status: 404
+            render json: ['Make sure to select stars for rating'], status: 422
         end
     end
 
@@ -39,7 +39,7 @@ class Api::ReviewsController < ApplicationController
         if @review.destroy
             render :show
         else
-            render json: @review.errors.full_messages, status: 404
+            render json: ['Cannot find the specified review'], status: 404
         end
     end
     

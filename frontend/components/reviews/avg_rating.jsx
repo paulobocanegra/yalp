@@ -22,9 +22,9 @@ class AvgRating extends React.Component {
         return starPercentageRounded
     }
     render() {
-        if (!this.props.reviews.length){
-            return null;
-        }
+        // if (!this.props.reviews){
+        //     return null;
+        // }
         return (
             <div className="rating-avg">
                 <div className="stars-outer">

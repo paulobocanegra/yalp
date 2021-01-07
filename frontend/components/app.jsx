@@ -23,7 +23,9 @@ const App = () => (
             <ProtectedRoute exact path="/users/:userId/update" component={UpdateUserContainer} />
             <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
             <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
-            <AuthRoute exact path="/search/query" component={SearchResultContainer} />
+            {/* <AuthRoute exact path="/search/query" component={SearchResultContainer} /> */}
+            {/* <Route exact path="/search/:query" component={BusinessIndexContainer} /> */}
+            <Route exact path="/search/:query" component={HomeComponentContainer} />
             <AuthRoute exact path="/signin" component={SignInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
             <Route exact path="/" component={HomeComponentContainer} />

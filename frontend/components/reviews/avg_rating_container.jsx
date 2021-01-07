@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import AvgRating from "./avg_rating"
 import { fetchReviews } from "../../actions/review_actions"
 const mSTP = (state, ownProps) => {
+    debugger
     return ({
-        reviews: Object.values(state.entities.reviews),
+        reviews: state.entities.reviews[ownProps.businessId],
         businessId: ownProps.businessId,
     })
 }

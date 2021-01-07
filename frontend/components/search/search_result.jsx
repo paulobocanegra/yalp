@@ -32,7 +32,7 @@ class SearchResult extends React.Component {
             return (
                 <div className="business-box">
                     <div className="business-index">
-                        <h3 className="business-ul-title">Find the Best Businesses in Town</h3>
+                        <h3 className="business-ul-title">Search Results:</h3>
                     </div>
                     <div>
                         <ul className="business-ul">

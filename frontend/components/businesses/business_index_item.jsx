@@ -7,16 +7,19 @@ class BusinessIndexItem extends React.Component{
         super(props)
     }
 
-    // componentDidMount(){
-        // this.props.fetchBusiness(this.props.business.id);
-        // this.props.fetchReviews(this.props.business.id)
-    // }
+    componentDidMount(){
+        this.props.fetchBusiness(this.props.business.id);
+        this.props.fetchReviews(this.props.business.id)
+    }
     
     // componentWillUnmount(){
     //     this.props.fetchReviews(this.props.business.id)
     // }
 
     render(){
+        // if(!this.props.businessId){
+        //     return null
+        // }
         return(
             <div className="business-li">
                 <Link to={`/businesses/${this.props.business.id}`}>

@@ -37,7 +37,7 @@ class SearchBar extends React.Component{
                     <div className="search-bar-left">
                         <label className="search-bar-label" id="find">Find
                             </label>
-                        <input className="search-left-input" type="text" placeholder="delivery, takeout..." 
+                        <input className="search-left-input" type="text" placeholder="burgers, sushi..." 
                         onChange={this.update}/>
                     </div>
                     <div className="search-bar-right">

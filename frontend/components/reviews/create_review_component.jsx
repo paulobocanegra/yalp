@@ -15,8 +15,10 @@ class CreateReviewComponent extends React.Component {
         }; 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     
     componentDidMount() {
+        this.props.removeErrors();
         this.props.fetchBusiness(this.props.match.params.businessId)
         .then(() => {
             this.props.fetchReviews(this.props.match.params.businessId)
@@ -24,6 +26,10 @@ class CreateReviewComponent extends React.Component {
         .then(() => {
             this.setState({ loading: false })
         })
+    }
+
+    componentWillUnmount() {
+        this.props.removeErrors();
     }
     
     
@@ -41,15 +47,17 @@ class CreateReviewComponent extends React.Component {
         return e => this.setState({ [field]: e.target.value })
     }
 
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>{error}</li>
-    //             ))}
-    //         </ul>
-    //     )
-    // }
+    renderErrors() {
+        return (
+            <ul className="errors-message">
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
 
     starRating() {
@@ -103,6 +111,9 @@ class CreateReviewComponent extends React.Component {
                 <div className="create-review-holder">
                     <div className="business-name">
                         <Link to={`/businesses/${this.props.businessId}`} className="business-name-link" >{this.props.currentBusiness[this.props.businessId].name}</Link>
+                    </div>
+                    <div className="errors-message">
+                        {this.renderErrors()}
                     </div>
                         <form
                             className="review-form"
