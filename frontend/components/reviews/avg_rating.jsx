@@ -13,6 +13,9 @@ class AvgRating extends React.Component {
     }
     starFillPercentage() {
         const allReviews = this.props.reviews
+        if(!allReviews){
+            return null
+        }
         const reviewCount = allReviews.length
         const ratings = this.props.reviews.map(review => review.rating)
         const ratingSum = Object.values(ratings).reduce((sum, key) => sum + key)
@@ -22,9 +25,9 @@ class AvgRating extends React.Component {
         return starPercentageRounded
     }
     render() {
-        // if (!this.props.reviews){
-        //     return null;
-        // }
+        if (!this.props.reviews){
+            return null;
+        }
         return (
             <div className="rating-avg">
                 <div className="stars-outer">

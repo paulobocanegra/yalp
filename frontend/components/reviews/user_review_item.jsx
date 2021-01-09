@@ -7,9 +7,9 @@ class UserReviewsItem extends React.Component {
         this.handleDelete = this.handleDelete.bind(this)
     }
 
-    // componentDidMount(){
-    //     this.props.fetchBusiness(this.props.businessId)
-    // }
+    componentDidMount(){
+        this.props.fetchBusiness(this.props.businessId)
+    }
 
     handleDelete(e) {
         e.preventDefault();
@@ -40,7 +40,7 @@ class UserReviewsItem extends React.Component {
                 <div className="user-reviews-items">
                     <div className="business-photo-info-holder">
                         {/* </div> */}
-                            <img className="user-reviews-business-img" src={this.props.review.business.main_photo}/>
+                            <img className="user-reviews-business-img" src={this.props.review.business_photo[0]}/>
                         <div className="review-business-detail">
                             <Link className="business-name-link" to={`/businesses/${this.props.review.business.id}`}>
                                 <h3 className="review-business-name"> {this.props.review.business.name}</h3>

@@ -4,7 +4,8 @@
         json.user review.user.first_name
         json.business review.business
         # json.business_photo review.business_photo
-        # json.business_photo review.business.main_photo
+        json.business_photo review.business.photos.map {|photo| url_for(photo)}
     end
 end
 # json.average @average_rating
+# @business.photos.map {|photo| url_for(photo)}

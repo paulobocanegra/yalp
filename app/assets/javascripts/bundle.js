@@ -676,9 +676,10 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // if(!this.props.businessId){
-      //     return null
-      // }
+      if (!this.props.business.main_photoUrl) {
+        return null;
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-li"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -687,7 +688,7 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "business-img-holder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "business-img",
-        src: this.props.business.main_photoUrl
+        src: this.props.business.photoUrls[0]
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-bottom"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -707,29 +708,7 @@ var BusinessIndexItem = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return BusinessIndexItem;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // const BusinessIndexItem = ({ business }) => {
-//     return (
-//         <div className="business-li">
-//             <Link to={`/businesses/${business.id}`}>
-//                 <div className="business-img-holder">
-//                     <img className="business-img" src={business.main_photoUrl} />
-//                 </div>
-//                 </Link>
-//             <div className="business-bottom">
-//                 <li className="business-li-content">
-//                     <Link to={`/businesses/${business.id}`} className="business-link">{business.name}
-//                     </Link>
-//                     {/* <p className="bottom-description"><img className="index-rating-img" src={window.rating4} /></p> */}
-//                     <AvgRating businessId={this.props.business.id}
-//                         reviews={this.props.reviews} />
-//                         <p className="bottom-description">{business.bio}</p>
-//                         <p className="bottom-description">{business.location}</p>
-//                 </li>
-//             </div>
-//         </div>
-//     )
-// }
-
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (BusinessIndexItem);
 
@@ -810,7 +789,7 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.state.loading) {
+      if (this.state.loading || !this.props.currentBusiness) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       } // if (!this.props.currentBusiness && !this.props.currentBusiness.photoUrls) {
       //     return null; 
@@ -1309,6 +1288,11 @@ var AvgRating = /*#__PURE__*/function (_React$Component) {
     key: "starFillPercentage",
     value: function starFillPercentage() {
       var allReviews = this.props.reviews;
+
+      if (!allReviews) {
+        return null;
+      }
+
       var reviewCount = allReviews.length;
       var ratings = this.props.reviews.map(function (review) {
         return review.rating;
@@ -1324,9 +1308,10 @@ var AvgRating = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // if (!this.props.reviews){
-      //     return null;
-      // }
+      if (!this.props.reviews) {
+        return null;
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "rating-avg"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1386,11 +1371,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
-  return {
-    reviews: state.entities.reviews[ownProps.businessId],
-    businessId: ownProps.businessId
-  };
+  // debugger
+  if (state.entities.reviews[ownProps.businessId]) {
+    return {
+      reviews: Object.values(state.entities.reviews[ownProps.businessId]),
+      businessId: ownProps.businessId
+    };
+  } else {
+    return {};
+  }
 };
 
 var mDTP = function mDTP(dispatch) {
@@ -1786,17 +1775,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  return {
-    // authorId: state.session.id,
-    reviews: Object.values(state.entities.reviews),
-    ratings: Object.values(state.entities.reviews).map(function (review) {
-      return review.rating;
-    }),
-    currentBusiness: ownProps.currentBusiness // errors: state.errors.reviewsErrors,
-    // businessId: ownProps.match.params.businessId   
-    // businessId: state.entities.businesses[0]
-
-  };
+  // debugger
+  if (state.entities.reviews[ownProps.currentBusiness.id]) {
+    return {
+      // authorId: state.session.id,
+      reviews: Object.values(state.entities.reviews[ownProps.currentBusiness.id]),
+      ratings: Object.values(state.entities.reviews).map(function (review) {
+        return review.rating;
+      }),
+      currentBusiness: ownProps.currentBusiness,
+      // errors: state.errors.reviewsErrors,
+      businessId: ownProps.currentBusiness.id
+    };
+  } else {
+    return {};
+  }
 };
 
 var mDTP = function mDTP(dispatch) {
@@ -2013,12 +2006,14 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
-  } // componentDidMount(){
-  //     this.props.fetchBusiness(this.props.businessId)
-  // }
-
+  }
 
   _createClass(UserReviewsItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchBusiness(this.props.businessId);
+    }
+  }, {
     key: "handleDelete",
     value: function handleDelete(e) {
       e.preventDefault();
@@ -2053,7 +2048,7 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
         className: "business-photo-info-holder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "user-reviews-business-img",
-        src: this.props.review.business.main_photo
+        src: this.props.review.business_photo[0]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-business-detail"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2090,10 +2085,11 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _user_reviews_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_reviews_index */ "./frontend/components/reviews/user_reviews_index.jsx");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _user_reviews_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user_reviews_index */ "./frontend/components/reviews/user_reviews_index.jsx");
  // import { fetchReviews, fetchUserReviews } from '../../actions/review_actions'
-// import { fetchBusiness, fetchBusinesses } from '../../actions/business_actions'
+
 
 
 
@@ -2108,15 +2104,17 @@ var mSTP = function mSTP(state) {
 
 var mDTP = function mDTP(dispatch) {
   return {
-    // fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId)),
+    fetchBusiness: function fetchBusiness(businessId) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchBusiness"])(businessId));
+    },
     // fetchBusinesses: () => dispatch(fetchBusiness()),
     fetchUserReviews: function fetchUserReviews(userId) {
-      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["fetchUserReviews"])(userId));
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUserReviews"])(userId));
     },
     // fetchReviews: (businessId) => dispatch(fetchReviews(businessId)),
     // createReview: (businessId, review) => dispatch(createReview(businessId, review)),
     removeReview: function removeReview(reviewId) {
-      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["removeReview"])(reviewId));
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__["removeReview"])(reviewId));
     },
     removeErrors: function (_removeErrors) {
       function removeErrors() {
@@ -2134,7 +2132,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_user_reviews_index__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_user_reviews_index__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -2239,6 +2237,7 @@ var UserReviewsIndex = /*#__PURE__*/function (_React$Component) {
           review: review,
           key: review.id,
           removeReview: _this2.props.removeReview,
+          fetchBusiness: _this2.props.fetchBusiness,
           businessId: review.business_id
         });
       })));
@@ -3476,7 +3475,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    currentUser: state.session.currentUser,
+    currentUser: state.entities.users[state.session.currentUser.id],
     reviews: Object.values(state.entities.reviews)
   };
 };

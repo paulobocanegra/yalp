@@ -21,7 +21,7 @@ class BusinessShowComponent extends React.Component{
 
 
     render(){
-        if(this.state.loading){
+        if(this.state.loading || !this.props.currentBusiness){
             return <div></div>
         }
         // if (!this.props.currentBusiness && !this.props.currentBusiness.photoUrls) {

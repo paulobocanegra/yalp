@@ -1,3 +1,4 @@
+
 import React from "react";
 import UserReviewsItem from "./user_review_item"
 // import AverageRating from "./average_rating";
@@ -41,6 +42,7 @@ class UserReviewsIndex extends React.Component {
                     {this.props.reviews.reverse().map(review => (<UserReviewsItem review={review} 
                                                                     key={review.id} 
                                                                     removeReview={this.props.removeReview}
+                                                                    fetchBusiness={this.props.fetchBusiness}
                                                                     businessId={review.business_id}/>))}
                 </ul>
             </div>
