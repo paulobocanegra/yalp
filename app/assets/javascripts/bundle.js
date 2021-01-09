@@ -3375,9 +3375,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // this.props.fetchUsers()
-      this.props.fetchBusinesses();
       this.props.fetchUser(this.props.currentUser.id);
+      this.props.fetchBusinesses();
       this.props.fetchUserReviews(this.props.currentUser.id) // debugger
       .then(function () {
         _this2.setState({

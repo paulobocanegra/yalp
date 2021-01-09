@@ -13,9 +13,8 @@ class Profile extends React.Component{
     }
 
     componentDidMount(){
-        // this.props.fetchUsers()
-        this.props.fetchBusinesses()
         this.props.fetchUser(this.props.currentUser.id)
+        this.props.fetchBusinesses()
         this.props.fetchUserReviews(this.props.currentUser.id)
         // debugger
             .then(() => {
