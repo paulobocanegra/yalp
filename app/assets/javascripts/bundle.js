@@ -3487,10 +3487,11 @@ var Profile = /*#__PURE__*/function (_React$Component) {
       // debugger
       if (!this.props.currentUser || !this.props.reviews) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
-      } // if (this.state.loading) {
-      //     return <div></div>
-      // }
+      }
 
+      if (this.state.loading) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-header"
@@ -4128,7 +4129,6 @@ var businessesReducer = function businessesReducer() {
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESS"]:
       newState[action.payload.business.id] = action.payload.business;
       return newState;
-    // return action.payload.business
 
     default:
       return state;
@@ -4380,7 +4380,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
- // import { RECEIVE_USER_REVIEWS } from '../actions/review_actions'
+
 
 var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};

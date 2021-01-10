@@ -27,9 +27,9 @@ class Profile extends React.Component{
         if (!this.props.currentUser || !this.props.reviews) {
             return <div></div>;
         }
-        // if (this.state.loading) {
-        //     return <div></div>
-        // }
+        if (this.state.loading) {
+            return <div></div>
+        }
         return(
             <div>
                 <div className="show-header">

@@ -1,5 +1,4 @@
 import { RECEIVE_CURRENT_USER } from '../actions/user_actions';
-// import { RECEIVE_USER_REVIEWS } from '../actions/review_actions'
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
