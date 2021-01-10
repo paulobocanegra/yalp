@@ -8,6 +8,7 @@ class UserReviewsItem extends React.Component {
     }
 
     componentDidMount(){
+        this.props.fetchUserReviews(this.props.currentUser.id)
         this.props.fetchBusiness(this.props.businessId)
     }
 
@@ -34,7 +35,9 @@ class UserReviewsItem extends React.Component {
     }
 
     render() {
-
+        if (!this.props.review.business || !this.props.currentUser){
+            return <div></div>
+        }
         return (
             <li>
                 <div className="user-reviews-items">

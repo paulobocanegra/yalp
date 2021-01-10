@@ -2011,6 +2011,7 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
   _createClass(UserReviewsItem, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.fetchUserReviews(this.props.currentUser.id);
       this.props.fetchBusiness(this.props.businessId);
     }
   }, {
@@ -2042,6 +2043,10 @@ var UserReviewsItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      if (!this.props.review.business || !this.props.currentUser) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-reviews-items"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2096,7 +2101,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    reviews: Object.values(state.entities.reviews) // business: state.entities.business[state.]
+    reviews: Object.values(state.entities.reviews),
+    currentUser: state.entities.users[state.session.currentUser.id] // business: state.entities.business[state.]
     // errors: state.errors.reviewsErrors,
 
   };
@@ -2198,12 +2204,14 @@ var UserReviewsIndex = /*#__PURE__*/function (_React$Component) {
   //     e.preventDefault();
   //     this.props.removeReview(this.props.review.id)
   // }
-  // componentDidMount() {
-  //     this.props.fetchReviews(this.props.businessId);
-  // }
 
 
   _createClass(UserReviewsIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchUserReviews(this.props.currentUser.id);
+    }
+  }, {
     key: "currentStars",
     value: function currentStars() {
       var _this = this;
@@ -2228,6 +2236,10 @@ var UserReviewsIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      if (!this.props.reviews || !this.props.currentUser) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reviews"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -2235,10 +2247,12 @@ var UserReviewsIndex = /*#__PURE__*/function (_React$Component) {
       }, "Reviews"), this.props.reviews.reverse().map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_review_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           review: review,
-          key: review.id,
           removeReview: _this2.props.removeReview,
+          fetchUserReviews: _this2.props.fetchUserReviews,
           fetchBusiness: _this2.props.fetchBusiness,
-          businessId: review.business_id
+          businessId: review.business_id,
+          currentUser: _this2.props.currentUser,
+          key: review.id
         });
       })));
     }
@@ -3388,13 +3402,12 @@ var Profile = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       // debugger
-      if (this.state.loading) {
+      if (!this.props.currentUser || !this.props.reviews) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
-      }
+      } // if (this.state.loading) {
+      //     return <div></div>
+      // }
 
-      if (!this.props.currentUser) {
-        return null;
-      }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-header"

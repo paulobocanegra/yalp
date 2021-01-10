@@ -3,7 +3,6 @@ import {Link} from "react-router-dom"
 import BusinessIndexContainer from '../components/businesses/business_index_container'
 import SearchBarContainer from "./search/search_bar_container"
 
-
 const Home = ({currentUser, signOut}) => {
     const display = currentUser ? (
         <div className="session-buttons">

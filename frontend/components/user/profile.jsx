@@ -13,8 +13,8 @@ class Profile extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchUser(this.props.currentUser.id)
-        this.props.fetchBusinesses()
+        this.props.fetchUser(this.props.currentUser.id);
+        this.props.fetchBusinesses();
         this.props.fetchUserReviews(this.props.currentUser.id)
         // debugger
             .then(() => {
@@ -24,12 +24,12 @@ class Profile extends React.Component{
 
     render(){
         // debugger
-        if (this.state.loading) {
-            return <div></div>
+        if (!this.props.currentUser || !this.props.reviews) {
+            return <div></div>;
         }
-        if (!this.props.currentUser) {
-            return null;
-        }
+        // if (this.state.loading) {
+        //     return <div></div>
+        // }
         return(
             <div>
                 <div className="show-header">

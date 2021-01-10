@@ -8,6 +8,7 @@ import UserReviewsIndex from './user_reviews_index';
 const mSTP = (state) => {
     return {
         reviews: Object.values(state.entities.reviews),
+        currentUser: state.entities.users[state.session.currentUser.id]
         // business: state.entities.business[state.]
         // errors: state.errors.reviewsErrors,
     }

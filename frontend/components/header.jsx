@@ -37,6 +37,7 @@ const Header = ({ currentUser, signOut, businessId }) => {
                     </Link>
                 </div>
             );
+
             // console.log(currentUser)
         return (
             <div className="header-container">

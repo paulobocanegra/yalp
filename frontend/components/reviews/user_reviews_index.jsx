@@ -14,9 +14,9 @@ class UserReviewsIndex extends React.Component {
     //     this.props.removeReview(this.props.review.id)
     // }
 
-    // componentDidMount() {
-    //     this.props.fetchReviews(this.props.businessId);
-    // }
+    componentDidMount() {
+        this.props.fetchUserReviews(this.props.currentUser.id);
+    }
 
     currentStars() {
         return (
@@ -35,15 +35,20 @@ class UserReviewsIndex extends React.Component {
         )
     }
     render() {
+        if(!this.props.reviews || !this.props.currentUser){
+            return <div></div>
+        }
         return (
             <div className="reviews">
                 <ul>
                     <h1 className="reviews-top">Reviews</h1>
-                    {this.props.reviews.reverse().map(review => (<UserReviewsItem review={review} 
-                                                                    key={review.id} 
+                    {this.props.reviews.reverse().map(review => (<UserReviewsItem review={review}
                                                                     removeReview={this.props.removeReview}
+                                                                    fetchUserReviews = {this.props.fetchUserReviews}
                                                                     fetchBusiness={this.props.fetchBusiness}
-                                                                    businessId={review.business_id}/>))}
+                                                                    businessId={review.business_id}
+                                                                    currentUser={this.props.currentUser}
+                                                                    key={review.id} />))}
                 </ul>
             </div>
         )
