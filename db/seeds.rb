@@ -19,10 +19,10 @@ User.create(email:"karen@yalp.com", password: "password", first_name:"Karen", la
 User.create(email:"nancy@yalp.com", password: "password", first_name:"Nancy", last_name:"Morrow", zip_code:"94523")
 User.create(email:"testuser@yalp.com", password: "password", first_name:"testUser", last_name:"LastName", zip_code:"94523")
 
-bus1 = Business.create(name:"Teleferic" , bio:"Tapas and Pintxos", rating: "4", phone_number:"(925) 395-0012", location:"Walnut Creek", hours:"11:30am to 10:30pm")
-bus2 = Business.create(name:"Lima-Limon" , bio:"Peruvian Cousine", rating: "4", phone_number:"(925) 836-1212", location:"Walnut Creek", hours:"11:30am to 10:30pm")
-bus3 = Business.create(name:"Monas Burgers" , bio:"Burgers and Shakes", rating: "4", phone_number:"(415) 415-0012", location:"Concord", hours:"11:30am to 9:00pm")
-bus4 = Business.create(name:"Heaven Sushi" , bio:"Japanese", rating: "5", phone_number:"(415) 472-7394", location:"Pleasant Hill", hours:"12:00pm to 8:30pm")
+bus1 = Business.create(name:"Teleferic" , bio:"Tapas and Pintxos", rating: "4", phone_number:"(925) 395-0012", location:"San Francisco", hours:"11:30am to 10:30pm", lat:37.764783, lng:-122.424744)
+bus2 = Business.create(name:"Lima-Limon" , bio:"Peruvian Cousine", rating: "4", phone_number:"(925) 836-1212", location:"Walnut Creek", hours:"11:30am to 10:30pm", lat:37.902696, lng:-122.063598)
+bus3 = Business.create(name:"Monas Burgers" , bio:"Burgers and Shakes", rating: "4", phone_number:"(415) 415-0012", location:"Concord", hours:"11:30am to 9:00pm", lat:37.962726, lng:-122.986572)
+bus4 = Business.create(name:"Heaven Sushi" , bio:"Japanese", rating: "5", phone_number:"(415) 472-7394", location:"Pleasant Hill", hours:"12:00pm to 8:30pm", lat:37.757291, lng:-122.399324)
 
 bus1.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/3L433Xd2AhXWNUEbc5PusTrm"), filename:"img1.jpg");
 bus2.main_photo.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/1u3MBbxcVJq5dibsiwAAisxd"), filename:"img5.jpg");
@@ -50,7 +50,7 @@ bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/hj
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/nc8Nh6phzRd62rFUhKRpTSiP"), filename:"img15.jpg");
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/2KPS99CfLjpJGxrqBZYeagq6"), filename:"img16.jpg");
 
-review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:15, business_id:9)
-review2 = Review.create(body:"TEST1!", rating:4, author_id:2, business_id:2)
-# review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
-# review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:1, business_id:1)
+review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:5, business_id:4)
+review2 = Review.create(body:"TEST1!", rating:4, author_id:5, business_id:2)
+review3 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:5, business_id:3)
+review4 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:5, business_id:1)

@@ -15,11 +15,11 @@ export const fetchBusiness = (businessId) => {
 // SEARCH BAR HAS 2 INPUTS: ONE FOR LOCATION AND ONE NON-SPECIFIC
 
 // NON-SPECIFIC  (LEFT INPUT)
-export const getSearchBusinesses = (query) => {
+export const getSearchBusinesses = (payload) => {
     return $.ajax({
         method: "GET",
         url: "/api/businesses/search",
-        data: {query: query}
+        data: payload
     })
 }
 

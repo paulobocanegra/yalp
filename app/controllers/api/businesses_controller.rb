@@ -16,8 +16,16 @@ class Api::BusinessesController < ApplicationController
     end
 
     def search
+        # debugger
+        # payload=params[:payload]
         query=params[:query]
-        @businesses = Business.where('name ILIKE ? OR bio ILIKE ?', "%#{query}%", "%#{query}%")
+        location=params[:location]
+
+        if location 
+            @businesses = Business.where('name ILIKE ? OR bio ILIKE ? AND location ILIKE ?', "%#{query}%", "%#{query}%", "%#{location}%")
+        else
+            @businesses = Business.where('name ILIKE ? OR bio ILIKE ?', "%#{query}%", "%#{query}%")
+        end
 
         if @businesses.length > 0
             render :index

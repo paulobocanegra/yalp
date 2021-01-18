@@ -5,16 +5,23 @@ class SearchBar extends React.Component{
         super(props);
 
         this.state = {
-            query: ''
+            query: '',
+            location: ''
         };
 
         this.update = this.update.bind(this)
+        this.updateLocation = this.updateLocation.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     update(e){
         e.preventDefault();
         this.setState({ query: e.target.value})
+    }
+
+    updateLocation(e){
+        e.preventDefault();
+        this.setState({ location: e.target.value})
     }
 
     // handleEnter(e) {
@@ -25,8 +32,8 @@ class SearchBar extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-
-        this.props.getSearchBusinesses(this.state.query)
+        debugger
+        this.props.getSearchBusinesses(this.state)
             .then( () => this.props.history.push(`/search/${this.state.query}`));
     }
 
@@ -44,7 +51,7 @@ class SearchBar extends React.Component{
                         <label htmlFor="near-search" className="search-bar-label" id="near"> Near
                         </label>
                         <input id="near-search" className="search-right-input" type="text" placeholder="San Francisco" 
-                        onChange={this.update}/>
+                            onChange={this.updateLocation}/>
                     </div>
                     <button className="search-button">
                         <i className="fas fa-search"></i>

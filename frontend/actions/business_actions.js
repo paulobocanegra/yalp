@@ -27,7 +27,7 @@ export const fetchBusiness = (businessId) => (dispatch) => {
         .then(result => dispatch(receiveBusiness(result)))
 }
 
-export const getSearchBusinesses = (query) => dispatch => {
-    return BusinessApiUtil.getSearchBusinesses(query)
+export const getSearchBusinesses = (payload) => dispatch => {
+    return BusinessApiUtil.getSearchBusinesses(payload)
         .then(businesses => dispatch(receiveAllBusinesses(businesses)))
 }
