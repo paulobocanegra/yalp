@@ -770,8 +770,8 @@ var BusinessMap = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var mapOptions = {
         center: {
-          lat: 37.7758,
-          lng: -122.435
+          lat: this.props.currentBusiness.lat,
+          lng: this.props.currentBusiness.lng
         },
         zoom: 13
       };
@@ -934,7 +934,9 @@ var BusinessShowComponent = /*#__PURE__*/function (_React$Component) {
         currentBusiness: this.props.currentBusiness
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-show-main-right-top"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_map__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        currentBusiness: this.props.currentBusiness
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "address-ul-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "address-ul"

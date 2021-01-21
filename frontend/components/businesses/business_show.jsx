@@ -76,7 +76,7 @@ class BusinessShowComponent extends React.Component{
                         </div>
                         <div className="business-show-main-right-top">
                             <div>
-                                <BusinessMap />
+                                <BusinessMap currentBusiness={this.props.currentBusiness}/>
                                 {/* <img className="map-img" src={window.map} /> */}
                             </div>
                             <div>
