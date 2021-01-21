@@ -25,7 +25,9 @@ class Api::ReviewsController < ApplicationController
 
     def create
         @review = Review.create(review_params)
-        @review.author_id = current_user.id
+        if !@review.author_id
+            @review.author_id = current_user.id
+        end   
         if @review.save && @review.rating
             render :show
         else

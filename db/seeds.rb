@@ -13,11 +13,11 @@ Business.destroy_all
 Review.destroy_all
 
 
-user1 = User.create(email:"omar@yalp.com", password: "password", first_name:"Omar", last_name:"Fernandez", zip_code:"94510")
+User.create(email:"omar@yalp.com", password: "password", first_name:"Omar", last_name:"Fernandez", zip_code:"94510")
 User.create(email:"diego@yalp.com", password: "password", first_name:"Diego", last_name:"Perez", zip_code:"94510")
 User.create(email:"karen@yalp.com", password: "password", first_name:"Karen", last_name:"Smith", zip_code:"94523")
 User.create(email:"nancy@yalp.com", password: "password", first_name:"Nancy", last_name:"Morrow", zip_code:"94523")
-User.create(email:"testuser@yalp.com", password: "password", first_name:"testUser", last_name:"LastName", zip_code:"94523")
+user1 = User.create(email:"testuser@yalp.com", password: "password", first_name:"testUser", last_name:"LastName", zip_code:"94523")
 
 bus1 = Business.create(name:"Teleferic" , bio:"Tapas and Pintxos", rating: "4", phone_number:"(925) 395-0012", location:"San Francisco", hours:"11:30am to 10:30pm", lat:37.764783, lng:-122.424744)
 bus2 = Business.create(name:"Lima-Limon" , bio:"Peruvian Cousine", rating: "4", phone_number:"(925) 836-1212", location:"Walnut Creek", hours:"11:30am to 10:30pm", lat:37.902696, lng:-122.063598)
@@ -50,7 +50,7 @@ bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/hj
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/nc8Nh6phzRd62rFUhKRpTSiP"), filename:"img15.jpg");
 bus4.photos.attach(io: open("https://yalp-yalp-dev.s3-us-west-1.amazonaws.com/2KPS99CfLjpJGxrqBZYeagq6"), filename:"img16.jpg");
 
-review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:5, business_id:4)
-review2 = Review.create(body:"TEST1!", rating:4, author_id:5, business_id:2)
-review3 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:5, business_id:3)
-review4 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:5, business_id:1)
+review1 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:user1.id, business_id:bus1.id)
+review2 = Review.create(body:"The food was amazing, service was even Better!!", rating:4, author_id:user1.id, business_id:bus2.id)
+review3 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:user1.id, business_id:bus3.id)
+review4 = Review.create(body:"The food was amazing, service was even Better!", rating:4, author_id:user1.id, business_id:bus4.id)
